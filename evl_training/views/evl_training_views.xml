@@ -1,0 +1,194 @@
+<odoo>
+  <data>
+    <record model="mail.channel" id="channel_accountant_group">
+        <field name="name">Accountant</field>
+        <field name="group_ids" eval="[]"/>
+        <field name="description">Message Notifications</field>
+    </record> 
+    <!-- EVL Training Form View -->
+
+    <record id="evl_training.evl_training_view_form" model="ir.ui.view">
+      <field name="name">evl.trainings.view.form</field>
+      <field name="model">evl.trainings</field>
+
+      <field name="priority">32</field>
+      <field name="arch" type="xml">
+        
+        <form string="Leave Request" options="{'create_edit':False}">
+            <field name="check_hod" invisible="1"/>
+            <field name="check_hr" invisible="1"/>
+            <field name="check_mancom" invisible="1"/>
+            <field name="feedback_users" invisible="1"/>
+            <field name="state" invisible="1"/>
+            <field name="user_id" invisible="1"/>
+            <field name="participants_lines" invisible="1"/>
+            <field name="feedback_users_status" invisible="1"/>           
+            <field name="feedback_status" invisible="1"/>
+            
+        
+            <header>
+                <button string="Send to HR" name="action_sendtohr" states="pre" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_hod','!=',True),('state','not in',('rft'))]}" />
+                <!-- <button string="Submit" name="action_submit" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_hr','!=',True), '|', ('check_hod','=',True) , ('state','not in',('draft'))]}" /> -->
+                <button string="Submit" name="action_submit" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_hr','!=',True),  ('state','not in',('draft'))]}" />
+         
+                <button string="Approve" name="action_approve" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('check_mancom','!=', True), ('state','not in','submit')]}" />
+                <button string="Cancel" name="action_cancel"  type="object" attrs="{'invisible': [('state','not in','submit')]}"/>
+                <button string="Publish" name="action_publish" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_hr','!=',True), ('state','not in',('approve'))]}" />
+                <button string="Confirm" name="action_confirm" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_hr','!=',True), ('state','not in','process')]}"/>                            
+
+
+                <!-- <button string="Submit Feedback" name="action_feedback" type="object" class="oe_highlight" attrs="{'invisible': ['|',('check_mancom','=',True),'|',('check_hod','!=',True),('check_hr','!=',True),('state','not in','confirmed') ]}" />  -->
+                <!-- <button string="Submit Feedback" name="action_feedback" type="object" class="oe_highlight" attrs="{'invisible': ['|',('feedback_users_status','=',False),'|',('check_mancom','=',True),'|',('check_hod','!=',True),('check_hr','!=',True),('state','not in','confirmed') ]}" />            -->
+                <button string="Submit Feedback" name="action_feedback" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('feedback_status','!=',True), '|',('feedback_users_status','=',False), ('state','not in','confirmed') ]}" />           
+                                                                                                                  <!-- attrs="{'invisible': [ '|', ('feedback_status','!=',True),('feedback_users_status','!=',True) ]}" -->
+
+                <button string="Close" name="action_close"  type="object" attrs="{'invisible': [('state','not in','feedback')]}" groups="evl_training.group_evl_training_hr,base.group_erp_manager"/>
+
+                <field name="state" widget="statusbar" statusbar_visible="rft,draft,submit,approve,process,confirmed,feedback,close"/>
+            </header>
+
+            <sheet>
+              <div class="oe_title">
+                  <h1>
+                      Training Request
+                      <!-- <field name="name" readonly="1"/> -->
+                  </h1>
+              </div>
+
+              <group>                
+                  <group>
+                    <field name="training_title" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_hod, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{ 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                    <field name="create_uid" string="Requested By" readonly="True"/>
+                    <field name="training_purpose" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_hod,evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+     
+                    <field name="reference_no" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')],'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                    <field name="training_type" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                    <field name="trainer_name" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                    <field name="venue" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+
+                    <field name="starting_date" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                    <field name="ending_date" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                  </group>
+                  <group>
+                      <field name="description" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                      <field name="skillset_cover" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                      <field name="feedback_note" attrs="{'invisible': [ '|', ('feedback_status','!=',True),('feedback_users_status','!=',True) ]}"/>
+                      
+                  </group>  
+                  <group>                          
+                    <field name="no_of_session" groups="evl_training.group_evl_training_user, evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" />
+                  </group>
+              </group>
+              <notebook>
+                  <page string="List of Participants">
+                    <!-- <field name="participants_lines" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))], 'invisible': [('state', 'in', ('pre','rft')) ]}"> -->
+                      <field name="participants_lines" attrs="{'required': [('state','=','draft')], 'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))]}" options="{'no_create': True}"  >
+                    </field>
+                  </page>
+                  <page string="Training Materials" groups="evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr">
+                    <field name="training_materials" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))], 'invisible': [('state', 'in', ('pre','rft')) ]}">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="quantity"/>
+                        <field name="material_id" invisible="1"/>
+                      </tree>
+                    </field>
+                  </page>
+                  <page string="Training Expenses" groups="evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" >
+                    <field name="expense_prices" attrs="{'readonly': [('state', 'in', ('approve','cancel','process','confirmed','feedback','close'))], 'invisible': [('state', 'in', ('pre','rft')) ]}">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="exp_price"/>
+                        <field name="expense_id" invisible="1"/>
+                      </tree>
+                    </field>
+                  </page>
+                  <page string="HR Note" groups="evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'readonly': [('state', 'in', ('submit'))], 'invisible': [('state', 'in', ('pre','rft')) ]}" >
+                    <group>
+                      <field name="hr_note" placeholder="HR note" attrs="{'readonly': [('state', 'in', ('submit','approve','cancel','process','confirmed','feedback','close'))], 'invisible': [('state', 'in', ('pre','rft')) ]}" />
+                    </group>
+                  </page>
+                  <page string="Man Com Note" groups="evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr" attrs="{'readonly': [('state', 'in', ('submit'))], 'invisible': [('state', 'in', ('pre','rft','draft')) ]}" >
+                    <group>
+                      <field name="mancom_note" placeholder="Man Com note" attrs="{'readonly': [('state', '!=', ('submit'))], 'invisible': [('state', 'in', ('pre','rft','draft')) ]}" />
+                    </group>
+                  </page>
+                  <page string="Feedback Users" groups="evl_training.group_evl_training_user,evl_training.group_evl_training_hr" states="process,confirmed,feedback,close">
+                    <field name="feedback_users">
+                      <tree editable="bottom">
+                        <field name="user_id" />
+                        <!-- attrs="{ 'invisible': ['|',('feedback_users_status','=',False)]}" -->
+                        <field name="feedback" attrs="{'invisible': []}" /> 
+                        <field name="feedback_id" invisible="1"/>
+                      </tree>
+                    </field>
+                  </page>
+
+              </notebook>
+
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+        </form>
+      </field>
+  </record>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="evl_training.list">
+      <field name="name">evl_training list</field>
+      <field name="model">evl.trainings</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="create_uid" groups="evl_training.group_evl_training_hod,evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr"/>
+          <!-- <field name="name" readonly="1"/> -->
+          <field name="training_title" />
+          <field name="training_purpose" />
+          <field name="reference_no" groups="evl_training.group_evl_training_mancom,evl_training.group_evl_training_hr"/>
+          <field name="state" />
+          <field name="training_type"/>
+          <field name="venue"/>
+          <field name="trainer_name"/>
+          <field name="starting_date"/>
+          <field name="ending_date"/>
+          <field name="skillset_cover"/>    
+          
+          <field name="no_of_session"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="evl_training.action_window_1">
+      <field name="name">Training window</field>
+      <field name="res_model">evl.trainings</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="evl_training.action_window_2">
+      <field name="name">Training window</field>
+      <field name="res_model">evl.trainings</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Top menu item -->
+
+    <menuitem name="Training" id="evl_training.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Trainings" id="evl_training.menu_trainings" parent="evl_training.menu_root"/>
+    <!-- <menuitem name="Request" id="evl_training.hod_menu" parent="evl_training.menu_root"/> -->
+
+    <!-- actions -->
+    <menuitem name="Request for Training" id="evl_training.menu_trainings_request" parent="evl_training.menu_trainings"
+              action="evl_training.action_window_1"/>
+    <!-- <menuitem name="Request for Training" id="evl_training" parent="evl_training.hod_menu"
+              action="evl_report_action"/> -->
+
+  </data>
+</odoo>

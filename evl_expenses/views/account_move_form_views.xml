@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="evl_expenses_acc_move_form" model="ir.ui.view">
+            <field name="name">expenses.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <page id='aml_tab' position="attributes">
+                    <attribute name="groups">account.group_account_user,evl_expenses.evl_expenses_admin,evl_expenses.evl_expenses_manager</attribute>
+                </page>
+                
+            </field>
+        </record>
+    </data>
+</odoo>

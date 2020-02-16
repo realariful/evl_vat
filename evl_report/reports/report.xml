@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_LS" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="action_lost_reason_apply"
+            model="wizard.example" 
+            string="Accounting Tests" 
+            report_type="qweb-pdf" 
+            name="evl_report.report_patient" 
+            file="evl_report.report_patient" 
+            paperformat="evl_report.paperformat_cny_LS"/>
+
+   
+	<template id="report_patient">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="oe_structure" />
+					<div class="row">
+						<table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_2_5b24ea76-1878-465e-b284-000a95e688d9">
+							<colgroup>
+								<col>
+								</col>
+								<tbody>
+									<tr valign="top">
+										<td style=" overflow:hidden;">
+										</td>
+									</tr>
+									<tr valign="top">
+										<td style=" overflow:hidden;">
+											<div class="style_16" id="AUTOGENBOOKMARK_3_8c8a3722-c4b8-4b59-a141-a1db763a4e59" style=" text-align:center;">
+												গণপ্রজাতন্ত্রী বাংলাদেশ সরকার
+												<br>
+													জাতীয় রাজস্ব বোর্ড
+													<br>
+														<br>
+														</br>
+													</br>
+												</br>
+												<tr valign="top">
+													<td style=" overflow:hidden;">
+													</td>
+												</tr>
+											</div>
+										</td>
+										<table class="style_17" style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="__bookmark_1">
+											<colgroup>
+												<col style=" width: 3%;">
+													<col style=" width: 4%;">
+														<col style=" width: 6%;">
+															<col style=" width: 7%;">
+																<col style=" width: 5%;">
+																	<col style=" width: 5%;">
+																		<col style=" width: 6%;">
+																			<col style=" width: 5%;">
+																				<col style=" width: 4%;">
+																					<col style=" width: 5%;">
+																						<col style=" width: 4%;">
+																							<col style=" width: 10%;">
+																								<col style=" width: 5%;">
+																									<col style=" width: 5%;">
+																										<col style=" width: 5%;">
+																											<col style=" width: 5%;">
+																												<col style=" width: 6%;">
+																													<col style=" width: 7%;">
+																														<col style=" width: 3%;">
+																														</col>
+																														<tbody>
+																															<tr class="style_18" valign="top" align="center">
+																																<th class="style_19" colspan="19" style=" overflow:hidden;" align="left">
+																																	<div class="style_20" id="AUTOGENBOOKMARK_4_2ad9a1d3-1c0b-4a76-a17c-ee447ddb9c5d" style=" text-align:right;">
+																																		&#32;মূসক-৬.২
+																																	</div>
+																																	<div style=" text-align:center;">
+																																		ABC Company Limited , Uttara, Dhaka - 9876543211234
+																																	</div>
+																																</th>
+																															</tr>
+																															<tr class="style_18" valign="top" align="center">
+																																<th class="style_19" colspan="19" style=" overflow:hidden;" align="left">
+																																	<div class="style_16" id="AUTOGENBOOKMARK_5_a38292a1-9fbe-42a9-9679-a87199fb406e" style=" text-align:center;">
+																																		&#32;বিক্রয় হিসাব পুস্তক&#32;
+																																	</div>
+																																	<div class="style_16" id="AUTOGENBOOKMARK_6_2827a64b-5121-4cb5-a930-5c3665de6186" style=" text-align:center;">
+																																		(পণ্য বা সেবা প্রক্রিয়াকরণে সম্পৃক্ত এমন নিবন্ধিত বা তালিকাভুক্ত ব্যক্তির জন্য প্রযোজ্য)
+																																	</div>
+																																	<div class="style_16" id="AUTOGENBOOKMARK_7_63bc1861-a1dd-4883-94a0-96d90fa6b251" style=" text-align:center;">
+																																		[বিধি ৪০ এর উপদফা (১) এর দফা (খ) এবং ৪১ এর দফা (ক) দ্রষ্টব্য ]
+																																		<br>
+																																		</br>
+																																	</div>
+																																</th>
+																																<tr class="style_18" valign="top" align="center">
+																																	<th class="style_19" colspan="19" style=" overflow:hidden;" align="left">
+																																		<div id="AUTOGENBOOKMARK_8_444398ab-d64e-4f60-afb5-5eea351f5621" style=" text-align:center;">
+																																			পণ্য/সেবার বিক্রয়
+																																		</div>
+																																	</th>
+																																</tr>
+																																<tr class="style_18" valign="top" align="center">
+																																	<th class="style_19" rowspan="2" style=" overflow:hidden;" align="left">
+																																		<div id="AUTOGENBOOKMARK_9_57ef72b7-41a3-486b-b15f-85a80e8d404c" style=" text-align:center;">
+																																			ক্রমিক সংখ্যা
+																																		</div>
+																																	</th>
+																																	<th class="style_19" rowspan="2" style=" overflow:hidden;" align="left">
+																																		<div id="AUTOGENBOOKMARK_10_4c3e28a1-584c-42db-ac9a-abda5ef733ff" style=" text-align:center;">
+																																			তারিখ
+																																		</div>
+																																	</th>
+																																	<th class="style_19" colspan="2" style=" overflow:hidden;" align="left">
+																																		<div id="AUTOGENBOOKMARK_11_f5d689c4-3e3d-4a29-b5ed-cb091d67e9f4" style=" text-align:center;">
+																																			উৎপাদিত পণ্যের
+																																			<br>
+																																				প্রারম্ভিক জের
+																																			</br>
+																																		</div>
+																																		<th class="style_19" colspan="2" style=" overflow:hidden;" align="left">
+																																			<div id="AUTOGENBOOKMARK_12_f232be8e-5c34-4311-813d-acb1efb9cd2b" style=" text-align:center;">
+																																				উৎপাদন
+																																			</div>
+																																		</th>
+																																		<th class="style_19" colspan="3" style=" overflow:hidden;" align="left">
+																																			<div id="AUTOGENBOOKMARK_13_03b7d105-c4a8-4802-ac42-da0cf432fb84" style=" text-align:center;">
+																																				ক্রেতা/ সরবরাহ গ্রহীতা
+																																			</div>
+																																		</th>
+																																		<th class="style_19" colspan="2" style=" overflow:hidden;" align="left">
+																																			<div id="AUTOGENBOOKMARK_14_533aab37-688a-4c22-865e-18f33dfee2f4" style=" text-align:center;">
+																																				চালানপত্রের বিবরণ
+																																			</div>
+																																		</th>
+																																		<th class="style_19" colspan="5" style=" overflow:hidden;" align="left">
+																																			<div id="AUTOGENBOOKMARK_15_6a0bbc3d-d6db-458b-83b8-16cddac0e9e4" style=" text-align:center;">
+																																				বিক্রিত সরবরাহকৃত পণ্যের বিবরণ
+																																			</div>
+																																		</th>
+																																		<th class="style_19" colspan="2" style=" overflow:hidden;" align="left">
+																																			<div id="AUTOGENBOOKMARK_16_b2a5b0ec-ff21-4f5f-b260-1ff1eacbe7de" style=" text-align:center;">
+																																				পণ্যের প্রান্তিক
+																																				<br>
+																																					জের
+																																				</br>
+																																			</div>
+																																			<th class="style_19" rowspan="2" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_17_4f115cdd-7d12-4934-8f4d-bf23237f7364" style=" text-align:center;">
+																																					মন্তব্য
+																																				</div>
+																																			</th>
+																																		</th>
+																																		<tr class="style_18" valign="top" align="center">
+																																			<th class="style_21" style=" overflow:hidden;" align="center">
+																																				<div id="AUTOGENBOOKMARK_18_df993cb3-9070-4d0c-91f7-ee45c44b1e3b">
+																																					পরিমাণ
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_19_c83ce6f6-07b5-47aa-8ec1-0d87c20ebcf1" style=" text-align:center;">
+																																					মূল্য
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_20_26eccca2-b1a1-4ff2-a2dc-cf65c9b50c43" style=" text-align:center;">
+																																					পরিমাণ
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_21_04da0cd9-7e09-4c22-ae8c-9421b34e135f" style=" text-align:center;">
+																																					মূল্য
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_22_e88fefa8-8295-4f6b-9e59-1f52727de0b8" style=" text-align:center;">
+																																					নাম
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_23_5df3aabd-e892-4911-930d-5f6c251a711e" style=" text-align:center;">
+																																					ঠিকানা
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_24_1b61f6fc-9ad3-4485-b797-bac111418e4c" style=" text-align:center;">
+																																					নিবন্ধন/তালিকাভুক্তি/ জাতীয় পরিচয়পত্র নং
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_25_28cde2f2-5f9b-47e5-a10b-ff94bee679a9" style=" text-align:center;">
+																																					নম্বর
+																																				</div>
+																																			</th>
+																																			<th class="style_19" style=" overflow:hidden;" align="left">
+																																				<div id="AUTOGENBOOKMARK_26_28c5d360-462d-46ed-82ff-d77977cc721a" style=" text-align:center;">
+																																					তারিখ
+																																					<br>
+																																						ও
+																																						<br>
+																																							সময়
+																																						</br>
+																																					</br>
+																																					<th class="style_19" style=" overflow:hidden;" align="left">
+																																						<div id="AUTOGENBOOKMARK_27_76766b0d-91a1-4da6-bd68-e484a57ab900" style=" text-align:center;">
+																																							বিবরণ
+																																						</div>
+																																					</th>
+																																					<th class="style_19" style=" overflow:hidden;" align="left">
+																																						<div id="AUTOGENBOOKMARK_28_2d1bb9f3-f4b7-427e-a756-356c659ecc9a" style=" text-align:center;">
+																																							পরিমাণ
+																																						</div>
+																																					</th>
+																																					<th class="style_19" style=" overflow:hidden;" align="left">
+																																						<div id="AUTOGENBOOKMARK_29_9634ff49-8c48-40a1-af83-0645778192ac" style=" text-align:center;">
+																																							করযোগ্য মূল্য
+																																						</div>
+																																					</th>
+																																					<th class="style_19" style=" overflow:hidden;" align="left">
+																																						<div id="AUTOGENBOOKMARK_30_70167431-dc79-484a-a3e8-7e144b64e165" style=" text-align:center;">
+																																							সম্পূরক শুল্ক
+																																							<br>
+																																								(যদি থাকে)
+																																							</br>
+																																						</div>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_31_c851c705-0a36-4e51-abf4-6dbe2dd81a52" style=" text-align:center;">
+																																								মূসক
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_32_9e0a5ff7-664e-4033-a492-ee6cb01a82f4" style=" text-align:center;">
+																																								পরিমাণ
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_33_780fc0ec-aa0d-4f02-b715-b57fcb4ec49e" style=" text-align:center;">
+																																								মূল্য
+																																							</div>
+																																						</th>
+																																					</th>
+																																					<tr class="style_5" valign="top" align="center">
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_34_878c138e-3c25-4ed8-baac-cfe4394513e3" style=" text-align:center;">
+																																								(১)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_35_6d88d527-f861-4a1b-b4bb-2d154bd3260a" style=" text-align:center;">
+																																								(২)
+																																							</div>
+																																						</th>
+																																						<th class="style_21" style=" overflow:hidden;" align="center">
+																																							<div id="AUTOGENBOOKMARK_36_a6be9e0e-4a2a-4bd4-af30-36cda11c0fac" style=" text-align:center;">
+																																								(৩)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_37_93d3a4a5-41c5-4257-90e2-dbe87ec8e552">
+																																								(৪)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_38_b23dda7a-3d02-4fe8-a00a-2ae9dbfe2834" style=" text-align:center;">
+																																								(৫)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_39_0cf42985-af9e-4e25-8f7b-1c1882ae837b" style=" text-align:center;">
+																																								(৬)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_40_3af0aaa5-86f7-4e43-b542-76db573cfdf1" style=" text-align:center;">
+																																								(৭)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_41_1909defa-0ee5-492f-aed7-f3429bf0384b" style=" text-align:center;">
+																																								(৮)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_42_f0885706-e1c5-456a-9b44-ae78590d3cc1" style=" text-align:center;">
+																																								(৯)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_43_7dc7ecab-abc1-4ca2-9ec8-52dceeebdde6" style=" text-align:center;">
+																																								(১০)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_44_a95d72ef-5007-43f3-ab46-6157e7adc453">
+																																								(১১)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_45_c1a58988-41ea-4d05-a987-1d23bcc4ceda">
+																																								(১২)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_46_acae1cf7-644c-486b-b561-e9e01e506af7" style=" text-align:center;">
+																																								(১৩)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_47_9ab0126a-d26b-405d-930e-0b6f539640f7" style=" text-align:center;">
+																																								(১৪)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_48_47016b2f-cb29-417e-9ddf-31d0d39adab1" style=" text-align:center;">
+																																								(১৫)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_49_a575b54b-ad78-4f10-91a3-d7fd2639da0b" style=" text-align:center;">
+																																								(১৬)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_50_bb0003cf-5793-4cc0-906e-28c910c20ac6" style=" text-align:center;">
+																																								(১৭)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_51_1b5cf8eb-7f44-4779-b493-bb38e66aebbf" style=" text-align:center;">
+																																								(১৮)
+																																							</div>
+																																						</th>
+																																						<th class="style_19" style=" overflow:hidden;" align="left">
+																																							<div id="AUTOGENBOOKMARK_52_affce0ea-e6c6-4229-a603-e9a7707b4a83" style=" text-align:center;">
+																																								(১৯)
+																																							</div>
+																																						</th>
+																																					</tr>
+																																					<tr class="style_22" id="__TOC_0" valign="top">
+																																						<td colspan="19" style=" overflow:hidden;">
+																																							<div>
+																																								dssd
+																																							</div>
+																																						</td>
+																																					</tr>
+																																					<tr valign="top">
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div>
+																																								1
+																																							</div>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div style=" text-align:center;">
+																																								2020-02-01
+																																							</div>
+																																						</td>
+																																						<td class="style_37" style=" overflow:hidden;" align="center">
+																																							<div id="__bookmark_2" style="display: none; text-align:right;">
+																																								0.00
+																																							</div>
+																																							<span style=" text-align:center;">
+																																								০.০০
+																																							</span>
+																																							<span>
+																																								unit
+																																							</span>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_3" style="display: none; text-align:right;">
+																																								0.00
+																																							</div>
+																																							<div style=" text-align:right;">
+																																								০.০০
+																																							</div>
+																																						</td>
+																																						<td class="style_37" style=" overflow:hidden;" align="center">
+																																							<div id="__bookmark_4" style="display: none; text-align:right;">
+																																								0.00
+																																							</div>
+																																							<span style=" text-align:center;">
+																																								০.০০
+																																							</span>
+																																							<span>
+																																								unit
+																																							</span>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_5" style="display: none; text-align:right;">
+																																								0.00
+																																							</div>
+																																							<div style=" text-align:right;">
+																																								০.০০
+																																							</div>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_6">
+																																								<div style="visibility:hidden">
+																																									&#32;
+																																								</div>
+																																							</div>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_7">
+																																								<div style="visibility:hidden">
+																																									&#32;
+																																								</div>
+																																							</div>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_8">
+																																								<div style="visibility:hidden">
+																																									&#32;
+																																								</div>
+																																							</div>
+																																						</td>
+																																						<td class="style_36" style=" overflow:hidden;">
+																																							<div id="__bookmark_9">
+																																								<div style="visibility:hidden">
+																																									&#32;
+																																								</div>
+																																							</div>
+																																							<!--
+																																							<table class="table table-condensed">
+																																							<center>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</center>
+																																							<center>জাতীয় রাজস্ব বোর্ড</center>
+																																							
+																																							<thead>
+																																							<tr>
+																																							<th>Name</th>
+																																							<th>ঢাকা</th>
+																																							</tr>
+																																							</thead>
+																																							<tbody>
+																																							<t t-foreach="docs" t-as="o">
+																																							<tr>
+																																							<td> <t t-esc="o['patient_id']" /> </td>
+																																							<td> <t t-esc="o['date_meeting']" /> </td>
+																																							</tr>
+																																							</t>
+																																							</tbody>
+																																							</table>
+																																							
+																																							<table border="1">
+																																							<tr>
+																																							<th>Month</th>
+																																							<th>Savings</th>
+																																							</tr>
+																																							<tr>
+																																							<td>January</td>
+																																							<td>$100</td>
+																																							</tr>
+																																							<tr>
+																																							<td>February</td>
+																																							<td>$80</td>
+																																							</tr>
+																																							</table>
+																																							-->
+																																						</td>
+																																					</tr>
+																																				</div>
+																																			</th>
+																																		</tr>
+																																	</th>
+																																</tr>
+																															</tr>
+																														</tbody>
+																													</col>
+																												</col>
+																											</col>
+																										</col>
+																									</col>
+																								</col>
+																							</col>
+																						</col>
+																					</col>
+																				</col>
+																			</col>
+																		</col>
+																	</col>
+																</col>
+															</col>
+														</col>
+													</col>
+												</col>
+											</colgroup>
+										</table>
+									</tr>
+								</tbody>
+							</colgroup>
+						</table>
+					</div>
+				</div>
+			</t>
+		</t>
+	</template>
+</odoo>

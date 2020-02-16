@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <menuitem name="Expenses" id="expenses_main_menu" web_icon="evl_expenses,static/description/icon.png" groups="evl_expenses.evl_expenses_admin,evl_expenses.evl_expenses_manager,evl_expenses.evl_expenses_user" />
+        <menuitem name="Configuration" id="expenses_sidebar_menu" sequence="20" parent="expenses_main_menu" groups="evl_expenses.evl_expenses_admin,evl_expenses.evl_expenses_manager,evl_expenses.evl_expenses_user" />
+        <menuitem name="Expenses" id="account_expenses" action="account_expenses_action" sequence='10' parent="expenses_sidebar_menu"/>
+        <menuitem name="Expense Types" id="expenses_type" action="expenses_type_action" sequence='20' parent="expenses_sidebar_menu"/>
+        <menuitem id="menu_expense_bank_payments" sequence="10" parent="expenses_main_menu" action="action_expense_payment" />
+        
+    </data>
+</odoo>

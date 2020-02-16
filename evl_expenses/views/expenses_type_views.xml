@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="expenses_type_form" model="ir.ui.view">
+            <field name="name">expenses.type.form</field>
+            <field name="model">expenses.type</field>
+            <field name="arch" type="xml">
+                <form string="Expenses Type">
+                    <sheet>
+                        
+                        <group>
+                            <field name="name" />
+                            <field name="company_id" readonly="1" store="1"/>
+                            <field name="expense_account_id" attrs="{'invisible': [('company_id', '=', False)]}" domain="[('company_id', '=', company_id),('user_type_id', 'in', [3, 15])]"/>
+                            <field name="approved_user_ids" widget="many2many_tags" />
+                            <!-- <field name="approved_user_ids" widget="many2many_kanban">
+                                <kanban quick_create="false" create="true" delete="true">
+                                    <field name="name"/>
+                                        <templates>
+                                            <t t-name="kanban-box">              
+                                                <div class="oe_kanban_global_click" style="position: relative">
+                                                    <a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">
+                                                    X
+                                                    </a>
+                                                    <div class="oe_module_vignette">                     
+                                                    <img t-att-src="kanban_image('res.users', 'image_small')" class="oe_avatar oe_kanban_avatar_smallbox"/> 
+                                                        <div class="oe_module_desc"> 
+                                                            <field name="name"/>
+                                                        </div> 
+                                                    </div> 
+                                                </div>          
+                                            </t>      
+                                        </templates>  
+                                </kanban>
+                            </field> -->
+                        </group>
+                        
+                        <notebook>
+                            <page string="Description">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div> 
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="expenses_type_tree">
+            <field name="name">expenses.type.tree</field>
+            <field name="model">expenses.type</field>
+            <field name="arch" type="xml">
+                <tree string="Expenses Type">
+                    <field name="name"/>
+                    <field name="expense_account_id"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="expenses_type_action">
+            <field name="name">Expenses Types</field>
+            <field name="res_model">expenses.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Expenses Type
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

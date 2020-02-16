@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0c">
+
+        <!-- Sequences for evl.trainings -->
+        <record id="seq_evl_trainings" model="ir.sequence">
+            <field name="name">Training Order</field>
+            <field name="code">evl.trainings.sequence</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">RFT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

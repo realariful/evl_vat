@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_movement_movement,movement.erp.manager,model_movement_movement,base.group_erp_manager,1,1,1,1
+access_movement_movement_base,movement.base.user,model_movement_movement,base.group_user,1,1,1,0
+access_movement_user,movement.user,model_movement_movement,evl_movement.movement_group_manager,1,1,1,1
+access_movement_manager,movement.manager,model_movement_movement,evl_movement.movement_group_user,1,1,1,0
+access_movement_admin,movement.erp.admin,model_movement_movement,evl_movement.movement_group_admin,1,1,1,1

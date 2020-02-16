@@ -1,0 +1,99 @@
+<odoo>
+  <data>
+
+
+
+    <record id="movement_tree" model="ir.ui.view">
+      <field name="name">movement.movement.view.tree</field>
+      <field name="model">movement.movement</field>
+      <field name="arch" type="xml">
+        <tree string = 'Movement' >
+
+          <field name="employee_id"/>
+          <field name="company_id"/>
+          <field name="department_id"/>
+          <field name="from_time" string="Date of Movement"/>
+          <field name="movement_hours" string="Movement Hours" widget="float_time"/>
+
+
+          <field name="create_date"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="movement_form" model="ir.ui.view">
+      <field name="name">movement.movement.view.form</field>
+      <field name="model">movement.movement</field>
+      <field name="arch" type="xml">
+        <form string="Movement">
+          <field name="manager" invisible="1"/>
+          <field name="head" invisible="1"/>
+          <field name="hr_can_approve" invisible="1"/>
+
+          <field name="state" invisible="1"/>
+          <header>
+            <button string="Confirm" name="action_confirm" attrs="{'invisible': [('state', '!=', 'draft')]}" type="object" class="oe_highlight"/>
+            <button string="Manager Approval" name="action_manager" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('manager', '=', True)]}" type="object" class="oe_highlight"/>
+            <button string="Head Approval" name="action_dept_head" attrs="{'invisible': ['|',('state', '!=', 'manager'),('head', '=', True)]}" type="object" class="oe_highlight"/>
+            <button string="Admin Approval" name="action_admin" attrs="{'invisible': ['|',('state', '!=', 'head'),('hr_can_approve', '=', True)]}" type="object" class="oe_highlight"/>
+            <button string="Cancel" name="action_transfer_cancel" type="object" attrs="{'invisible': [('state', 'not in', ['confirm','manager','head'])]}" class="oe_highlight"/>
+
+            <field name="state" widget="statusbar" />
+          </header>
+          <sheet>
+
+
+            <group>
+              <group>
+                <field name="admin_check_compute" invisible="1"/>
+
+                <field name="employee_id" attrs="{'readonly': ['|',('state', '!=', 'draft'),('admin_check_compute', '!=', True)]}" />
+
+                <field name="company_id" string="Company"/>
+                <field name="create_date" readonly="1" />
+                <field name="department_id" readonly="1" />
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Movement Line">
+                <sheet>
+                  <group>
+                    <field name="from_time" style="width:23%%" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name="to_time" style="width:23%%" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name="movement_hours" string="Movement Hours" widget="float_time"/>
+
+                    <field name="note" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                  </group>
+                </sheet>
+              </page>
+            </notebook>
+          </sheet>
+
+
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+
+        </form>
+      </field>
+    </record>
+
+
+
+
+    <record id="action_movement_request" model="ir.actions.act_window">
+      <field name="name">Movement</field>
+      <field name="res_model">movement.movement</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Movement" id="menu_movement" sequence="21"/>
+
+    <menuitem name="Movement" parent="menu_movement" id="menu_todo " action="action_movement_request" sequence="1" />
+
+  </data>
+</odoo>

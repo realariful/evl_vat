@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_evl_attendance_erp_manager,admin,model_evl_attendance,base.group_system,1,1,1,1
+access_evl_attendance_manager,admin_manager,model_evl_attendance,evlattendance.attendance_group_manager,1,1,1,1
+access_evl_attendance_user,user,model_evl_attendance,evlattendance.attendance_group_user,1,0,0,0

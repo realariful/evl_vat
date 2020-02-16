@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="account_expenses_form" model="ir.ui.view">
+            <field name="name">account.expenses.form</field>
+            <field name="model">account.expenses</field>
+            <field name="arch" type="xml">
+                <form string="Account Expenses">
+                    <header>
+                        <field name="show_approval" invisible="1"/>
+                        <button name="action_confirm" class="btn-primary" string="Confirm" type="object" attrs="{'invisible': [('state', 'not in', 'draft')]}"/>
+                        <button name="action_approve" class="btn-primary" string="Approve" type="object" attrs="{'invisible': ['|', ('state', 'not in', 'confirmed'), ('show_approval', '=', False)]}" 
+                        groups="evl_expenses.evl_expenses_admin,evl_expenses.evl_expenses_manager,base.group_system"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved,done"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <!-- <field name="show_approval" /> -->
+                                <field name="expense_type_id" /> <!-- domain="[('approved_user_ids', '=', uid)]" -->
+                                <field name="currency_id" invisible="1"/>
+                                <field name="amount" widget="monetary" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state','not in', 'draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="expense_creation_date"/>
+                                <field name="reference" attrs="{'readonly': [('state','not in', 'draft')]}"/>
+                                <field name="payment_ref_id" attrs="{'invisible': [('payment_ref_id','=', False)], 'readonly': True}" />
+                                <field name="company_id"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+
+                            <page string="Employees">
+                                <field name="employee_ids" attrs="{'readonly': [('state','not in', 'draft')]}" widget="many2many_tags" />
+                            </page>
+
+                            <page string="Reason">
+                                <field name="description" attrs="{'readonly': [('state','not in', 'draft')]}"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div> 
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_expenses_tree">
+            <field name="name">account.expenses.tree</field>
+            <field name="model">account.expenses</field>
+            <field name="arch" type="xml">
+                <tree string="Account Expenses">
+                    <field name="name"/>
+                    <field name="employee_ids" widget="many2many_tags" />
+                    <field name="expense_type_id"/>
+                    <field name="expense_creation_date"/>
+                    <field name="amount" string="Amount(BDT)"/>
+                    <field name="reference" />
+                    <field name="payment_ref_id" />
+                    <field name="company_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="account_expenses_action">
+            <field name="name">Account Expenses</field>
+            <field name="res_model">account.expenses</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first Account Expenses
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

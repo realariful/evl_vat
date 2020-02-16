@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_group_evl_leave_user_request,evl.leave.user.request,hr_holidays.model_hr_leave,evl_leave.group_evl_leave_user,1,1,1,0
+access_group_evl_leave_manager_request,evl.leave.manager.request,hr_holidays.model_hr_leave,evl_leave.group_evl_leave_manager,1,1,1,0
+access_hr_holidays_employee_request,hr.holidays.employee.request,model_hr_leave,base.group_user,1,1,1,1

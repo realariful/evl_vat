@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>> NOTICE Groups/Module Category -->
+
+        <record model="ir.module.category" id="module_category_notice_batch">
+            <field name="name">Employee Notice</field>
+            <field name="sequence">57</field>
+        </record>
+
+
+        <record id="notice_group_admin" model="res.groups">
+            <field name="name">Notice Admin</field>
+            <field name="category_id" ref="module_category_notice_batch"/>
+            <field name="implied_ids" eval="[(4, ref('evl_employee.group_hradmin_manager'))]"/>
+        </record>
+
+
+
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>> NOTICE Groups/Module Category -->
+
+
+
+        <!-- 
+        <record id="Notice_manager_access" model="ir.rule">
+            <field name="name">User Notifcation Record Rule</field>
+            <field name="model_id" ref="evl_notice_board.model_evl_notice_board"/>
+            <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record> -->
+
+        <!-- <record id="Notice_admin_super_access" model="ir.rule">
+            <field name="name">HR Admin</field>
+            <field name="model_id" ref="evl_notice_board.model_evl_notice_board"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_erp_manager')), (4, ref('notice_group_admin'))]"/>
+        </record> -->
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>> NOTICE batch -->
+
+
+
+        <!-- <record id="notice_batch_comp_rule" model="ir.rule">
+            <field name="name">Transfer multi company rule</field>
+            <field name="model_id" ref="evl_notice_board.model_notice_batch"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=', False),('company_id','in', company_ids)]</field>
+        </record> -->
+
+        <record id="notice_batch_hr_admin_access" model="ir.rule">
+            <field name="name">HR Admin</field>
+            <field name="model_id" ref="evl_notice_board.model_notice_batch"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_erp_manager')), (4, ref('notice_group_admin'))]"/>
+        </record>
+
+
+        <record id="notice_batch_user_access" model="ir.rule">
+            <field name="name">Notice General</field>
+            <field name="model_id" ref="evl_notice_board.model_notice_batch"/>
+            <!-- <field name="domain_force">[(1, '=', 1)]</field> -->
+            <field name="domain_force">[('employee_ids.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(6,0,[ref('base.group_user')])]"/>
+        </record>
+
+    </data>
+</odoo>
+
+

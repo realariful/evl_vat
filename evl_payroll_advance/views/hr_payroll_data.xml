@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="contrib_register_employees" model="hr.contribution.register">
+            <field name="name">Employees</field>
+            <field name="partner_id" eval="False"/>
+        </record>
+
+
+        <record id="GROSS" model="hr.salary.rule.category">
+            <field name="name">Gross</field>
+            <field name="code">GROSS</field>
+        </record>
+
+        <record id="ALW" model="hr.salary.rule.category">
+            <field name="name">Allowance</field>
+            <field name="code">ALW</field>
+        </record>
+
+        <record id="DED" model="hr.salary.rule.category">
+            <field name="name">Deduction</field>
+            <field name="code">DED</field>
+        </record>
+
+        <record id="NET" model="hr.salary.rule.category">
+            <field name="name">Net</field>
+            <field name="code">NET</field>
+        </record>
+
+        <record id="FINALPAYMENT" model="hr.salary.rule.category">
+            <field name="name">New Payment</field>
+            <field name="code">FINALPAYMENT</field>
+        </record>
+
+        <record id="COMP" model="hr.salary.rule.category">
+            <field name="name">Company Contribution</field>
+            <field name="code">COMP</field>
+        </record>
+
+
+        <record id="hr_rule_gross" model="hr.salary.rule">
+            <field name="name">Gross</field>
+            <field name="sequence" eval="0"/>
+            <field name="code">GAA</field>
+            <field name="category_id" ref="evl_payroll_advance.GROSS"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage</field>
+        </record>
+
+
+        <record id="hr_rule_basic" model="hr.salary.rule">
+            <field name="name">Basic Salary</field>
+            <field name="sequence" eval="1"/>
+            <field name="code">BA</field>
+            <field name="category_id" ref="evl_payroll_advance.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage*0.50</field>
+        </record>
+
+        <record id="hr_rule_h_rent" model="hr.salary.rule">
+            <field name="name">House Rent</field>
+            <field name="sequence" eval="2"/>
+            <field name="code">HR</field>
+            <field name="category_id" ref="evl_payroll_advance.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage*0.25</field>
+        </record>
+
+        <record id="hr_rule_medical" model="hr.salary.rule">
+            <field name="name">Medical</field>
+            <field name="sequence" eval="3"/>
+            <field name="code">MED</field>
+            <field name="category_id" ref="evl_payroll_advance.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage*0.05</field>
+        </record>
+
+        <record id="hr_rule_conv" model="hr.salary.rule">
+            <field name="name">Conveyance</field>
+            <field name="sequence" eval="5"/>
+            <field name="code">CONV</field>
+            <field name="category_id" ref="evl_payroll_advance.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 2500</field>
+        </record>
+
+        <record id="hr_rule_residual" model="hr.salary.rule">
+            <field name="name">Residual Others</field>
+            <field name="sequence" eval="6"/>
+            <field name="code">RES</field>
+            <field name="category_id" ref="evl_payroll_advance.ALW"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage  - categories.ALW </field>
+        </record>
+
+       
+        <record id="hr_rule_total_Earnings" model="hr.salary.rule">
+            <field name="name">Total Earnings</field>
+            <field name="sequence" eval="7"/>
+            <field name="code">TEAR</field>
+            <field name="category_id" ref="evl_payroll_advance.NET"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.ALW </field>
+        </record>
+
+
+        <record id="hr_rule_absent" model="hr.salary.rule">
+            <field name="name">Absent</field>
+            <field name="sequence" eval="10"/>
+            <field name="code">AB</field>
+            <field name="category_id" ref="evl_payroll_advance.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 0</field>
+        </record>
+
+        <record id="hr_rule_penalty" model="hr.salary.rule">
+            <field name="name">Penalty</field>
+            <field name="sequence" eval="11"/>
+            <field name="code">PE</field>
+            <field name="category_id" ref="evl_payroll_advance.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 0</field>
+        </record>
+
+        <record id="hr_rule_ait" model="hr.salary.rule">
+            <field name="name">Advance IT</field>
+            <field name="sequence" eval="12"/>
+            <field name="code">AIT</field>
+            <field name="category_id" ref="evl_payroll_advance.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = 0</field>
+        </record>
+
+        <record id="hr_rule_others" model="hr.salary.rule">
+            <field name="name">Others</field>
+            <field name="sequence" eval="13"/>
+            <field name="code">OTH</field>
+            <field name="category_id" ref="evl_payroll_advance.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = -885</field>
+        </record>
+
+
+
+        <record id="hr_rule_total_deductions" model="hr.salary.rule">
+            <field name="name">Total Deductions</field>
+            <field name="sequence" eval="20"/>
+            <field name="code">TD</field>
+            <field name="category_id" ref="evl_payroll_advance.NET"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.DED </field>
+        </record>
+
+
+        <record id="hr_rule_net_payment" model="hr.salary.rule">
+            <field name="name">Net Payment</field>
+            <field name="sequence" eval="500"/>
+            <field name="code">NP</field>
+            <field name="category_id" ref="evl_payroll_advance.FINALPAYMENT"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.NET </field>
+        </record>
+
+
+
+        <record id="structure_base" model="hr.payroll.structure">
+            <field name="code">BASE</field>
+            <field name="name">TTGL structures</field>
+            <field eval="[
+                        (6, 0, 
+                        [
+                        ref('hr_rule_gross'),
+                        ref('hr_rule_basic'),
+                        ref('hr_rule_h_rent'),
+                        ref('hr_rule_medical'),
+                        ref('hr_rule_conv'),
+                        ref('hr_rule_residual'),
+                        ref('hr_rule_total_Earnings'),
+                        ref('hr_rule_absent'),
+                        ref('hr_rule_penalty'),
+                        ref('hr_rule_ait'),
+                        ref('hr_rule_others'),
+                        ref('hr_rule_total_deductions'),
+                        ref('hr_rule_net_payment'),]
+                        )]" name="rule_ids"/>
+            <!-- <field name="company_id" ref="base.main_company"/> -->
+        </record>
+
+
+
+        <record forcecreate="True" id="decimal_payroll" model="decimal.precision">
+            <field name="name">Payroll</field>
+            <field name="digits">2</field>
+        </record>
+
+        <record forcecreate="True" id="decimal_payroll_rate" model="decimal.precision">
+            <field name="name">Payroll Rate</field>
+            <field name="digits">4</field>
+        </record>
+
+
+    </data>
+</odoo>

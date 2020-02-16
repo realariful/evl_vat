@@ -1,0 +1,316 @@
+<odoo>
+  <data>
+    <!-- blood group -->
+    <record id="view_evl_bloodgroup_form" model="ir.ui.view">
+      <field name="name">evl.bloodgroup</field>
+      <field name="model">evl.bloodgroup</field>
+      <field name="arch" type="xml">
+        <form string="Employee Blood Group">
+          <sheet>
+            <group>
+              <field name="employee_id"/>
+
+              <field name="group"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_evl_bloodgroup_list" model="ir.ui.view">
+      <field name="name">evl.bloodgroup</field>
+      <field name="model">evl.bloodgroup</field>
+      <field eval="8" name="priority"/>
+      <field name="arch" type="xml">
+        <tree string="Employees Tags">
+          <field name="employee_id"/>
+          <field name="group"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="open_blood_group" model="ir.actions.act_window">
+      <field name="name">Blood Group</field>
+      <field name="res_model">evl.bloodgroup</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_bloodGroup" name="Blood Group" action="open_blood_group" parent="hr.menu_hr_employee_payroll" groups="base.group_erp_manager" sequence="1"/>
+
+    <!-- education -->
+
+    <record id="view_evl_education_list" model="ir.ui.view">
+      <field name="name">evl_education_list</field>
+      <field name="model">evl.education</field>
+      <field eval="8" name="priority"/>
+      <field name="arch" type="xml">
+        <tree string="Education">
+          <field name="employee_id"/>
+          <field name="institute"/>
+          <field name="degree"/>
+          <field name="fromDate"/>
+          <field name="toDate"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="evl_education_view_form" model="ir.ui.view">
+      <field name="name">evl.education.view.form</field>
+      <field name="model">evl.education</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="employee_id" style="width:20%%" />
+              <field name="institute" style="width:30%%" />
+              <field name="degree" style="width:15%%"/>
+
+            </group>
+            <group>
+
+              <field name="fromDate" style="width:20%%" />
+              <field name="toDate" style="width:20%%" />
+              <field name="result" style="width:10%%" />
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+
+    <record id="open_education" model="ir.actions.act_window">
+      <field name="name">Education</field>
+      <field name="res_model">evl.education</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_education" name="Education" action="open_education" parent="hr.menu_hr_employee_payroll" groups="base.group_erp_manager" sequence="2"/>
+    <!-- referennce -->
+
+    <record id="evl_reference_view_tree" model="ir.ui.view">
+      <field name="name">evl.reference.view.tree</field>
+      <field name="model">evl.reference</field>
+      <field name="arch" type="xml">
+        <tree string="Reference">
+
+          <field name="name" />
+          <!-- <field name="refNumber" /> -->
+
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="open_reference" model="ir.actions.act_window">
+      <field name="name">Employee eference</field>
+      <field name="res_model">evl.reference</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem id="menu_view_employee_reference" name="Employee Reference" action="open_reference" parent="hr.menu_hr_employee_payroll" groups="base.group_erp_manager" sequence="12"/>
+
+    <!-- training -->
+
+    <record id="evl_training_view_tree" model="ir.ui.view">
+      <field name="name">evl.training.view.tree</field>
+      <field name="model">evl.training</field>
+      <field name="arch" type="xml">
+        <tree string="Training" editable='bottom'>
+
+          <field name="title" />
+          <field name="employee_id"/>
+
+          <field name="organization" />
+          <field name="fromDate"/>
+          <field name="toDate"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="evl_training_view_form" model="ir.ui.view">
+      <field name="name">evl.training.view.form</field>
+      <field name="model">evl.training</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="title" />
+              <field name="organization" />
+              <field name="employee_id"/>
+
+            </group>
+            <group>
+
+              <field name="fromDate" />
+              <field name="toDate" />
+              <field name="duration" />
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="open_training" model="ir.actions.act_window">
+      <field name="name">Training</field>
+      <field name="res_model">evl.training</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_training" name="Trainings" action="open_training" parent="hr.menu_hr_employee_payroll" groups="base.group_erp_manager" sequence="2"/>
+
+    <!-- experience -->
+    <record id="evl_work_experience_view_tree" model="ir.ui.view">
+      <field name="name">evl.work.experience.view.tree</field>
+      <field name="model">evl.work.experience</field>
+      <field name="arch" type="xml">
+        <tree string="Work Expreince">
+          <field name="employee_id"/>
+
+          <field name="position" />
+          <field name="organization" />
+          <field name="fromDate"/>
+          <field name="toDate"/>
+
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="evl_work_experience_view_form" model="ir.ui.view">
+      <field name="name">evl.work.experience.view.form</field>
+      <field name="model">evl.work.experience</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="employee_id"/>
+
+              <field name="position" />
+              <field name="department" />
+              <field name="organization" />
+            </group>
+            <group>
+
+              <field name="fromDate" />
+              <field name="toDate" />
+              <field name="duration" />
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="open_experinces" model="ir.actions.act_window">
+      <field name="name">Work Experience</field>
+      <field name="res_model">evl.work.experience</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_work_experience" name="Work Experience" action="open_experinces" parent="hr.menu_hr_employee_payroll" groups="base.group_erp_manager" sequence="2"/>
+
+
+
+    <!-- punishments -->
+    <record id="evl_punishments_view_tree" model="ir.ui.view">
+      <field name="name">evl.punishments.view.tree</field>
+      <field name="model">evl.punishments</field>
+      <field name="arch" type="xml">
+        <tree string="">
+
+          <field name="employee_id" />
+          <field name="department_id" />
+          <field name="pDate" />
+
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="evl_punishments_view_form" model="ir.ui.view">
+      <field name="name">evl.punishments.view.form</field>
+      <field name="model">evl.punishments</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="employee_id" />
+              <field name="company_id" />
+              <field name="department_id" />
+            </group>
+            <group>
+
+              <field name="pDate" />
+              <field name="note" />
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="open_evl_punishments" model="ir.actions.act_window">
+      <field name="name">Punishments</field>
+      <field name="res_model">evl.punishments</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_punishments" name="Punishments" action="open_evl_punishments" groups="base.group_erp_manager" parent="hr.menu_hr_employee_payroll" sequence="1"/>
+
+    <!-- employee nominee -->
+
+    <record id="evl_employee_nominees_view_tree" model="ir.ui.view">
+      <field name="name">evl.employee.nominee.view.tree</field>
+      <field name="model">evl.employee.nominee</field>
+      <field name="arch" type="xml">
+        <tree string="">
+          <!-- <field name="employee_id" /> -->
+          <field name="name" />
+          <field name="relation" />
+          <field name="percentage" />
+        </tree>
+      </field>
+    </record>
+
+    <record id="evl_employee_nominee_view_form" model="ir.ui.view">
+      <field name="name">evl.employee.nominee.view.form</field>
+      <field name="model">evl.employee.nominee</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <field name="employee_id" />
+            </group>
+            <group>
+              <field name="name" />
+              <field name="contact" />
+              <field name="address" />
+              <field name="relation" />
+              <field name="percentage" />
+
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="open_evl_nominee" model="ir.actions.act_window">
+      <field name="name">Employee Nominee</field>
+      <field name="res_model">evl.employee.nominee</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_view_employee_Nominee" name="Nominee" action="open_evl_nominee" groups="base.group_erp_manager" parent="hr.menu_hr_employee_payroll" sequence="1"/>
+
+
+
+  </data>
+</odoo>

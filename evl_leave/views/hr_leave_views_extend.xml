@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+    <record id="hr_holidays.hr_leave_action_my_request" model="ir.actions.act_window">
+        <field name="name">Leave Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <record id="hr_holidays.hr_leave_action_my" model="ir.actions.act_window">
+        <field name="name">Leave Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">tree,form,calendar,kanban,activity</field>
+        <field name="context">{}</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Leave request
+            </p><p>
+                Once a Leave request is posted, your manager is notified for validation.
+            </p>
+        </field>
+    </record>
+
+</odoo>

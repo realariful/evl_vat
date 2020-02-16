@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+  
+    <record model="ir.actions.server" id="server_custom_action_compute">
+      <field name="name">Custom Compute</field>
+      <field name="type">ir.actions.server</field>
+      <field name="model_id" ref="om_hr_payroll.model_hr_payslip"/>
+      <field name="binding_model_id" ref="om_hr_payroll.model_hr_payslip"/>
+      <field name="code">      
+records.action_payslip_done()          
+      </field>
+      <field name='state'>code</field>
+    </record>
+
+  </data>
+</odoo>

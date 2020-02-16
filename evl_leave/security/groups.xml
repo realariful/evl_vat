@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <data noupdate="0">
+
+        <!-- Group Leave user -->
+        <record id="group_evl_leave_user" model="res.groups">
+          <field name="name">Leave User</field>
+          <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+        </record>
+
+        <!-- Group Leave Manager -->
+        <record id="group_evl_leave_manager" model="res.groups">
+          <field name="name">Leave Manager</field>
+          <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+          <field name="implied_ids" eval="[(4, ref('evl_leave.group_evl_leave_user'))]"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record> 
+
+        <!-- Group HR Manager -->
+        <!-- <record id="group_evl_hr_manager" model="res.groups">
+          <field name="name">Leave HR</field>
+          <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+          <field name="implied_ids" eval="[(4, ref('evl_leave.group_evl_leave_manager'))]"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>  -->
+    </data>
+</odoo>
+

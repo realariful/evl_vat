@@ -1,0 +1,124 @@
+<odoo>
+  <data noupdate="0">
+
+    <menuitem id="menu_hr_Transfer_root" name="Transfer" sequence="12"/>
+
+    <record model="ir.ui.view" id="view_hr_Transfer_tree">
+      <field name="name">hr.Transfer.tree</field>
+      <field name="model">evl.hr.transfer</field>
+      <field name="arch" type="xml">
+        <tree string="Transfer">
+          <field name="employee_id" string="Employee Name"/>
+          <field name="manager_id" string="Manager"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_hr_Transfer_form">
+      <field name="name">hr.transfer.form</field>
+      <field name="model">evl.hr.transfer</field>
+      <field name="arch" type="xml">
+        <form string="Transfer">
+          <field name="hr_can_approve" invisible="1" />
+          <field name="supervisor_can_approve" invisible="1"/>
+          <field name="manager_can_approve" invisible="1" />
+          <field name="transfer_manager_can_approve" invisible="1" />
+          <field name="state" invisible="1" />
+
+
+          <header>
+
+            <button string="Confirm" name="confirm" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', '!=', 'draft')]}"/>
+
+            <button string="HR Approval" name="action_hr_approve" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('hr_can_approve', '=', False)]}"/>
+            <button string="Supervisor Approval" name="action_supervisor_approve" type="object" attrs="{'invisible': ['|',('state', '!=', 'hr'),('supervisor_can_approve', '=', False)]}" class="oe_highlight"/>
+            <button string="Manager Approval" name="action_manager_approve" type="object" attrs="{'invisible': ['|',('state', '!=', 'supervisor'),('manager_can_approve', '=', False)]}" class="oe_highlight"/>
+            <button string="Transfer" name="action_transfer_manager_approve" type="object" attrs="{'invisible': ['|',('state', '!=', 'manager'),('transfer_manager_can_approve', '=', False)]}" class="oe_highlight"/>
+            <button string="Cancel" name="action_transfer_cancel" type="object" attrs="{'invisible': ['|',('state', 'not in', ['draft','confirm','hr','supervisor','manager']),('transfer_manager_can_approve', '=', False)]}" class="oe_highlight"/>
+
+
+
+            <button name="button_cancel_Transfer" string="Cancel" states="pending" type="object" />
+            <field name="state" widget="statusbar" />
+          </header>
+          <sheet>
+
+            <label for="employee_id" class="oe_edit_only"/>
+            <h1>
+              <field name="employee_id" attrs="{'readonly': [('state', '!=', 'draft')]}" class="oe_inline" placeholder="Employee's Name"/>
+            </h1>
+            <group>
+              <notebook>
+                <page string="Current Allocation">
+                  <group>
+                    <field name="company_id" readonly="1" />
+                    <field name="department_id" readonly="1" />
+                    <field name="position" readonly="1"/>
+                    <field name="manager_id" readonly="1" />
+                    <field name="resource_calendar" readonly="1" />
+                  </group>
+                </page>
+
+
+
+              </notebook>
+
+
+              <notebook>
+                <page string="Revised Transfer">
+                  <group>
+                    <field name="to_company_id" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name="to_department_id" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name="to_position" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    <field name="to_manager_id" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                    <field name="to_resource_calendar" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                  </group>
+                </page>
+              </notebook>
+
+
+              <group>
+              </group>
+            </group>
+
+            <label for="note" />
+            <h1>
+              <field name="note" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+            </h1>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="hr_Transfer_action_form" model="ir.actions.act_window">
+      <field name="name">Transfer</field>
+      <field name="res_model">evl.hr.transfer</field>
+      <field name='view_mode'>tree,form</field>
+      <!-- <field name="context">{'group_by':['state']}</field> -->
+    </record>
+
+
+
+    <menuitem name="Transfer" parent="menu_hr_Transfer_root" id="menu_open_view_hr_Transfer_tree" action="hr_Transfer_action_form" />
+
+
+
+
+
+    <record model="ir.module.category" id="module_category_hr_Transfer">
+      <field name="name">Transfer</field>
+      <field name="description">Helps to transfer employees...</field>
+      <field name="sequence">3</field>
+    </record>
+
+
+  </data>
+</odoo>

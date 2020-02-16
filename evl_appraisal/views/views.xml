@@ -1,0 +1,210 @@
+<odoo>
+  <data noupdate="0">
+
+    <menuitem id="menu_hr_appraisal_root" name="Appraisal" sequence="25"/>
+
+    <record model="ir.ui.view" id="view_hr_appraisal_tree">
+      <field name="name">hr.appraisal.tree</field>
+      <field name="model">evl.hr.appraisal</field>
+      <field name="arch" type="xml">
+        <tree string="Appraisal">
+          <field name="employee_id" string="Empoloyee Name"/>
+          <field name="manager_ids" widget="many2many_tags">
+            <tree >
+              <field name ="name" string="Reviewers"/>
+            </tree>
+          </field>
+          <field name="date_close"/>
+          <field name="state"/>
+          <field name="company_id" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="evl_appraisal_kanban">
+      <field name="name">hr.appraisal.kanban</field>
+      <field name="model">evl.hr.appraisal</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="employee_id"/>
+          <field name="date_close"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_vignette oe_semantic_html_override">
+                <div class="oe_kanban_details">
+                  <h4>
+                    <a type="open">
+                      <field name="employee_id"/>
+                    </a>
+                  </h4>
+                  <div name="tags"/>
+                  <ul>
+                    <li>Date Close <field name="date_close"></field>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_hr_appraisal_form">
+      <field name="name">hr.appraisal.form</field>
+      <field name="model">evl.hr.appraisal</field>
+      <field name="arch" type="xml">
+        <form string="Appraisal">
+          <field name="state" invisible="1"/>
+          <header>
+            <button name="button_send_appraisal" string="Start Appraisal and Send Forms" states="new" type="object" class="oe_highlight" />
+            <button name="button_done_appraisal" string="Done" states="pending" type="object" />
+            <button name="button_cancel_appraisal" string="Cancel" states="pending" type="object" />
+            <field name="state" widget="statusbar" />
+          </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+              <button class="oe_inline oe_stat_button" name="action_get_users_input" type="object" icon="fa-envelope-o" context="{'answers':True}">
+                <field name="count_completed_survey" string="Reviews" widget="statinfo"/>
+              </button>
+
+            </div>
+            <label for="employee_id" class="oe_edit_only"/>
+            <h1>
+              <field name="employee_id" class="oe_inline" attrs="{'readonly': [('state', '!=', 'new')]}"  placeholder="Employee's Name"/>
+            </h1>
+            <group>
+              <group>
+                <field name="department_id"  />
+                <field name="date_close" attrs="{'readonly': [('state', '!=', 'new')]}"/>
+              </group>
+              <group>
+                <field name="company_id" 
+                readonly="1"
+                />
+              </group>
+            </group>
+            <notebook>
+
+              <page string="Plan">
+                <group col="4">
+                  <field name="manager_ids" attrs="{'readonly': [('state', '!=', 'new')]}" placeholder="Select Appraisal Reviewer..." widget="many2many_tags" />
+                  <field name="survey_id" attrs="{'readonly': [('state', '!=', 'new')]}" placeholder="Select Survey to Circulate" />
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="hr_appraisal_action_form" model="ir.actions.act_window">
+      <field name="name">Appraisal</field>
+      <field name="res_model">evl.hr.appraisal</field>
+      <field name='view_mode'>kanban,tree,form</field>
+      <field name="context">{'group_by':['state']}</field>
+
+    </record>
+
+
+
+    <menuitem name="Appraisal" parent="menu_hr_appraisal_root" id="menu_open_view_hr_appraisal_tree" action="hr_appraisal_action_form" groups="base.group_user"/>
+
+    <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>appraisal feedback -->
+    <record model="ir.ui.view" id="hr_appraisal_survey_inherited">
+      <field name="name">hr_appraisal list</field>
+      <field name="model">survey.user_input</field>
+      <field name="priority">1</field>
+      <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='survey_id']" position="after">
+          <field name="appraisal_id"/>
+          <field name="responsible"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="appraisal_lines">
+      <field name="name">Appraisal Feedback</field>
+      <field name="model">evl.hr.appraisal.feedback</field>
+      <field name="arch" type="xml">
+        <tree string="Job">
+          <field name="appraisal_id"/>
+          <field name ="reviewer_id"/>
+          <field name ="response_id"/>
+          <field name ="evaluated_score"/>
+          <button name="send_mail_for_appraisal" string='Resend Mail' class='oe_highlight' type="object" />
+
+        </tree>
+      </field>
+    </record>
+
+    <record id="survey_user_input_view_tree_for_appraisal" model="ir.ui.view">
+      <field name="name">survey.user_input.view.tree</field>
+      <field name="model">survey.user_input</field>
+      <field name="arch" type="xml">
+        <tree string="Survey User inputs" create="false">
+
+          <field name="appraisal_id"/>
+          <field name="responsible"/>
+          <field name="create_date"/>
+          <field name="deadline"/>
+          <field name="input_type" groups="base.group_no_one"/>
+          <!-- <field name="attempt_number" /> -->
+          <field name="state"/>
+          <field name="quizz_score" string="Appraisal Score"/>
+          <button name="send_mail_for_appraisal" string='Resend Mail' class='oe_highlight' type="object" />
+          <button name="detailed_answer" string='Details' class='oe_highlight' type="object" />
+
+
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.module.category" id="module_category_hr_appraisal">
+      <field name="name">Appraisal</field>
+      <field name="description">Helps to evaluate employees...</field>
+      <field name="sequence">3</field>
+    </record>
+
+
+    <record id="survey_user_input_view_form_inherited" model="ir.ui.view">
+      <field name="name">view.survey.user_input.form.inherited</field>
+      <field name="model">survey.user_input</field>
+      <field name="inherit_id" ref="survey.survey_user_input_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='survey_id']" position="after">
+          <field name="employee_id"/>
+          <field name="responsible"/>
+        </xpath>
+      </field>
+    </record>
+
+
+
+
+
+    <record id="group_hradmins_manager" model="res.groups">
+      <field name="name">HR Admin Manager Appraisal</field>
+      <field name="category_id" ref="evl_appraisal.module_category_hr_appraisal"/>
+    </record>
+
+
+
+
+    <record model="ir.actions.act_window" id="action_window_multi_survey">
+      <field name="name">Appraisal Feedback</field>
+      <field name="res_model">evl.hr.appraisal.feedback</field>
+      <field name="view_id" ref="appraisal_lines" />
+      <field name="target">current</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

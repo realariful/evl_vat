@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_expense_payment_form">
+            <field name="name">expense.bank.payments.form</field>
+            <field name="model">expense.bank.payments</field>
+            <field name="arch" type="xml">
+                <form string="Expense Bank Payments">
+
+                    <header>
+                        <button name="action_approve" class="btn-primary" string="Approve" type="object" attrs="{'invisible': [('state', 'not in', 'draft')]}"/>
+                        <button name="action_post" class="btn-primary" string="Post" type="object" groups="evl_expenses.evl_expenses_admin,base.group_system"
+                        attrs="{'invisible': [('state', 'not in', 'approved')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approved,done" />
+                    </header>
+
+                    <sheet>
+
+                        <div class="pull-left">
+                            <label for="name" class="oe_edit_only oe_inline" />
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                            </h1>
+                        </div>
+
+                        <group>
+
+                            <group>
+                                <field name="journal_id" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                                <field name="expense_account_id" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                                <field name="expense_date" />
+                                <field name="currency_id" invisible="1"/>
+                                <field name="total_expense_amount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                            
+                            <group>
+                                <field name="posted_date" />
+                                <field name="move_id" attrs="{'invisible': [('move_id','=', False)]}" />
+                                <field name="company_id" />
+                            </group>
+                            
+
+                        </group>
+
+                        <notebook>
+                            <page string="Expenses">
+                                <field name="payment_line_ids">
+                                    <tree string="Expenses" editable="bottom">
+                                        <field name="expense_id" />
+                                        <field name="expense_type_id" />
+                                        <field name="reference" />
+                                        <field name="expense_amount" />
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Description">
+                                <field name="description" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div> 
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_expense_payment_tree">
+            <field name="name">expense.bank.payments.tree</field>
+            <field name="model">expense.bank.payments</field>
+            <field name="arch" type="xml">
+                <tree string="Expense Bank Payments">
+                    <field name="name" />
+                    <field name="expense_date" />
+                    <field name="posted_date" />
+                    <field name="journal_id" />
+                    <field name="expense_account_id" />
+                    <field name="total_expense_amount" />
+                    <field name="move_id" />
+                    <field name="company_id" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- <record id="view_letter_credit_search" model="ir.ui.view">
+            <field name="name">letter.credit.search</field>
+            <field name="model">letter.credit</field>
+            <field name="arch" type="xml">
+                <search string="Search L/C">
+                    <field name="name" string="L/C" filter_domain="['|', ('name','ilike',self), ('origin','ilike',self)]" />
+                    <field name="type_id"/>
+                    <filter name="draft" 
+                        string="Draft" 
+                        domain="[('state','=','draft')]" 
+                        help="New Offers" />
+                    <filter string="Confirmed" 
+                        domain="[('state','in',('in_progress'))]" 
+                        help="In negotiation" />
+                    <filter string="Done" 
+                        domain="[('state','=','done')]" />
+                    <separator />
+                    <filter string="Unassigned" 
+                        domain="[('user_id','=', False)]" 
+                        help="Unassigned L/C" />
+                    <field name="user_id" />
+                    <group expand="0" 
+                        string="Group By">
+                        <filter string="Responsible" 
+                            domain="[]" 
+                            context="{'group_by':'user_id'}" />
+                        <filter string="Source" 
+                            domain="[]" 
+                            context="{'group_by':'origin'}" />
+                        <filter string="Status" 
+                            domain="[]" 
+                            context="{'group_by':'state'}" />
+                        <filter string="Ordering Date" 
+                            domain="[]" 
+                            context="{'group_by':'ordering_date'}" />
+                        <filter string="End Month" 
+                            domain="[]" 
+                            context="{'group_by':'date_end'}" />
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <record model="ir.actions.act_window" id="action_expense_payment">
+            <field name="name">Expense Payments</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">expense.bank.payments</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                        Click to start a new expense bank payments.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

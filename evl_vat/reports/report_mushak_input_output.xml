@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_LS" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="report_mushak_input_output"
+            model="mushak.inputoutput" 
+            string="Muhsak 4.3 Report" 
+            report_type="qweb-pdf" 
+            name="evl_vat.mushak_input_output" 
+            file="evl_vat.mushak_input_output" 
+            paperformat="evl_vat.paperformat_cny_LS"/>
+
+   
+	<template id="mushak_input_output">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+				<div class="page">
+
+                 <div id="__BIRT_ROOT" class="style_0" title="BIRT Report Viewer">
+                    <!-- <table rules="none" style="empty-cells: show; width:100%;margin-left:auto;margin-right:auto;" cellpadding="0" border="1"> -->
+                    <table rules="none" style="empty-cells: show; width:100%;margin-left:auto;margin-right:auto;" cellpadding="0" >
+
+                            <tbody>
+                            <tr>
+                                <td valign="top">
+                                    <table style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_1_35fd5cb1-6c50-4362-9a2c-8ccdb94782d7">
+                                        <tbody><tr valign="top">
+                                            <td class="style_14">
+                                                <!-- <table class="style_15" style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_2_341dfe23-7a38-4903-9230-24d02afe6aac"> -->
+                                                <table class="style_15" style="empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_2_341dfe23-7a38-4903-9230-24d02afe6aac">
+                                                    <colgroup>
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div class="style_16" style=" text-align:center;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+                                                                <div class="style_17" id="AUTOGENBOOKMARK_3_d755ff79-037b-45d8-a7c3-d332549790e8" style=" text-align:center;">জাতীয় রাজস্ব বোর্ড ,&#32; ঢাকা</div>
+                                                            </td>
+                                                            </tr>
+                                                            <tr class="style_18" valign="top">
+                                                                <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            <br></br>
+                                            
+                                                <!-- <table class="table table-bordered" style="border:1px solid black;margin-left:auto;margin-right:auto;" id="AUTOGENBOOKMARK_4_5c76efbd-4977-427a-96e6-5839bce1fed6"> -->
+                                                
+                                                <table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+                                                    <colgroup>
+
+                                                    </colgroup>
+                                                    <tbody>
+                                                        <tr valign="top">
+                                                            <td colspan="12">
+                                                                <div class="style_20" id="mushak_43" style=" text-align:right;"><strong>মূসক - ৪.৩</strong></div>
+                                                                <div class="style_21" id="AUTOGENBOOKMARK_6_d4c91fd7-e00d-4348-8922-f68b4024e19d" style=" text-align:center;"><strong>উপকরণ-উৎপাদ সহগ (Input-Output Coefficient) ঘোষণা&#32;</strong></div>
+                                                                <div class="style_21" id="AUTOGENBOOKMARK_7_5fb15455-4b26-4636-b247-9d7223f9b83b" style=" text-align:center;"><strong>(বিধি ২১ দ্রষ্টব্য)</strong></div>
+                                                                <t t-foreach="headers" t-as="o">                                                                
+                                                                    <div id="AUTOGENBOOKMARK_8_71caccfe-c9b9-44ff-b60c-1dbf0be5c72b" style="text-align:left;"><strong>১।প্রতিষ্ঠানের নামঃ</strong> <t t-esc="o['name']" /></div>
+                                                                    <div id="AUTOGENBOOKMARK_9_cc5ec016-eb12-40a9-bcc7-439d6f14d48a" style="text-align:left;"><strong>২। ঠিকানাঃ</strong>  <t t-esc="o['street']" />, <t t-esc="o['street2']" />,  <t t-esc="o['zip']" /></div>
+                                                                    <div id="AUTOGENBOOKMARK_10_0f7b2e19-6f63-49c2-9da0-805c8ac3e59f" style="text-align:left;"><strong>৩। বিনঃ&#32;</strong> <t t-esc="o['vat']" /></div>
+                                                                    <div id="AUTOGENBOOKMARK_11_e3999c8a-bb0f-4524-b423-ecfaa00e2246" style="text-align:left;"><strong>৪। দাখিলের তারিখঃ&#32;&#32;</strong> <t t-esc="o['date']" /></div>
+                                                                    <div id="AUTOGENBOOKMARK_12_b81da76d-d48a-4826-99a0-f3576b94ead4" style="text-align:left;"><strong>৫। ঘোষিত সহগ অনুযায়ী পন্য/সেবার প্রথম সরবরাহের তারিখঃ</strong> <t t-esc="o['vat']" /></div>
+                                                                <br></br>
+                                                                </t>
+                                                            </td>
+                                                        </tr>
+                                                                <br></br>
+                                                                <br></br>
+
+                                                    <!-- </tbody>
+                                                </table>
+                                                <table class="table table-bordered" style="border-collapse: collapse; empty-cells: show; width: 100%;" id="__bookmark_6">
+                                                    <colgroup><h1 style="color:red;font-size:40px;">
+                                                    </colgroup>
+                                                    <tbody> -->
+    
+                                                    <tr class="style_5" valign="top" align="center">
+                                                        <th class="style_24" rowspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_13_063bbede-9121-48a7-bb90-04c6a060344e" style=" text-align:center;">ক্রমিক সংখ্যা</div>
+                                                        </th>
+                                                        <th class="style_24" rowspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_14_d6bcee5d-2c76-48f7-99fb-cd9b5fda7d38" style=" text-align:center;">পণ্যের এইচ এস কোড / সেবা কোড</div>
+                                                        </th>
+                                                        <th class="style_24" rowspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_15_e25e22d2-e3c5-4241-894e-931c7a8c0d6f">পণ্যের নাম ও বিবরণ</div>
+                                                        </th>
+                                                        <th class="style_24" rowspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_16_b7dff139-59e3-48cb-ba26-5725271cea2f" style=" text-align:center;">সরবরাহের একক</div>
+                                                        </th>
+                                                        <th class="style_24" colspan="5" align="left">
+                                                            <div id="AUTOGENBOOKMARK_17_1c267946-5e90-4c1b-b9c4-2a293c80b3b1" style=" text-align:center;">একক পণ্য/সেবা সরবরাহে ব্যবহার্য যাবতীয় উপকরণের/কাঁচামালের এবং প্যাকিং সামগ্রীর বিবরণ, পরিমাণ ও ক্রয়মূল্য (উপকরনভিত্তিক অপচয়ের শতকরা হারসহ)&#32;</div>
+                                                        </th>
+                                                        <th class="style_24" colspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_18_3a49f353-58ea-4d4c-a0e8-65c1337e73bc" style=" text-align:center;">মূল্য সংযোজনের বিবরণ</div>
+                                                        </th>
+                                                        <th class="style_24" rowspan="2" align="left">
+                                                            <div id="AUTOGENBOOKMARK_19_f8cf3791-14a8-48c0-8a94-479bf68b5f32" style=" text-align:center;">মন্তব্য</div>
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="style_5" valign="top" align="center">
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_20_54a696d3-20e0-434c-a4e6-b1c91fb39e6e" style=" text-align:center;">বিবরণ</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_21_a4f2c039-2418-4dea-9137-f7a90ba93256" style=" text-align:center;">অপচয়সহ পরিমাণ</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_22_e9f71065-5918-4fd9-9684-fe6cd200f39f" style=" text-align:center;">মূল্য</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_23_3fd9a66b-f9f4-420b-9bad-208aea0152e2" style=" text-align:center;">অপচয়ের পরিমাণ</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_24_4887a392-625f-4f00-ab56-d5fdd0a9ce92" style=" text-align:center;">শতকরা হার</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_25_00dff48f-62fa-4681-be72-f89354d858a3" style=" text-align:center;">মূল্য সংযোজনের খাত</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_26_8456f53a-fdf0-4753-a551-2b1a545c4fca" style=" text-align:center;">মূল্য</div>
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="style_21" valign="top" align="center">
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_27_c81eb4f5-6dbc-4f67-9ac7-0c44d7df140d" style=" text-align:center;">(১)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_28_5c6fb71f-c50c-4ac7-880e-ddb3cfba597c" style=" text-align:center;">(২)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_29_b99b6775-8baf-4a4e-9d5c-2993dbc10c30" style=" text-align:center;">(৩)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_30_4d161d5e-e4a2-4746-b510-0bfe361271e1" style=" text-align:center;">(৪)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_31_7042746c-0d61-40fd-862b-559377d49282" style=" text-align:center;">(৫)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_32_677a44a0-7a28-45ab-8462-4acffa1710d8" style=" text-align:center;">(৬)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_33_cb74a9de-809d-42c7-bd70-6e0fb7b7184e" style=" text-align:center;">(৭)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_34_88af29e6-1389-49c5-bddc-7aa0ea867794" style=" text-align:center;">(৮)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_35_d356d904-65f8-426f-9e47-9c7ba1268833" style=" text-align:center;">(৯)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_36_f9487a8f-68be-4de8-9094-1e7c032b5a44" style=" text-align:center;">(১০)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_37_db2f3001-41b9-4cc7-8ad3-1de72232e201" style=" text-align:center;">(১১)</div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_38_c2b1efbb-7e46-4315-990c-e1599f85182b" style=" text-align:center;">(১২)</div>
+                                                        </th>
+                                                    </tr>
+ 
+                                                   <tr class="style_21" valign="top" align="center">
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_27_c81eb4f5--4f67-9ac7-0c44d7df140d" style=" text-align:center;"><t t-esc="bom_product['serial_number']" /></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_28_5c6fb71f--4ac7-880e-ddb3cfba597c" style=" text-align:center;"><t t-esc="bom_product['hscode']" /></div>
+                                                        </th>
+
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_29_b99b6775--4a4e-9d5c-2993dbc10c30" style=" text-align:center;"><t t-esc="bom_product['name']" /></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_30_4d161d5e--4746-b510-0bfe361271e1" style=" text-align:center;"><t t-esc="bom_product['uom']" /></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_31_7042746c-0d61-40fd-862b-559377d49282" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_32_677a44a0-7a28-45ab-8462-4acffa1710d8" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_33_cb74a9de-809d-42c7-bd70-6e0fb7b7184e" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_34_88af29e6-1389-49c5-bddc-7aa0ea867794" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_35_d356d904-65f8-426f-9e47-9c7ba1268833" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_36_f9487a8f-68be-4de8-9094-1e7c032b5a44" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_37_db2f3001-41b9-4cc7-8ad3-1de72232e201" style=" text-align:center;"></div>
+                                                        </th>
+                                                        <th class="style_24" align="left">
+                                                            <div id="AUTOGENBOOKMARK_38_c2b1efbb-7e46-4315-990c-e1599f85182b" style=" text-align:center;"></div>
+                                                        </th>
+                                                    </tr>
+                                                    <t t-foreach="bom_lines" t-as="line">  
+                                                        <tr class="style_21" valign="top" align="center">
+                                                                                                                  
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_27_c81eb4f5-6dbc-4f67-9ac7-0c44d7df140d" style=" text-align:center;"></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_28_5c6fb71f-c50c-4ac7-880e-ddb3cfba597c" style=" text-align:center;"></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_29_b99b6775-8baf-4a4e-9d5c-2993dbc10c30" style=" text-align:center;"></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_30_4d161d5e-e4a2-4746-b510-0bfe361271e1" style=" text-align:center;"></div>
+                                                            </th>                                              
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_31_7042746c--40fd-862b-559377d49282" style=" text-align:center;"><t t-esc="line['product_name']"/></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_32_677a44a0--45ab-8462-4acffa1710d8" style=" text-align:center;"><t t-esc="line['product_qty']" />  <t t-esc="line['product_uom_id']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_33_cb74a9de--42c7-bd70-6e0fb7b7184e" style=" text-align:center;"><t t-esc="line['lst_price']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_34_88af29e6--49c5-bddc-7aa0ea867794" style=" text-align:center;"><t t-esc="line['waste_qty']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_36_f9487a8f--4de8-9094-1e7c032b5a44" style=" text-align:center;"><t t-esc="line['waster_per']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_37_db2f3001--4cc7-8ad3-1de72232e201" style=" text-align:center;"><t t-esc="line['name']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_38_c2b1efbb--4315-990c-e1599f85182b" style=" text-align:center;"><t t-esc="line['cost']" /></div>
+                                                            </th>
+                                                            <th class="style_24" align="left">
+                                                                <div id="AUTOGENBOOKMARK_38_c2b1efbb--4315-990c-e1599f85182b" style=" text-align:center;"></div>
+                                                            </th>                                                     
+                                                    </tr>
+                                                       </t>
+ 
+ 
+ 
+                                                    </tbody>
+                                                </table>
+
+
+                                                <br></br>
+                                                <br></br>
+                                                <table class="style_38" style="border-collapse: collapse; empty-cells: show; width: 14.573in;" id="AUTOGENBOOKMARK_39_d0273353-03dd-49c3-8876-6c77fd86e40b">
+                                                    <colgroup>
+
+                                                    </colgroup>
+                                                    <tbody>
+                                                    <tr valign="top">
+                                                        <td>
+                                                            <div class="style_39" id="AUTOGENBOOKMARK_40_1ad00e49-1934-484c-ba41-f47834a37987">
+                                                                <div style="visibility:hidden">&#32;
+                                                                </div>
+                                                            </div>
+                                                            <div class="style_40" id="AUTOGENBOOKMARK_41_0b75bb01-28f3-4aa6-8480-f5a5d4fb1f5d" style="text-align:center;">প্রতিষ্ঠান কর্তৃপক্ষের দায়িত্বপ্রাপ্ত ব্যক্তির নামঃ<br>পদবীঃ<br>স্বাক্ষরঃ<br>সীলঃ
+                                                            </div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr valign="top">
+                                                        <td>
+                                                            <div class="style_39" id="AUTOGENBOOKMARK_42_2532b9c9-e811-4939-becd-f5097e0f45f8">
+                                                                <div style="visibility:hidden">&#32;</div>
+                                                            </div>
+                                                            <div class="style_39" id="AUTOGENBOOKMARK_43_2d54d754-284b-4502-b515-00446497db4c">বিশেষ দ্রষ্টব্যঃ</div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr valign="top">
+                                                        <td>
+                                                            <div class="style_39" id="AUTOGENBOOKMARK_44_a0fb901d-c322-4df6-9f52-c5e20d9d8c5f">১। যেকোনো পণ্য সরবরাহের নুন্যতম ১৫ দিন পূর্বে অনলাইনে মূসক কম্পিউটার সিস্টেমে বা সংশ্লিষ্ট বিভাগীয় কর্মকর্তার দপ্তরে উপকরণ উৎপাদ সহগ ঘোষণা দাখিল করিতে হইবে।&#32;<br>২। পন্যমূল্য উপকরণ/কাঁচামাল বা&#32; মূল্য সংযোজনের খাতের পরিমাণ বা মূল্যে ৭.৫% এর বেশী পরিবর্তন হইলে নতুন ঘোষণা দাখিল করিতে হইবে।&#32;</br><br>৩। পণ্য ক্রয়ের স্বপক্ষে প্রামাণিক দলিল হিসাবে বিল অব এন্ট্রি বা চালানপত্রের কপি সংযুক্ত করিতে হইবে।&#32;</br></div>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_45_0e955319-ef00-415d-a121-37fdb24692b3">
+                                        <colgroup>
+                                        </colgroup><tbody><tr valign="top">
+                                            <td class="style_3" colspan="3"></td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td class="style_3">
+                                                <div class="style_7">02/14/2020 10:31</div>
+                                            </td>
+                                            <td class="style_8" valign="bottom" align="center">
+                                                <div>
+                                                    <div style="visibility:hidden">&#32;</div>
+                                                </div>
+                                            </td>
+                                            <td class="style_9" valign="bottom" align="right">
+                                                <span class="style_10" id="AUTOGENBOOKMARK_46_8dfc3a6a-3d5a-47a3-befc-bb4316af3088" style=" text-align:right;">Page&#32;</span>
+                                                <span class="style_11">1</span>
+                                                <span class="style_12" id="AUTOGENBOOKMARK_47_4e8a4114-31c6-4020-b9be-8634f33c5e02" style=" text-align:right;">&#32;of&#32;</span>
+                                                <span class="style_13" style=" text-align:right;">1</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+				</div>
+			<!-- </t> -->
+		</t>
+
+	</template>
+</odoo>

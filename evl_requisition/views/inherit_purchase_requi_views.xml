@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="requi_purchase_requi_form" model="ir.ui.view">
+            <field name="name">requisition.purchase.requisition.form</field>
+            <field name="model">purchase.requisition</field>
+            <field name="inherit_id" ref="purchase_requisition.view_purchase_requisition_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet/notebook/page/field[@name='line_ids']/tree/field[@name='product_id']" position="before">
+                    <field name="requisition_line_id" force_save="1"/>
+                </xpath>
+            
+            </field>
+        </record>
+    
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <menuitem name="Requisition" id="requisition_main_menu" web_icon="evl_requisition,static/description/icon.png" />
+        <menuitem name="Requisition" id="requisition_sidebar_menu" sequence="20" parent="requisition_main_menu" />
+        <menuitem name="Requisition" id="requisition_master_menu" action="action_requisition_master" sequence='10' parent="requisition_sidebar_menu"/>
+
+    </data>
+</odoo>

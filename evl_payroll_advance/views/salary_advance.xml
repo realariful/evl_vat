@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="view_salary_advance_form" model="ir.ui.view">
+            <field name="name">salary.advance.form</field>
+            <field name="model">salary.advance</field>
+            <field name="arch" type="xml">
+                <form string="Salary Advance" create="false">
+                    <header>
+                        <button name="submit_to_manager" string="Submit" type="object" states="draft" class="oe_highlight"/>
+                        <button name="approve_request_acc_dept" string="Approve" type="object" states="submit" class="oe_highlight"/>
+                        <button name="cancel" string="Cancel" type="object" states="draft,submit"/>
+                        <button name="reject" string="Reject" type="object" states="waiting_approval"/>
+                        <field name="state" widget="statusbar" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <group colspan="4">
+                                <separator string="Employees" />
+                                <newline/>
+                                <field name="employee_id" nolabel="1"/>
+                            </group>
+
+                            <group>
+                                <field name="company_id"/>
+
+                                <field name="advance"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_salary_advance_tree">
+            <field name="name">salary.advance.tree</field>
+            <field name="model">salary.advance</field>
+            <field name="arch" type="xml">
+                <tree string="Salary Advance" create="false">
+                    <field name="employee_id"/>
+                    <field name="company_id"/>
+                    <field name="batch"/>
+                    <field name="advance"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="hr_payroll_advance_action_form" model="ir.actions.act_window">
+            <field name="name">Salary Advance</field>
+            <field name="res_model">salary.advance</field>
+            <field name='view_mode'>tree,form</field>
+            <field name="context"> {'group_by': 'batch'}</field>
+
+        </record>
+
+
+
+        <record id="view_hr_payslip_by_employees_batch" model="ir.ui.view">
+            <field name="name">hr_payroll_payslip_employees_batch</field>
+            <field name="model">salary.advance.batch</field>
+            <field name="arch" type="xml">
+                <form string="Payslips by Employees" create="false">
+                    <field name="state" invisible="1" />
+
+
+                    <header>
+
+                        <button string="Disburse" name="confirm" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', '!=', 'confirm')]}"/>
+                        <field name="state" widget="statusbar" />
+                        <button string="Compute" name="compute" type="object" class="oe_highlight" attrs="{'invisible': ['|',('state', '!=', 'confirm')]}"/>
+
+                    </header>
+                    <group colspan="4">
+                        <separator string="Percentage of Salary to Pay in advance" colspan="4"/>
+                        <newline/>
+                        <field name="advance" nolabel="1"/>
+
+
+
+                    </group>
+
+                    <separator string="Period" colspan="4"/>
+
+                    <newline/>
+
+
+                    <label for="date_start" string=""/>
+                    <div>
+                        <field name="date_start" attrs ="{'readonly':[('state','not in', ['draft'])]}" />
+ -
+                        <field name="date_end" attrs ="{'readonly':[('state','not in', ['draft'])]}"/>
+                    </div>
+
+                    <!-- <group colspan="4"> -->
+                        <separator string="Employees" colspan="4"/>
+                        <newline/>
+
+                        <field options="{'no_create': True}"  name="employee_ids">
+
+
+                            <tree options="{'no_create': True}" delete="true">
+                                <field name="name" string="Employee"/>
+                                <field name="company_id"/>
+                                <field name="department_id"/>
+                            </tree>
+                        </field>
+
+                        <!-- <field delete="true" name="employee_ids" options="{'no_create': True}" nolabel="1"/> -->
+                    <!-- </group> -->
+
+
+                    <notebook>
+                        <page attrs ="{'invisible':[('state','not in', ['generate','confirm'])]}" string="Salary Advance Lines">
+                            <field name="lines">
+
+
+                                <tree delete="true">
+                                    <field name="employee_ids" string="Employee"/>
+                                    <field name="percentage"/>
+                                    <field name="amount"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+
+                </form>
+            </field>
+        </record>
+        <!-- model.name form view -->
+        <record id="salary_sds_orm" model="ir.ui.view">
+            <field name="name">salary.advance.batform</field>
+            <field name="model">salary.advance.batch.lines</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!-- Add your fields here -->
+                            <field name="percentage"/>
+                            <field name="amount"/>
+
+                            <field name="employee_ids" string="Employee">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_salary_advance_batch_tree">
+            <field name="name">salary.advance.tree.batch</field>
+            <field name="model">salary.advance.batch</field>
+            <field name="arch" type="xml">
+                <tree string="Salary Advance Batch">
+                    <field name="date"/>
+                    <field name="batch_name"/>
+                    <field name="advance" string='Percentage'/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_Transfer_batch_action_form" model="ir.actions.act_window">
+            <field name="name">Generate Salary Advance in Batch</field>
+            <field name="res_model">salary.advance.batch</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+
+        <menuitem id="parent_menu_salary_advance" name="Salary Advance" parent="om_hr_payroll.menu_hr_payroll_root" sequence="7"/>
+        <menuitem id="menu_my_salary_advance" action="hr_payroll_advance_action_form" parent="parent_menu_salary_advance" name="Salary Advance" sequence="1" />
+        <menuitem id="menu_salary_advance" action="hr_Transfer_batch_action_form" parent="parent_menu_salary_advance" name="Salary Advance Batch" sequence="3" />
+
+
+    </data>
+</odoo>

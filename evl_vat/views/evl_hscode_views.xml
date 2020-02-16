@@ -1,0 +1,121 @@
+<odoo>
+  <data>
+    <record id="evl_hscode_view_form" model="ir.ui.view">
+      <field name="name"></field>
+      <field name="model">evl.hscode</field>
+
+      <field name="priority">32</field>
+      <field name="arch" type="xml">
+        <form string="HS Code">
+          <sheet>
+            <div class="oe_title">
+                <h1>
+                    <field name="name" readonly="1"/>
+                </h1>
+            </div>
+            <div name="hscode_title">
+                <h1>HS Code
+                    <field name="hscode"/>
+                </h1>
+            </div>
+            <group>            
+
+                <group>
+                <field name="description"/>
+                <field name="vat_cd"/>
+                <field name="vat_sd"/>
+                <field name="vat"/>
+                <field name="ait"/>
+                </group>
+                <group>     
+                    <field name="country"/>           
+                    <field name="vat_rd"/>                       
+                    <field name="vat_at"/>                
+                    <field name="vat_tti"/>
+                    <field name="vat_exd"/>
+                </group>
+                <group name="col_right">
+                <field name="vat_atv" />  
+                    <field name="status" default="True"/>               
+                </group> 
+          </group>
+
+              <!-- <notebook>
+                <page string="List of Participants">
+                  <field name="participants_lines">
+                  </field>
+                </page>
+                <page string="Training Materials">
+                  <field name="training_materials">
+                  </field>
+                </page>
+                <page string="Training Expense">
+                  <field name="training_materials">
+                  </field>
+                </page>
+              </notebook> -->
+
+          </sheet>
+        </form>
+      </field>
+  </record>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="evl_hscode_view_list">
+      <field name="name">evl.hscode.view.list</field>
+      <field name="model">evl.hscode</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name" readonly="1"/>
+            <field name="hscode"/>
+            <field name="country"/>   
+            <field name="description"/>
+            <field name="vat_cd"/>
+            <field name="vat_sd"/>
+            <field name="vat"/>
+            <field name="ait"/>        
+            <field name="vat_rd"/>                       
+            <field name="vat_at"/>                
+            <field name="vat_tti"/>
+            <field name="vat_exd"/>
+             <field name="vat_atv" />              
+            <field name="status"/>   
+
+        </tree>
+      </field>
+    </record> 
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hs_code_menu_action">
+      <field name="name">HS Code</field>
+      <field name="res_model">evl.hscode</field>
+      <field name="view_mode">tree,list,form</field>
+    </record>
+
+    <!-- <record model="ir.actions.act_window" id="evl_training.action_window2">
+      <field name="name">Training window</field>
+      <field name="res_model">evl.training</field>
+      <field name="view_mode">tree,form</field>
+    </record> -->
+    <!-- Top menu item -->
+
+    <!-- <menuitem name="VAT" id="evl_vat.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!--<menuitem name="Request" id="evl_training.menu_1" parent="evl_training.menu_root"/>-->
+    <menuitem name="HS Code" id="evl_vat.hs_code_menu" parent="evl_vat.menu_root" action="hs_code_menu_action" sequence="1"/>
+    <!-- <menuitem name="Accounting" id="evl_vat.hod_accounting" parent="evl_vat.menu_root"/> -->
+
+    <!-- actions -->
+   <!-- <menuitem name="Training Request" id="evl_training.menu_1_list" parent="evl_training.menu_1"
+              action="evl_training.action_window"/>-->
+    <!-- <menuitem name="HS Code Report" id="evl_vat_hscode" parent="evl_vat.hs_code_menu" 
+              action="evl_report_action"/>-->
+    <!-- <menuitem name="Request for Accounting" id="evl_report_accounting" parent="evl_vat.hod_accounting"
+              action="evl_report_action_accounting"/> -->
+  </data>
+</odoo>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- <record model="ir.actions.act_window" id="action_lc_to_po_model">
+            <field name="name">Request for Quotation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="domain">[('lc_id','=',active_id)]</field>
+            <field name="context">{"default_lc_id":active_id}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_offers_list">
+            <field name="name">L/C Offers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('lc_id', '=', active_id),('state', 'in', ('draft', 'sent', 'to approve', 'cancel'))]</field>
+            <field name="context">{"default_lc_id": active_id}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_po_list">
+            <field name="name">L/C POs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('lc_id', '=', active_id),('state', 'in', ('purchase', 'done'))]</field>
+            <field name="context">{"default_lc_id": active_id}</field>
+        </record> -->
+
+        <record id="requisition_master_form" model="ir.ui.view">
+            <field name="name">requisition.master.form</field>
+            <field name="model">requisition.master</field>
+            <field name="arch" type="xml">
+                <form string="Requisition Form">
+
+                    <header>
+                        <field name="show_issue" invisible='1' />
+                        <field name="show_purchase" invisible='1' />
+                        <button name="action_confirm" class="btn-primary" string="Confirm" type="object" attrs="{'invisible': [('state', 'not in', 'draft')]}" />
+                        <button name="action_head_approve" class="btn-primary" string="Head Approve" type="object" attrs="{'invisible': [('state', 'not in', 'approve')]}" groups="evl_requisition.evl_requisition_head,evl_requisition.evl_requisition_admin,base.group_system"/>
+                        <button name="action_draft" class="btn-primary" string="Set to Draft" type="object" attrs="{'invisible': [('state', 'not in', 'cancel')]}"/>
+                        <button name="action_approve" class="btn-primary" string="Approve" type="object" attrs="{'invisible': [('state', 'not in', 'confirm')]}" groups="evl_requisition.evl_requisition_manager,base.group_system"/>
+                        <button name="action_hr_approve" class="btn-primary" string="Admin Approve" type="object" attrs="{'invisible': [('state', 'not in', 'head_approve')]}" groups="evl_requisition.evl_requisition_admin,base.group_system" />
+                        <button name="action_receive" class="btn-primary" string="Receive" type="object" attrs="{'invisible': [('state', 'not in', ('store_receive','issue'))]}"/>
+                        <button name="create_internal_transfer" class="btn-primary" string="Create Issue" type="object" attrs="{'invisible': [('show_issue', '=', False)]}" groups="evl_requisition.evl_requisition_admin,base.group_system" />
+                        <button name="create_purchase_requisition" class="btn-primary" string="Create Requisition" type="object" attrs="{'invisible': [('show_purchase', '=', False)]}" groups="evl_requisition.evl_requisition_admin,base.group_system" />
+                        <button name="action_cancel" string="Cancel" type="object" attrs="{'invisible': [('state', 'not in', 'confirm')]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve,hr_approve,issue,receive" />
+                        
+                    </header>
+
+                    <sheet>
+
+                        <div class="pull-left">
+                            <label for="name" class="oe_edit_only oe_inline" />
+                            <h1>
+                                <field name="name" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                            </h1>
+                        </div>
+
+                        <group>
+
+                            <group>
+                                <field name="requisition_type" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                                <field name="requisition_date" attrs="{'readonly': [('state','not in',('draft'))]}" />
+                                <field name="employee_id" attrs="{'readonly': [('state','not in',('draft'))]}" options="{'no_create_edit': True, 'no_open': True, 'no_create':True}" />
+                                <field name="company_id" attrs="{'readonly': [('state','not in',('draft'))]}" options="{'no_create_edit': True, 'no_open': True, 'no_create':True}" force_save="1"/>
+                            </group>
+
+                            <group>
+                                <field name="picking_id" attrs="{'invisible': [('picking_id', '=' , False)]}" force_save="1" />
+                                <field name="purchase_requi_id" attrs="{'invisible': [('purchase_requi_id', '=' , False)]}" force_save="1" />
+                            </group>
+
+                        </group>
+
+                        <notebook>
+                            <page id="requi_tab" string="Details">
+                                <field name="requisition_line_ids">
+                                    <tree string="Requisition Lines" editable="bottom">
+                                        <field name="name" />
+                                        <field name="product_id" options="{'no_create_edit': True, 'no_open': True, 'no_create':True}" />
+                                        <field name="product_qty" />
+                                        <field name="receive_qty" />
+                                        <field name="purchase_qty" />
+                                        <field name="product_uom_id" options="{'no_create_edit': True, 'no_open': True, 'no_create':True}" />
+                                        <field name="delivery_location" options="{'no_create_edit': True, 'no_open': True, 'no_create':True}" />
+                                        <!-- <field name="company_id" /> -->
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Notes">
+                                <field name="note" />
+                            </page>
+
+                        </notebook>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div> 
+
+                </form>
+            </field>
+        </record>
+
+        <record id="requisition_master_tree" model="ir.ui.view">
+            <field name="name">requisition.master.tree</field>
+            <field name="model">requisition.master</field>
+            <field name="arch" type="xml">
+                <tree string="Requisition Tree">
+                    <field name="name" />
+                    <field name="requisition_type" />
+                    <field name="employee_id" />
+                    <field name="requisition_date" />
+                    <field name="company_id" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- <record id="view_letter_credit_search" model="ir.ui.view">
+            <field name="name">letter.credit.search</field>
+            <field name="model">letter.credit</field>
+            <field name="arch" type="xml">
+                <search string="Search L/C">
+                    <field name="name" string="L/C" filter_domain="['|', ('name','ilike',self), ('origin','ilike',self)]" />
+                    <field name="type_id"/>
+                    <filter name="draft" 
+                        string="Draft" 
+                        domain="[('state','=','draft')]" 
+                        help="New Offers" />
+                    <filter string="Confirmed" 
+                        domain="[('state','in',('in_progress'))]" 
+                        help="In negotiation" />
+                    <filter string="Done" 
+                        domain="[('state','=','done')]" />
+                    <separator />
+                    <filter string="Unassigned" 
+                        domain="[('user_id','=', False)]" 
+                        help="Unassigned L/C" />
+                    <field name="user_id" />
+                    <group expand="0" 
+                        string="Group By">
+                        <filter string="Responsible" 
+                            domain="[]" 
+                            context="{'group_by':'user_id'}" />
+                        <filter string="Source" 
+                            domain="[]" 
+                            context="{'group_by':'origin'}" />
+                        <filter string="Status" 
+                            domain="[]" 
+                            context="{'group_by':'state'}" />
+                        <filter string="Ordering Date" 
+                            domain="[]" 
+                            context="{'group_by':'ordering_date'}" />
+                        <filter string="End Month" 
+                            domain="[]" 
+                            context="{'group_by':'date_end'}" />
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <record model="ir.actions.act_window" id="action_requisition_master">
+            <field name="name">Requisition</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">requisition.master</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Start a new Requisition Procedure
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

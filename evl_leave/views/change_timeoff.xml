@@ -1,0 +1,201 @@
+<odoo>
+  <data>
+
+      <menuitem
+        name="Leave"
+        id="hr_holidays.menu_hr_holidays_root"
+        sequence="95"
+        web_icon="hr_holidays,static/description/icon.png"
+        groups="base.group_user"/>
+
+        <menuitem
+        id="hr_holidays.menu_hr_holidays_my_leaves"
+        name="My Leave"
+        parent="hr_holidays.menu_hr_holidays_root"
+        sequence="1"/>
+
+    <menuitem
+        id="hr_holidays.menu_open_department_leave_approve"
+        name="Leave"
+        parent="hr_holidays.hr_holidays_menu_manager_approve"
+        action="hr_holidays.hr_leave_action_action_approve_department"
+        groups="evl_leave.group_evl_leave_manager,hr_holidays.group_hr_holidays_manager"
+        sequence="1"/>
+
+        <!-- <menuitem
+        id="hr_holidays.menu_open_employee_leave"
+        name="Leave Testing"
+        parent="hr_holidays.hr_holidays_menu_manager_all"
+        groups="evl_leave.group_evl_leave_manager,hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+        action="hr_holidays.hr_leave_action_all"
+        sequence="1"/> -->
+
+    <menuitem
+        id="hr_holidays.menu_open_allocation"
+        name="Allocation Requests"
+        parent="hr_holidays.menu_hr_holidays_my_leaves"
+        action="hr_holidays.hr_leave_allocation_action_my"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="3"/>
+
+    <menuitem
+        id="hr_holidays.menu_hr_holidays_dashboard"
+        name="Everyone"
+        parent="hr_holidays.menu_hr_holidays_root"
+        sequence="2"
+        groups="hr_holidays.group_hr_holidays_manager"
+        action="hr_holidays.action_hr_holidays_dashboard"/>
+
+
+        <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_payroll_to_report"
+        name="Leave to Report"
+        parent="hr_holidays.hr_holidays_menu_manager_payroll"
+        groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+        action="hr_holidays.hr_leave_action_payroll"
+        sequence="1"/>
+
+
+      <menuitem
+        id="hr_holidays.hr_holidays_status_menu_configuration"
+        action="hr_holidays.open_view_holiday_status"
+        name="Leave Types"
+        parent="hr_holidays.menu_hr_holidays_configuration"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="1"/>
+
+    <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_approve_allocations"
+        name="Allocations"
+        parent="hr_holidays.hr_holidays_menu_manager_approve"
+        action="hr_holidays.hr_leave_allocation_action_approve_department"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="2"/>
+
+    <menuitem 
+        id="hr_holidays.hr_holidays_menu_config_activity_type"
+        action="hr_holidays.mail_activity_type_action_config_hr_holidays"
+        parent="hr_holidays.menu_hr_holidays_configuration"
+        groups="hr_holidays.group_hr_holidays_manager"/>
+
+    <menuitem
+        id="hr_holidays.menu_hr_holidays_configuration"
+        name="Configuration"
+        parent="hr_holidays.menu_hr_holidays_root"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="5"/>
+
+    <menuitem
+        id="hr_holidays.menu_hr_holidays_approvals"
+        name="Managers"
+        parent="hr_holidays.menu_hr_holidays_root"
+        groups="evl_leave.group_evl_leave_manager,hr_holidays.group_hr_holidays_manager"
+        sequence="3"/>
+
+    <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_approve"
+        name="To Approve"
+        parent="hr_holidays.menu_hr_holidays_approvals"
+        groups="evl_leave.group_evl_leave_manager,hr_holidays.group_hr_holidays_manager"
+        sequence="1"/>
+
+    <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_all"
+        name="All"
+        parent="hr_holidays.menu_hr_holidays_approvals"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="2"/>
+
+    <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_payroll"
+        name="Payroll"
+        parent="hr_holidays.menu_hr_holidays_approvals"
+        groups="hr_holidays.group_hr_holidays_manager"
+        sequence="3"/>
+
+    <menuitem
+        id="hr_holidays.menu_open_employee_leave"
+        name="Time Off"
+        parent="hr_holidays.hr_holidays_menu_manager_all"
+        groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+        action="hr_holidays.hr_leave_action_all"
+        sequence="1"/>
+
+    <menuitem
+        id="hr_holidays.hr_holidays_menu_manager_all_allocations"
+        name="Allocations"
+        parent="hr_holidays.hr_holidays_menu_manager_all"
+        groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+        action="hr_holidays.hr_leave_allocation_action_all"
+        sequence="2"/>
+
+      <record id="hr_holidays.hr_leave_menu_my" model="ir.ui.menu">        
+        <field name="name">Leave Requests</field>      
+      </record>
+
+    <record id="hr_holidays.hr_leave_view_dashboard" model="ir.ui.view">
+        <field name="name">hr.leave.view.dashboard.inherit</field>
+        <field name="model">hr.leave</field>
+        <field name="arch" type="xml">
+            <calendar js_class="time_off_calendar" string="Leave Request" form_view_id="%(hr_holidays.hr_leave_view_form_dashboard)d" event_open_popup="true" date_start="date_from" date_stop="date_to" mode="month" quick_add="False" color="employee_id">
+                <field name="display_name"/>
+            </calendar>
+        </field>
+    </record>
+
+
+        <!-- <record id="hr_holidays.hr_leave_view_dashboard" model="ir.ui.view">
+        <field name="name">hr.leave.view.dashboard</field>
+        <field name="model">hr.leave</field>
+        <field name="arch" type="xml">
+            <calendar js_class="time_off_calendar" string="Leave Request" form_view_id="%(hr_holidays.hr_leave_view_form_dashboard)d" event_open_popup="true" date_start="date_from" date_stop="date_to" mode="month" quick_add="False" color="employee_id">
+                <field name="display_name"/>
+            </calendar>
+        </field>
+    </record> -->
+
+
+    <record id="hr_holidays.view_holidays_status_filter" model="ir.ui.view">
+        <field name="name">hr.leave.type.filter</field>
+        <field name="model">hr.leave.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Leave Type">
+                <field name="name" string="Time Off Types"/>
+                <field name="code"/>
+                <field name="create_calendar_meeting"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+
+   <record id="hr_holidays.hr_leave_action_action_department" model="ir.actions.act_window">
+        <field name="name">Leave Analysis</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{
+            'search_default_department_id': [active_id],
+            'default_department_id': active_id}
+        </field>
+        <field name="domain">[('holiday_type','=','employee')]</field>
+    </record>
+
+    <record id="hr_holidays.hr_leave_action_payroll" model="ir.actions.act_window">
+        <field name="name">Leave Requests</field>
+        <field name="res_model">hr.leave</field>
+        <field name="view_mode">tree,kanban,form,calendar,activity</field>
+        <field name="context">{'search_default_gray': True}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new time off request
+            </p><p>
+                Once a time off request is posted, your manager is notified for validation.
+            </p>
+        </field>
+    </record>
+
+
+   </data>
+</odoo>

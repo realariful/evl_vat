@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <data noupdate="0">
+      <record model="ir.module.category" id="module_category_training">
+          <field name="name">Training Management</field>
+          <field name="description">Category For Training Management</field>
+          <field name="sequence">45</field>
+      </record>
+
+        <!-- Group Training user -->
+        <record id="group_evl_training_user" model="res.groups">
+          <field name="name">Officer</field>
+          <field name="category_id" ref="module_category_training"/>
+        </record>
+
+        <!-- Group Training HR -->
+        <record id="group_evl_training_hr" model="res.groups">
+          <field name="name">HR Admin</field>
+          <field name="category_id" ref="module_category_training"/>
+          <field name="implied_ids" eval="[(4, ref('group_evl_training_user'))]"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- Group Training Man Com -->
+        <record id="group_evl_training_mancom" model="res.groups">
+          <field name="name">Man Com</field>
+          <field name="category_id" ref="module_category_training"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- Group Training HOD -->
+        <record id="group_evl_training_hod" model="res.groups">
+          <field name="name">HOD</field>
+          <field name="category_id" ref="module_category_training"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+          <!-- <field name="implied_ids" eval="[(4, ref('module_category_training'))]"/> -->
+         
+        </record> 
+    </data>
+</odoo>
+

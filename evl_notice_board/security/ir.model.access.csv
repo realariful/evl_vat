@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_evl_notice_batch_general,Batch General,model_notice_batch,base.group_user,1,0,0,0
+access_evl_notice_batch_admin,Batch Admin,model_notice_batch,evl_notice_board.notice_group_admin,1,1,1,0
+access_evl_notice_batch_erpadmin,Batch Erp Admin,model_notice_batch,base.group_erp_manager,1,1,1,1

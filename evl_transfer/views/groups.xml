@@ -1,0 +1,23 @@
+<odoo>
+  <data noupdate="0">
+    <record id="group_transfer_manager" model="res.groups">
+      <field name="name">Transfer Manager</field>
+      <field name="category_id" ref="evl_transfer.module_category_hr_Transfer"/>
+    </record>
+
+    <record id="group_transfer_officer" model="res.groups">
+      <field name="name">Transfer Officer</field>
+      <field name="category_id" ref="evl_transfer.module_category_hr_Transfer"/>
+    </record>
+
+
+    <record id="group_transfer_admin" model="res.groups">
+      <field name="name">Transfer Admin</field>
+      <field name="category_id" ref="evl_transfer.module_category_hr_Transfer"/>
+      <field name="implied_ids" eval="[(4, ref('evl_employee.group_hradmin_manager'))]"/>
+
+    </record>
+
+
+  </data>
+</odoo>

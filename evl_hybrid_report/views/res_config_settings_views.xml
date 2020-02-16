@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+        <record id="evl_report_config" model="ir.ui.view">
+            <field name="name">Report Configuration</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="72"/>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" name="Report_Configuration" data-string="Report Configuration">
+                        <h2>Hybrid Report Settings</h2>
+                        <div class="row mt16 o_settings_container" title="Report Configuration" id="report_config_hybrid">
+                            <div class="col-xs-12 col-md-6 o_setting_box" title="Report Configuration">
+                                <div class="o_setting_left_pane">
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="date_to"/>
+                                    <div class="text-muted">
+                                    Date Until which report is computed
+                                    </div>
+                                    <div class="text-muted">
+                                        <field name="date_to" rows="50"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button name="action_gen_report" string="Post" type="object" class="oe_highlight" />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

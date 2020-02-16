@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>    
+
+    <data>
+        <record id="mrp_bom_form_view_extend" model="ir.ui.view">
+            <field name="name">mrp.bom.form.extend</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+            <field name="arch" type="xml">          
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Bill of Costs" >
+                        <field name="bill_of_cost" >
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="cost"/>
+                                <field name="cost_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+        
+
+                <xpath expr="//notebook//page//field[@name='product_uom_id']" position="after">   
+                    <field name="standard_price"/>                   
+                    <field name="waste_qty"/>
+                    
+                    <field name="waste_per" invisible="1"/>
+
+                </xpath>
+
+
+            </field>
+
+        </record>
+
+        <!-- BOM Line -->
+        <!-- <record id="mrp_bom_line_view_form_extend" model="ir.ui.view">
+            <field name="name">mrp.bom.line.view.form.extend</field>
+            <field name="model">mrp.bom.line</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_line_view_form" />
+            <field name="arch" type="xml">
+         
+                     <xpath expr="//form/[@name='product_uom_id']" position="after">                      
+                        <field name="waste_qty"/>
+                        </xpath>
+
+                <xpath expr="//form" position="inside">
+
+                <field name="waste_qty"/>
+      
+                </xpath>
+         
+                 <form string="Bill of Material line">
+                    <group>
+                        <group string="Product">
+                            <field name="product_id"/>
+                            <field name="parent_product_tmpl_id" invisible="1"/>
+                            <label for="product_qty" string="Quantity"/>
+                            <div class="o_row">
+                                <field name="product_qty"/>
+                                <field name="product_uom_category_id" invisible="1"/>
+                                <field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>
+                            </div>
+                            <field name="possible_bom_product_template_attribute_value_ids" invisible="1"/>
+                            <field name="bom_product_template_attribute_value_ids" widget="many2many_tags" options="{'no_create': True}" groups="product.group_product_variant"/>
+                        </group>
+                        <group string="BoM details">
+                            <field name="company_id" invisible="1"/>
+                            <field name="routing_id" invisible="1"/>
+                            <field name="sequence"/>
+                            <field name="operation_id" groups="mrp.group_mrp_routings"/>
+                        </group>
+                    </group>
+                </form> -->
+            <!-- </field>
+        </record>  -->
+
+
+    </data>
+</odoo>
+                        <!-- <xpath expr="//form/page[@name='default_code']" position="after">                      
+                        <field name="hscode" />
+                        </xpath> -->
+                        <!-- <div class="oe_button_box" name="button_box">
+                            <button name="%(action_report_mrp_bom)d" type="action"
+                                class="oe_stat_button" icon="fa-bars" string="Structure &amp; Cost"/>
+                        </div>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="product_tmpl_id" context="{'default_type': 'product'}"/>
+                            <field name="product_uom_category_id" invisible="1"/>
+                            <field name="product_id" groups="product.group_product_variant" context="{'default_type': 'product'}"/>
+                            <label for="product_qty" string="Quantity"/>
+                            <div class="o_row">
+                                <field name="product_qty"/>
+                                <field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>
+                            </div>
+                            <field name="routing_id" attrs="{'invisible': [('type','not in',('normal','phantom'))]}" groups="mrp.group_mrp_routings" context="{'default_company_id': company_id}"/>
+                        </group>
+                        <group>
+                            <field name="code"/>
+                            <field name="type" widget="radio"/>
+                            <p colspan="2" class="oe_grey oe_edit_only" attrs="{'invisible': [('type','!=','phantom')]}">
+                            <ul>
+                                A BoM of type kit is used to split the product into its components.
+                                <li>
+                                    At the creation of a Manufacturing Order.
+                                </li>
+                                <li>
+                                    At the creation of a Stock Transfer.
+                                </li>
+                            </ul>
+                            </p>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                    </group> -->
+                    <!-- <notebook> -->
+                        <!-- <page string="Components">
+                            <field name="bom_line_ids" widget="one2many" context="{'default_parent_product_tmpl_id': product_tmpl_id, 'default_product_id': False, 'default_company_id': company_id, 'default_routing_id': routing_id}">
+                                <tree string="Components" editable="bottom">
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="routing_id" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id" context="{'default_type': 'product'}"/>
+                                    <field name="product_tmpl_id" invisible="1"/>
+                                    <button name="action_see_attachments" type="object" icon="fa-files-o" aria-label="Product Attachments" title="Product Attachments" class="float-right oe_read_only"/>
+                                    <field name="attachments_count" class="text-left oe_read_only"
+                                    string=" "/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="parent_product_tmpl_id" invisible="1" />
+                                    <field name="possible_bom_product_template_attribute_value_ids" invisible="1"/>
+                                    <field name="product_uom_id" options="{'no_open':True,'no_create':True}" groups="uom.group_uom"/>
+                                    <field name="bom_product_template_attribute_value_ids" widget="many2many_tags" options="{'no_create': True}" attrs="{'column_invisible': [('parent.product_id', '!=', False)]}" groups="product.group_product_variant"/>
+                                    <field name="operation_id" groups="mrp.group_mrp_routings" attrs="{'column_invisible': [('parent.type','not in', ('normal', 'phantom'))]}" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="By-products" attrs="{'invisible': [('type','!=','normal')]}" groups="mrp.group_mrp_byproducts">
+                            <field name="byproduct_ids"  context="{'form_view_ref' : 'mrp.mrp_bom_byproduct_form_view', 'default_company_id': company_id, 'default_routing_id': routing_id}">
+                                <tree string="By-products"  editable="top">
+                                    <field name="company_id" invisible="1"/>
+                                    <field name="routing_id" invisible="1"/>
+                                    <field name="product_id" context="{'default_type': 'product'}"/>
+                                    <field name="product_qty"/>
+                                    <field name="product_uom_id" groups="uom.group_uom"/>
+                                    <field name="operation_id" groups="mrp.group_mrp_routings" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                                </tree>
+                           </field>
+                       </page> -->
+                        <!-- <page string="Miscellaneous">
+                            <group>
+                                <group>
+                                    <field name="ready_to_produce" attrs="{'invisible': [('type','!=','normal')]}" string="Manufacturing Readiness" groups="mrp.group_mrp_routings"/>
+                                    <field name="consumption" attrs="{'invisible': [('type','!=','normal')]}"/>
+                                </group>
+                                <group>
+                                    <field name="picking_type_id" attrs="{'invisible': [('type','!=','normal')]}" string="Operation" groups="stock.group_adv_location"/>
+                                </group>
+                            </group>
+                        </page> -->
+    
+       
+                    <!-- </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record> -->

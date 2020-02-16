@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_evl_transfer_admin,admin_transfer,model_evl_hr_transfer,base.group_erp_manager,1,1,1,1
+access_evl_transfer_hradmin,hradmin_transfer,model_evl_hr_transfer,evl_appraisal.group_hradmins_manager,1,1,1,1
+access_evl_transfer_transfer_manager,hradmin_transfer_manager,model_evl_hr_transfer,evl_transfer.group_transfer_manager,1,1,0,1
+access_evl_transfer_transfer_officer,hradmin_transfer_officer,model_evl_hr_transfer,evl_transfer.group_transfer_officer,1,1,0,0
+

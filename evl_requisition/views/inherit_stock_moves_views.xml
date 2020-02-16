@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="requi_stock_picking_form" model="ir.ui.view">
+            <field name="name">requisition.stock.move.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet/notebook/page[3]/field[@name='move_ids_without_package']/tree/field[@name='product_id']" position="before">
+                    <field name="requisition_id" readonly="1" force_save="1"/>
+                </xpath>
+            
+            </field>
+        </record>
+    
+    </data>
+</odoo>

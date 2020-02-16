@@ -1,0 +1,133 @@
+<odoo>
+  <data>
+    <!-- <record model="mail.channel" id="channel_accountant_group">
+        <field name="name">Accountant</field>
+        <field name="group_ids" eval="[]"/>
+        <field name="description">Message Notifications.</field>
+    </record>  -->
+    <!-- EVL Training Form View -->
+
+    <!-- <record id="evl_training.evl_training_view_form" model="ir.ui.view">
+      <field name="name">evl.training.view.form</field>
+      <field name="model">evl.training</field>
+
+      <field name="priority">32</field>
+      <field name="arch" type="xml">
+        <form string="Leave Request">
+          <header>
+              <button string="Submit" name="action_submit" states="draft" type="object" class="oe_highlight" attrs="{'invisible': [('state','in',('publish','process','confirmed','feedback'))]}" />
+              <button string="Publish" name="action_publish" states="submit" type="object" class="oe_highlight" attrs="{'invisible': [('state','in',('draft','publish','process','confirmed','feedback'))]}" />
+              <button string="Approve" name="action_process" type="object" class="oe_highlight" attrs="{'invisible': [('state','not in','publish')]}" />
+              <button string="Cancel" name="action_cancel"  type="object" attrs="{'invisible': [('state','not in','feedback')]}"/>
+
+              <button string="Confirm" name="action_confirm" type="object" class="oe_highlight" attrs="{'invisible': [('state','not in','process')]}"/>                            
+              <button string="Submit Feedback" name="action_feedback" type="object" class="oe_highlight" attrs="{'invisible': [('state','not in','confirmed')]}" />           
+              <button string="Close" name="action_close"  type="object" attrs="{'invisible': [('state','not in','feedback')]}"/>
+ 
+              <field name="state" widget="statusbar" statusbar_visible="draft,submit,publish,process,confirmed,feedback,close"/>
+          </header>
+
+          <sheet>
+              <div name="training_title">
+                  <h1>Training Title
+                      <field name="training_title"/>
+                  </h1>
+              </div>
+
+            <group>
+                  
+          <group>
+              <field name="reference_no"/>
+              <field name="training_type"/>
+              <field name="trainer_name"/>
+              <field name="starting_date"/>
+              <field name="ending_date"/>
+            </group>
+            <group>
+                <field name="description"/>
+                <field name="skillset_cover"/>
+            </group>  
+              <group>                          
+                <field name="capacity_of_participants"/>
+                
+                <field name="no_of_session"/>
+              </group>
+              <group name="col_right">
+                <field name="feedback" attrs="{'invisible': [('state','in',('draft','publish','process','confirm'))]}" />               
+            </group> 
+          </group>
+
+              <notebook>
+                <page string="List of Participants">
+                  <field name="participants_lines">
+                  </field>
+                </page>
+                <page string="Training Materials">
+                  <field name="training_materials">
+                  </field>
+                </page>
+                <page string="Training Expense">
+                  <field name="training_materials">
+                  </field>
+                </page>
+              </notebook>
+
+          </sheet>
+        </form>
+      </field>
+  </record> -->
+
+    <!-- explicit list view definition -->
+
+    <!-- <record model="ir.ui.view" id="evl_training.list">
+      <field name="name">evl_training list</field>
+      <field name="model">evl.training</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="training_title"/>
+          <field name="reference_no"/>
+          <field name="state"/>
+          <field name="training_type"/>
+          <field name="trainer_name"/>
+          <field name="starting_date"/>
+          <field name="ending_date"/>
+          <field name="skillset_cover"/>    
+          <field name="capacity_of_participants"/>
+          <field name="no_of_session"/>
+        </tree>
+      </field>
+    </record> -->
+
+
+    <!-- actions opening views on models -->
+<!-- 
+    <record model="ir.actions.act_window" id="evl_training.action_window">
+      <field name="name">Training window</field>
+      <field name="res_model">evl.training</field>
+      <field name="view_mode">tree,form</field>
+    </record> -->
+
+    <!-- <record model="ir.actions.act_window" id="evl_training.action_window2">
+      <field name="name">Training window</field>
+      <field name="res_model">evl.training</field>
+      <field name="view_mode">tree,form</field>
+    </record> -->
+    <!-- Top menu item -->
+
+    <menuitem name="Reporting" id="evl_report.menu_root"/>
+
+    <!-- menu categories -->
+
+    <!--<menuitem name="Request" id="evl_training.menu_1" parent="evl_training.menu_root"/>-->
+    <menuitem name="Report" id="evl_report.hod_menu_" parent="evl_report.menu_root"/>
+    <menuitem name="Accounting" id="evl_report.hod_accounting" parent="evl_report.menu_root"/>
+
+    <!-- actions -->
+   <!-- <menuitem name="Training Request" id="evl_training.menu_1_list" parent="evl_training.menu_1"
+              action="evl_training.action_window"/>-->
+    <menuitem name="Request for Report" id="evl_report_id" parent="evl_report.hod_menu_"
+              action="evl_report_action"/>
+    <menuitem name="Request for Accounting" id="evl_report_accounting" parent="evl_report.hod_accounting"
+              action="evl_report_action_accounting"/>
+  </data>
+</odoo>

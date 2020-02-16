@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <data noupdate="0">
+        <!-- <record id="Training User" model="ir.rule">
+            <field name="name">See only his training</field>
+            <field name="model_id" ref="model_evl_training"/> 
+            <field name="domain_force">[('user_id', '=', user.id)]</field>      
+            <field name="groups" eval="[(4, ref('group_evl_training_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record> -->
+
+        <!-- <record id="Training Manager" model="ir.rule">
+            <field name="name">See trainings of employees under him</field>
+            <field name="model_id" ref="model_evl_training"/> 
+      
+            <field name="domain_force">
+          []      
+            </field>
+            <field name="groups" eval="[(4, ref('group_evl_training_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record> -->
+    </data>
+</odoo>

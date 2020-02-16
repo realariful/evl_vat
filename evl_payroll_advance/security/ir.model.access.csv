@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_manager,salary.advance,model_salary_advance,account.group_account_manager,1,1,1,1
+access_salary_advance_user_batch,salary.advance.batch,model_salary_advance_batch,base.group_erp_manager,1,1,1,0
+access_salary_advance_officer,salary.advance,model_salary_advance,om_hr_payroll.group_hr_payroll_user,1,1,1,0
+access_advance_officer,salary.advance.manager,model_salary_advance,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_salary_advance_user_batch_manager,salary.advance.batch,model_salary_advance_batch,om_hr_payroll.group_hr_payroll_manager,1,1,1,0
+acSS,salary.advance.batch.lines,model_salary_advance_batch_lines,base.group_erp_manager,1,1,1,1
+batch_lines_erp_manager,salary.advance.batch.lines,model_salary_advance_batch_lines,base.group_erp_manager,1,1,1,0
+batch_lines_payroll_manager,salary.advance.batch.lines.payroll.manager,model_salary_advance_batch_lines,om_hr_payroll.group_hr_payroll_manager,1,1,1,1
+payroll_manager_access,Payroll Manager Employee,hr.model_hr_employee,om_hr_payroll.group_hr_payroll_manager,1,1,1,0

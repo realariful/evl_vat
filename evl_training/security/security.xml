@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <data noupdate="0">
+        <record id="Training User" model="ir.rule">
+            <field name="name">See only his training</field>
+            <field name="model_id" ref="model_evl_trainings"/> 
+            <field name="domain_force">[
+                                        '|',  ('feedback_users.user_id','=',user.id), 
+                                              ('participants_lines.user_id','=',user.id),
+                                              ('state','in',('approve','cancel','process','confirmed','feedback','close'))
+                                      ]</field>      
+            <field name="groups" eval="[(4, ref('group_evl_training_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="Training HR" model="ir.rule">
+            <field name="name">See all trainings</field>
+            <field name="model_id" ref="model_evl_trainings"/>       
+            <field name="domain_force">
+                [('state','not in',('pre','rft'))]      
+            </field>
+            <field name="groups" eval="[(4, ref('group_evl_training_hr'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="Training ManCom" model="ir.rule">
+            <field name="name">See trainings submitted by HR</field>
+            <field name="model_id" ref="model_evl_trainings"/>      
+            <field name="domain_force">
+                    [('state','in',('submit','approve','approve','cancel','process','confirmed','feedback','close'))]      
+            </field>
+            <field name="groups" eval="[(4, ref('group_evl_training_mancom'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="Training HOD" model="ir.rule">
+            <field name="name">Only request for training</field>
+            <field name="model_id" ref="model_evl_trainings"/>      
+            <field name="domain_force">
+
+                                [
+        '|', ('participants_lines.id','=',user.employee_id.id),
+        '|',  ('feedback_users.user_id','=',user.id), 
+        '|', ('create_uid','=',user.id),('participants_lines.user_id','=',user.id)]
+            
+            </field>
+            <field name="groups" eval="[(4, ref('group_evl_training_hod'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+    </data>
+</odoo>

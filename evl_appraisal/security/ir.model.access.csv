@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_evl_appraisal_admin,admin_appraisal,model_evl_hr_appraisal,base.group_erp_manager,1,1,1,1
+access_evl_appraisal_feedback_admin,admin_feedback,model_evl_hr_appraisal_feedback,base.group_erp_manager,1,1,1,1
+access_evl_appraisal_hradmin,hradmin_appraisal,model_evl_hr_appraisal,evl_appraisal.group_hradmins_manager,1,1,1,1
+access_evl_appraisal_feedback_hradmin,hradmin_feedback,model_evl_hr_appraisal_feedback,evl_appraisal.group_hradmins_manager,1,1,1,1
+survey.access_survey_user_input_survey_user,survey.user_input_survey_user,survey.model_survey_user_input,survey.group_survey_user,1,1,1,1
+survey.access_survey_user_input_survey_manager,survey.user_input_survey_manager,survey.model_survey_user_input,survey.group_survey_manager,1,1,1,1
+
+

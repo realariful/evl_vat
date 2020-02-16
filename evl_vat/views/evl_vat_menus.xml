@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <menuitem 
+      name="VAT" 
+      id="evl_vat.menu_root"/>
+
+   <!-- <menuitem 
+      name="Report" 
+      id="evl_vat.hod_menu_" 
+      parent="evl_vat.menu_root"/>
+
+    <menuitem 
+      name="Accounting" 
+      id="evl_vat.hod_accounting" 
+      parent="evl_vat.menu_root"/>
+
+    <menuitem 
+      name="Request for Report" 
+      id="evl_vat_id" 
+      parent="evl_vat.hod_menu_"
+      action="evl_report_action"/>
+
+    <menuitem 
+      name="Request for Accounting" 
+      id="evl_report_accounting" 
+      parent="evl_vat.hod_accounting"
+      action="evl_report_action_accounting"/> -->
+
+
+   <menuitem 
+      name="VAT Report" 
+      id="evl_vat.vat_report" 
+      parent="evl_vat.menu_root"
+      sequence="2"/>
+
+    <menuitem 
+      name="Mushak 4.3 (Input-Output Coefficient)" 
+      id="evl_report_mushak_4_3" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_4_3_action"/>
+
+    <!-- <menuitem 
+      name="Mushak 6.1 (Purchase Book)" 
+      id="evl_report_mushak_6_1" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_1_action"/> -->
+  
+
+    </data>
+</odoo>
