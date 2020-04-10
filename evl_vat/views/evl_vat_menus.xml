@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+    <menuitem 
+      name="VAT" 
+      id="evl_vat.menu_root"
+      sequence="0"/>
+
+   <menuitem 
+      name="VAT Report" 
+      id="evl_vat.vat_report" 
+      parent="evl_vat.menu_root"
+      sequence="2"/>
+
+    <menuitem name="Payments" id="evl_vat.evl_payments" parent="evl_vat.menu_root" sequence="2"/>
+
+    <menuitem 
+      name="Mushak 4.3 (Input-Output Coefficient)" 
+      id="evl_report_mushak_4_3" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_4_3_action"
+      sequence="1"/>
+
+    <menuitem 
+      name="Mushak 6.1 (Purchase Book)" 
+      id="evl_report_mushak_6_1" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_1_action"
+      sequence="2"/>
+
+    <menuitem 
+      name="Mushak 6.2 (Sale Book)" 
+      id="evl_report_mushak_6_2" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_2_action"
+      sequence="3"/>
+
+    <menuitem 
+      name="Mushak 6.2.1 (Purchase-Sale Book)" 
+      id="evl_report_mushak_6_2_1" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_2_1_action"
+      sequence="4"/>
+
+    <menuitem 
+      name="Mushak 6.3 (Tax Book)" 
+      id="evl_report_mushak_6_3" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_3_action"
+      sequence="5"/> 
+
+
+    <menuitem 
+      name="Mushak 6.4 (Contractual Production Challan)" 
+      id="evl_report_mushak_6_4" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_4_action"
+      sequence="6"/> 
+
+    <menuitem 
+      name="Mushak 6.5 (Transfer Book)" 
+      id="evl_report_mushak_6_5" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_5_action"
+      sequence="7"/> 
+
+    <menuitem 
+      name="Mushak 6.7 (Credit Note)" 
+      id="evl_report_mushak_6_7" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_7_action"
+      sequence="8"/> 
+
+    <menuitem 
+      name="Mushak 6.8 (Debit Note)" 
+      id="evl_report_mushak_6_8" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_8_action"
+      sequence="9"/> 
+
+    <menuitem 
+      name="Mushak 6.10 (Purchase-Sale Book above 2 Lakhs Taka)" 
+      id="evl_report_mushak_6_10" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_6_10_action"
+      sequence="9"/> 
+
+    <menuitem 
+      name="Mushak 9.1 (VAT Return)" 
+      id="evl_report_mushak_9_1" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_9_1_action"
+      sequence="10"/> 
+
+    <menuitem 
+      name="TR-6 (Treasury Challan)" 
+      id="report_treasury_" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.evl_report_treasury"
+      sequence="11"/> 
+
+
+    <menuitem 
+      name="Mushak 9.2 (VAT Return)" 
+      id="evl_report_mushak_9_2" 
+      parent="evl_vat.vat_report"
+      action="evl_vat.report_mushak_9_2_action"
+      sequence="12"/>    
+
+      <menuitem id="menu_audit" parent="evl_vat.menu_root" name="Audit" sequence="6"/>
+    </data>
+</odoo>

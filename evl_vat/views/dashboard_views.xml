@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="hr_evl_dashboard" model="ir.actions.client">
+            <field name="name">Dashboard</field>
+            <field name="tag">hr_dashboard</field>
+        </record>
+
+        <menuitem id="menu_evl_dashboard"
+                  name="Dashboard"
+                  action="hr_evl_dashboard"
+                  web_icon="evl_vat,static/description/dashboard_icon.png"
+                  parent="evl_vat.menu_root"
+                  sequence="-1" groups="base.group_user,evl_vat.group_evl_vat_manager"/>
+    </data>
+
+    <template id="assets_backend_dashboard" name="Hr Dashboard assets inherit" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/evl_vat/static/src/css/hrms_dashboard.css"/>
+            <script type="text/javascript" src="/evl_vat/static/src/js/hrms_dashboard.js"/>
+            <link rel="stylesheet" href="/evl_vat/static/src/css/lib/nv.d3.css"/>
+            <script type="text/javascript" src="/evl_vat/static/src/js/lib/d3.min.js"/>
+        </xpath>
+    </template>
+</odoo>

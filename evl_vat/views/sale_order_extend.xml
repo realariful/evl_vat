@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        
+    <record id="sale_order_form_extend" model="ir.ui.view">
+            <field name="name">sale.order.form.extend</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />   
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">                         
+                        <field name="challan"/> 
+                </xpath> 
+            
+                <xpath expr="//field[@name='payment_term_id']" position="after">                      
+                        <field name="fiscal_position_id" />
+                        <field name="sale_epz" attrs="{'invisible':[]}"/>
+                        <field name="epz_name" attrs="{'invisible':[('sale_epz', '!=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form//field[@name='product_id']" position="after"> 
+                        
+                        <field name="sale_subtype"/> 
+                </xpath> 
+                <!-- <xpath expr='//field[@name="order_line"]//form/group/group/field[@name="price_unit"]' position="before">
+                <field name="sale_subtype" />   
+                </xpath> -->
+
+                <!-- <xpath expr="//field[@name='price_subtotal']" position="after">  
+                        <field name="sale_subtype" />   
+                
+                        <button name="evl_vat.widgett_vat_action" type="action" string="VAT Details" context="{'default_record_id': 'vat_cd'}" />   
+
+                </xpath>  
+
+                 <xpath expr="//notebook//page//field[@name='price_subtotal']" position="after">  
+                        <field name="sale_subtype"/>                      
+                </xpath>       -->
+                
+                        <!-- <xpath expr="//notebook//page//field//form//field[@name='price_unit']" position="before">
+                                <field name="sale_subtype"/>
+                        </xpath> -->
+                 <!--  
+                <xpath expr="//field[@name='price_subtotal']" position="after">  
+                        <button name="evl_vat.widgett_vat_action" type="action" string="VAT Details" context="{'default_record_id': 'vat_cd'}" />   
+
+                </xpath>    -->
+
+
+                <xpath expr="//page//field[@name='fiscal_position_id']" position="replace">                      
+                </xpath>					
+            </field>
+    </record>
+
+        <!-- <record model="ir.ui.view" id="sale_margin_percent_2sale_subtyper_form"> 
+                <field name="name">sale.order.tree.extend</field>
+                <field name="model">sale.order</field>
+                <field name="inherit_id" ref="sale.view_order_tree" />   
+                <field name="arch" type="xml"> 
+                        <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="before"> 
+                        <field name="sale_subtype"/> 
+                        </xpath> 
+                         
+                </field> 
+        </record>  -->
+
+
+</odoo>
+
+<!-- icon="fa-cogs" -->

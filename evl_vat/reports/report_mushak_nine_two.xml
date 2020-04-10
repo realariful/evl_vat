@@ -1,0 +1,2330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_por" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="mushak_9_2_preview"
+            model="mushak.vatreturn" 
+            string="Muhsak 9.2 (VAT Return)" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_vatreturntwo" 
+            file="evl_vat.mushak_vatreturntwo" 
+            paperformat="evl_vat.paperformat_cny_por"
+            />
+
+
+	<report id="mushak_9_2_action"
+            model="mushak.vatreturn" 
+            string="Muhsak 9.2 (VAT Return)" 
+            report_type="qweb-pdf" 
+            name="evl_vat.mushak_vatreturntwo" 
+            file="evl_vat.mushak_vatreturntwo" 
+            paperformat="evl_vat.paperformat_cny_por"
+            />
+   
+	<template id="mushak_vatreturntwo">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+            <!-- <t t-foreach="pages" t-as="pg">  -->
+				<div class="page">
+						 
+					 <style>
+					 	.style_mus { border: thin solid black;}
+
+						.style_39 { padding-right: 3pt; padding-left: 3pt;}
+						.style_36 { border: thin solid black;}
+						.style_26 { padding-right: 3pt; padding-left: 3pt; border: thin solid rgb(0, 0, 0);}
+						.style_28 { padding-right: 3pt; padding-left: 3pt; border: thin solid rgb(0, 0, 0);}
+					</style>
+                    <div>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+				<!-- Page 1 -->
+
+					<table rules="none" style="empty-cells: show; width:70%;" cellpadding="0" border="0" align="center">
+						<colgroup><col></col>
+						</colgroup><tbody><tr>
+							
+							
+							<td valign="top">
+
+
+								<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+									<colgroup><col></col>
+									</colgroup><tbody><tr valign="top">
+										<td >
+											<table  style="border-collapse: collapse; empty-cells: show; width: 100%;">
+												<colgroup><col></col>
+												</colgroup><tbody><tr valign="top">
+													<td align="center">
+														<div>গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+														<div><b>জাতীয় রাজস্ব বোর্ড</b></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="right">
+														<span class="style_mus" style=" text-align:right;">মূসক - ৯.২&#160;&#160;</span>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td>
+														<div style=" text-align:center;"><b>টার্নওভার কর দাখিলপত্র</b></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td>
+														<div style=" text-align:center;">[বিধি ৪৭ এর উপ-বিধি (১) দ্রষ্টব্য]</div>
+														<div style=" text-align:right;">
+															<div style="visibility:hidden">&#160;</div>
+														</div>
+													</td>
+												</tr>
+											</tbody></table>
+												<table style="text-align: center; border-collapse: collapse; width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+												<colgroup><col style=" width: 30%;"></col>
+												<col style=" width: 3%;"></col>
+												<col style=" width: 60%;"></col>
+												</colgroup><tbody><tr  valign="top" align="center">
+													<th  colspan="3" align="left" bgcolor="#ffbe8f">
+														<div style=" text-align:center;">অংশ-১: করদাতার তথ্য</div>
+													</th>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(১) ব্যবসায় সনাক্তকরণ সংখ্যা </div>
+													</td>
+													<td align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td align="left">
+														<div> <t t-esc="pages['sub_ka']['bin']" /></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td align="left">
+														<div>(২) করদাতার নাম</div>
+													</td>
+													<td align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<div><t t-esc="pages['sub_ka']['company']" /></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(৩) করদাতার ঠিকানা</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<div><t t-esc="pages['sub_ka']['address']" /></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(৪) ব্যবসার প্রকৃতি &#160;</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<div><t t-esc="pages['sub_ka']['business_type']" /></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(৫) অর্থনৈতিক কার্যক্রম এর প্রকৃতি</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<div><t t-esc="pages['sub_ka']['operation_type']" /></div>
+													</td>
+												</tr>
+											</tbody></table>
+											<div style=" text-align:right;">
+												<div style="visibility:hidden">&#160;</div>
+											</div>
+
+											<table style="text-align: center; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+												<colgroup><col style=" width: 30%;"></col>
+												<col style=" width: 3%;"></col>
+												<col style=" width: 60%;"></col>
+												</colgroup><tbody><tr valign="top" align="center">
+													<th  colspan="3" align="left" bgcolor="#ffbe8f">
+														<div style=" text-align:center;">অংশ-২: দাখিলপত্র জমার তথ্য</div>
+													</th>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(১) কর মেয়াদ</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+
+
+
+														<table class="style_31" style="border-collapse: collapse; empty-cells: show; width: 100%;" id="__bookmark_3">
+															<colgroup><col style=" width: 48%;"></col>
+															<col style=" width: 4%;"></col>
+															<col style=" width: 48%;"></col>
+															</colgroup><tbody><tr  valign="top">
+																<th  align="left">
+																	<div  style=" text-align:center;"><t t-esc="pages['sub_ka']['tax_period']['month']" /></div>
+																</th>
+																<th  align="left">
+																	<div style=" text-align:center;">/</div>
+																</th>
+																<th  align="left">
+																	<div  style=" text-align:center;"><t t-esc="pages['sub_ka']['tax_period']['year']" /></div>
+																</th>
+															</tr>
+														</tbody></table>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>(২)দাখিলপত্রের প্রকার<br>[অনুগ্রহ করিয়া প্রযোজ্যটিতে টিক দিন]</br></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+															<colgroup><col></col>
+															<col style=" width: 4.01in;"></col>
+															<col style=" width: 0.75in;"></col>
+															<col style=" width: 6.396in;"></col>
+															</colgroup><tbody><tr valign="top">
+																<td>
+																	<div style=" text-align:center;">(ক)</div>
+																</td>
+																<td>
+																	<div>মূল দাখিলপত্র (ধারা-৬৪)</div>
+																</td>
+																<td >
+																	
+																	<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+																		<colgroup><col></col>
+																		</colgroup><tbody><tr style=" height: 0.323in;" valign="top">
+																			<td ></td>
+																		</tr>
+																		<tr valign="top">
+																			<td></td>
+																		</tr>
+																	</tbody></table>
+																</td>
+																<td ></td>
+															</tr>
+															
+
+
+															<tr valign="top">
+																<td>
+																	<div style=" text-align:center;">(খ)</div>
+																</td>
+																<td>
+																	<div>সংশোধিত দাখিলপত্র (ধারা-৬৬)</div>
+																</td>
+																<td>
+																	<table style="border-collapse: collapse; empty-cells: show; width: 100%;" >
+																		<colgroup><col></col>
+																		</colgroup><tbody><tr style=" height: 0.323in;" valign="top">
+																			<td valign="top"></td>
+																		</tr>
+																		<tr valign="top">
+																			<td></td>
+																		</tr>
+																	</tbody></table>
+																</td>
+																<td></td>
+															</tr>
+															<tr valign="top">
+																<td>
+																	<div style=" text-align:center;">(গ)</div>
+																</td>
+																<td>
+																	<div >পুর্ণ, অতিরিক্ত বা বিকল্প দাখিলপত্র (ধারা-৬৭)</div>
+																</td>
+																<td>
+																	<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+																		<colgroup><col></col>
+																		</colgroup><tbody><tr style=" height: 0.323in;" valign="top">
+																			<td ></td>
+																		</tr>
+																		<tr valign="top">
+																			<td></td>
+																		</tr>
+																	</tbody></table>
+																</td>
+																<td></td>
+															</tr>
+														</tbody></table>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td >
+														<div >(৩) বিগত কর মেয়াদে কোনো কার্যক্রম সম্পাদিত হইয়াছে কি?</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<table style="border-collapse: collapse; empty-cells: show; width:70%;" id="__bookmark_4">
+															<colgroup><col style=" width: 10%;"></col>
+															<col style=" width: 5%;"></col>
+															<col style=" width: 40%;"></col>
+															<col style=" width: 5%;"></col>
+															<col style=" width: 40%;"></col>
+															</colgroup><tbody><tr valign="top">
+																<td></td>
+																<td></td>
+																<td>
+																	<span >হ্যাঁ&#160;</span>
+																</td>
+																<td></td>
+																<td>
+																	<span >না</span>
+																</td>
+															</tr>
+														</tbody></table>
+														<div style=" text-align:left;">&#160;&#160;&#160;&#160;[যদি 'না' হয় তাহা হইলে অংশ-১,২ এবং ১১ পূরণ করুন]</div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td >
+														<div>(৪) পেশের তারিখ</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">:</div>
+													</td>
+													<td  align="left">
+														<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+															<colgroup><col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															<col></col>
+															</colgroup><tbody>
+															
+															<tr  valign="top">
+
+															<div  style=" text-align:center;"><t t-esc="pages['sub_ka']['date']" /></div>
+															</tr>
+														</tbody></table>
+													</td>
+												</tr>
+											</tbody></table>
+											<div style=" text-align:right;">
+												<div style="visibility:hidden">&#160;</div>
+											</div>
+											<table style="text-align: center; border-collapse: collapse;width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+
+												<colgroup><col style=" width: 20%;"></col>
+												<col style=" width: 20%;"></col>
+												<col style=" width: 5%;"></col>
+												<col style=" width: 15%;"></col>
+												<col style=" width: 15%;"></col>
+												<col style=" width: 15%;"></col>
+												<col style=" width: 10%;"></col>
+												</colgroup><tbody><tr  valign="top" align="center" >
+													<th  colspan="5" align="left" bgcolor="#ffbe8f">
+														<div style=" text-align:center;">অংশ-৩: বিক্রয় তথ্য</div> 
+													</th>
+												</tr>
+												<tr  valign="top">
+													<td  colspan="2" bgcolor="#cfd1d4">
+														<div style=" text-align:center;">সরবরাহের প্রকৃতি</div>
+													</td>
+													<td  align="left" bgcolor="#cfd1d4">
+														<div style=" text-align:center;">নোট</div>
+													</td>
+													<td  align="left" bgcolor="#cfd1d4">
+														<div style=" text-align:center;">মূল্য <br>(ক)</br></div>
+													</td>
+													<td  align="left" bgcolor="#cfd1d4">
+														<div style=" text-align:center;">টার্নওভার কর<br>(খ)</br></div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  rowspan="2">
+														<div>শুন্যহার বিশিষ্ট পণ্য/সেবা</div>
+													</td>
+													<td  align="left">
+														<div>সরাসরি রপ্তানি</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">১</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note1_z_t'][0]['pro_price'])" /></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note1_z_t'][0]['pro_vat'])" /></div>
+													</td>
+													<td  align="left">
+														<div >সাবফর্ম-ক</div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  align="left">
+														<div>প্রচ্ছন্ন রপ্তানি</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">২</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note2_z_t'][0]['pro_price'])" /></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note2_z_t'][0]['pro_vat'])" /></div>
+													</td>
+													<td  align="left" >
+														<div>সাবফর্ম-ক</div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  colspan="2">
+														<div>অব্যাহতিপ্রাপ্ত পণ্য/সেবা</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;">৩</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note3_t'][0]['pro_price'])" /></div>
+													</td>
+													<td  align="left" >
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note3_t'][0]['pro_vat'])" /></div>
+													</td>
+													<td  align="left">
+														<div>সাবফর্ম-ক</div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  colspan="2">
+														<div>আদর্শ হারের পণ্য/সেবা</div>
+													</td>
+													<td  align="left">
+														<div  style=" text-align:center;">৪</div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note4_t'][0]['pro_price'])" /></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note4_t'][0]['pro_vat'])" /></div>
+													</td>
+													<td  align="left">
+														<div>সাবফর্ম-ক</div>
+													</td>
+												</tr>
+												<tr valign="top">
+													<td  colspan="2">
+														<div><b>মোট বিক্রয়মূল্য ও মোট টার্নওভার কর</b></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:center;"><b>৫</b></div>
+													</td>
+												<td  align="left" >
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note5_t'][0]['pro_price'])" /></div>
+													</td>
+													<td  align="left">
+														<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note5_t'][0]['pro_vat'])" /></div>
+													</td>
+												</tr>
+											</tbody></table>
+											<div style=" text-align:right;">
+												<div style="visibility:hidden">&#160;</div>
+											</div>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+
+
+
+								<table style="text-align: center; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+									<colgroup><col style=" width: 30%;"></col>
+									<col style=" width: 20%;"></col>
+									<col style=" width: 5%;"></col>
+									<col style=" width: 20%;"></col>
+									<col style=" width: 15%;"></col>
+									<col style=" width: 10%;"></col>
+									</colgroup><tbody><tr  valign="top" align="center">
+										<th  colspan="4" align="left" bgcolor="#ffbe8f">
+											<div  style=" text-align:center;">অংশ-৪: ক্রয় - উপকরণ/কাঁচামাল</div>
+										</th>
+									</tr>
+									<tr  valign="top">
+										<td bgcolor="#cfd1d4">
+											<div style=" text-align:center;">ক্রয়ের প্রকৃতি</div>
+										</td>
+										<td  align="left" bgcolor="#cfd1d4">
+											<div style=" text-align:center;">নোট</div>
+										</td>
+										<td  align="left" bgcolor="#cfd1d4">
+											<div style=" text-align:center;">মূল্য (ক)</div>
+										</td>
+										<td  align="left" bgcolor="#cfd1d4">
+											<div style=" text-align:center;">কর (খ)</div>
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<div>অব্যাহতিপ্রাপ্ত পণ্য/সেবা</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:center;">৬</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['exempt_total_loc'][0][4])" /></div>
+										</td>
+										<td  align="left" >
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['exempt_total_loc'][0][6])" /></div>
+										</td>
+										<td  align="left">
+											<div>সাবফর্ম-ক</div>
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<div >আদর্শ হারের পণ্য/সেবা</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:center;">৭</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['standard_total_loc'][0][4])" /></div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['standard_total_loc'][0][6])" /></div>
+										</td>
+										<td  align="left">
+											<div>সাবফর্ম-ক</div>
+										</td>
+									</tr>
+									<tr valign="top">
+										<td>
+											<div>প্রমিত হার ব্যতীত অন্যান্য হারের পণ্য/সেবা</div>
+										</td>
+
+										<td  align="left">
+											<div style=" text-align:center;">৮</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['nstandard_total_loc'][0][4])" /></div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['nstandard_total_loc'][0][6])" /></div>
+										</td>
+										<td  align="left">
+											<div>সাবফর্ম-ক</div>
+										</td>
+									</tr>
+									<tr valign="top">
+										<td >
+											<div  style=" text-align:center;">বিশেষ স্কীমভিত্তিক পণ্য/সেবা</div>
+										</td>
+										<td  align="left">
+											<div  style=" text-align:center;">৯</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['special_total_loc'][0][4])" /></div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['special_total_loc'][0][6])" /></div>
+										</td>
+										<td  align="left">
+											<div>সাবফর্ম-ক</div>
+										</td>
+									</tr>					
+								
+									<tr valign="top">
+										<td >
+											<div  style=" text-align:center;">নির্ধারিত মূল্য সংযোজন করভিত্তিক পণ্য/সেবা</div>
+										</td>
+										<td  align="left">
+											<div  style=" text-align:center;">১০</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['specific_total_loc'][0][4])" /></div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['specific_total_loc'][0][6])" /></div>
+										</td>
+										<td  align="left">
+											<div>সাবফর্ম-ক</div>
+										</td>
+									</tr>
+
+									<tr valign="top">
+										<td >
+											<div>মোট উপকরণ ক্রয় মূল্য ও সেবা</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:center;">১১</div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['total_pur'][0][4])" /></div>
+										</td>
+										<td  align="left">
+											<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['total_pur'][0][6])" /></div>
+										</td>
+									</tr>
+								
+									</tbody>
+								</table>
+
+							</td>
+						</tr>
+
+
+
+						<tr>
+							<td>
+								<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+									<colgroup><col style=" width: 1.5in;"></col>
+									<col></col>
+									<col style=" width: 1.5in;"></col>
+									</colgroup><tbody><tr valign="top">
+										<td  colspan="3"></td>
+									</tr>
+									<tr valign="top">
+										<td >
+											<div><t t-esc="pages['page1']['report_date']" /></div>
+										</td>
+										<td  valign="bottom" align="center">
+											<div>
+												<div style="visibility:hidden">&#160;</div>
+											</div>
+										</td>
+										<td  valign="bottom" align="right">
+											<span  id="page_no" style=" text-align:right;">Page&#160;</span>
+											<span ><t t-esc="pages['page1']['pg_no']" /></span>
+											<span class="style_12" style=" text-align:right;">&#160;of&#160;</span>
+											<span class="style_13" style=" text-align:right;">5</span>
+										</td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody>
+					
+					</table>
+
+
+				<!-- Page 1 ends -->
+
+<p style="page-break-after:always;">   </p>
+<!-- Page 2 Begins -->
+					<br></br>
+					<br></br>
+					<br></br>
+
+	<table rules="none" style="empty-cells: show; width:70%;" cellpadding="0" border="0" align="center">
+		<colgroup><col></col>
+		</colgroup>
+		
+		<tbody>
+		
+			<tr>
+				<td valign="top">
+					<table  style="text-align: left; border-collapse: collapse; width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+						<colgroup><col style=" width: 60%;"></col>
+						<col style=" width: 5%;"></col>
+						<col style=" width: 35%;"></col>
+						</colgroup>
+						<tbody>
+						<tr  valign="top" align="center">
+							<th  colspan="3" align="left" bgcolor="#ffbe8f">
+								<div  style=" text-align:center;">অংশ-৫: নিট কর হিসাব</div>
+							</th>
+						</tr>
+						<tr  valign="top">
+							<td  bgcolor="#cfd1d4">
+								<div style=" text-align:center;">আইটেম</div>
+							</td>
+							<td  align="left" bgcolor="#cfd1d4">
+								<div style=" text-align:center;">নোট</div>
+							</td>
+							<td  align="left" bgcolor="#cfd1d4">
+								<div style=" text-align:center;">পরিমাণ</div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>বর্তমান করমেয়াদে প্রদেয় মোট কর (সমাপনী জের ব্যাতিত) (৫খ)</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১২</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note12'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>সমাপনী জের এর সহিত সমন্বয়ের পর বর্তমান করমেয়াদে প্রদেয় মোট কর (১২-২১)</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৩</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note13'])" /></div>
+							</td>
+						</tr>
+
+					
+				
+						<tr valign="top">
+							<td >
+								<div>অপরিশোধিতকরের জন্য সুদ&#160;</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৪</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note14'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>অর্থদণ্ড ও জরিমানা&#160;</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৫</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note15'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>আবগারি শুল্ক</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৬</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note16'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>উন্নয়ন সারচার্জ</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৭</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note17'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>তথ্য প্রযুক্তি উন্নয়ন সারচার্জ</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৮</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note18'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>স্বাস্থ্য সুরক্ষা সারচার্জ</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">১৯</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note19'])" /></div>
+							</td>
+						</tr>
+						<tr valign="top">
+							<td >
+								<div>পরিবেশ সুরক্ষা সারচার্জ</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:center;">২০</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note20'])" /></div>
+							</td>
+						</tr>
+
+						<tr valign="top">
+							<td >
+								<div>শেষ করমেয়াদের সমাপনী জের (টার্নওভার কর)&#160;</div>
+							</td>
+							<td  align="left">
+								<div ystyle=" text-align:center;">২১</div>
+							</td>
+							<td  align="left">
+								<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note21'])" /></div>
+							</td>
+						</tr>
+
+						</tbody>
+								
+					</table>
+
+					
+					<div  id="AUTOGENBOOKMARK_46_210ee432-ea1a-498b-927f-3bac2cc58e5c" style=" text-align:right;">
+						<div style="visibility:hidden">&#160;</div>
+					</div>
+					<br></br>
+					<br></br>
+					<br></br>
+
+
+					<table style="text-align: left; border-collapse: collapse;width:100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+
+						<colgroup><col style=" width: 40%;"></col>
+						<col style=" width: 5%;"></col>
+						<col style=" width: 25%;"></col>
+						<col style=" width: 20%;"></col>
+						<col style=" width: 10%;"></col>
+						</colgroup>
+						<tbody>
+							<tr  valign="top" align="center">
+								<th  colspan="4" align="left" bgcolor="#ffbe8f">
+									<div style=" text-align:center;">অংশ-৬:: কর পরিশোধের তফসিল (ট্রেজারী জমা)</div>
+								</th>
+							</tr>
+							<tr  valign="top">
+								<td  bgcolor="#cfd1d4">
+									<div style=" text-align:center;">আইটেম</div>
+								</td>
+								<td  align="left" bgcolor="#cfd1d4">
+									<div style=" text-align:center;">নোট</div>
+								</td>
+								<td  align="left" bgcolor="#cfd1d4">
+									<div style=" text-align:center;">অর্থনৈতিক কোড</div>
+								</td>
+								<td  align="left" bgcolor="#cfd1d4">
+									<div style=" text-align:center;">পরিমাণ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>বর্তমান কর মেয়াদে পরিশোধিত মোট মূসক</div>
+								</td>
+								<td  align="left">
+									<div  style=" text-align:center;">২২</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/অপারেশন কোড/০৩১৩</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note22'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div> অপরিশোধিত করের জন্য সুদ </div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৩</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/অপারেশন কোড/০৩১৩</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note23'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>অর্থদণ্ড ও জরিমানা&#160;</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৪</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১০৩/অপারেশন কোড/১৯০১</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note24'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>আবগারি শুল্ক</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৫</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/অপারেশন কোড/০৬০১</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note25'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>উন্নয়ন সারচার্জ</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৬</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১০৩/অপারেশন কোড/২২২৫</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note26'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>তথ্য প্রযুক্তি উন্নয়ন সারচার্জ</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৭</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/অপারেশন কোড/২২১৪</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note27'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>স্বাস্থ্য সুরক্ষা সারচার্জ</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৮</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/অপারেশন কোড/২২১২</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note28'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+							<tr valign="top">
+								<td >
+									<div>পরিবেশ সুরক্ষা সারচার্জ</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">২৯</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:center;">১/১১৩৩/০০০০/২২১৩</div>
+								</td>
+								<td  align="left">
+									<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note29'])" /></div>
+								</td>
+								<td  align="left">
+									<div>সাবফর্ম - খ</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</td>
+			</tr>
+
+			<br></br><br></br><br></br>
+			
+			<tr>
+				<td valign="top">
+					<table  style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_1_bca80827-44bb-4f2f-8871-ee8ceafb7425" align="center">
+						<colgroup><col></col>
+						</colgroup>
+						
+						<tbody>
+
+						<tr valign="top">
+							
+							<table style="text-align: left; border-collapse: collapse;width:100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+
+								<colgroup><col style=" width: 60%;"></col>
+								<col style=" width: 5%;"></col>
+								<col style=" width: 35%;"></col>
+								</colgroup>
+								
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  colspan="3" align="left">
+										<div style=" text-align:center;">অংশ-৭: সমাপনী জের (পরবর্তী মাসের প্রারম্ভিক জের)</div>
+										</th>
+										</tr>
+										<tr valign="top" align="center">
+										<th  align="left" bgcolor="#cfd1d4">
+										<div style=" text-align:center;">আইটেম</div>
+										</th>
+										<th  align="left" bgcolor="#cfd1d4">
+										<div id="part_9_note" style=" text-align:center;">নোট</div>
+										</th>
+										<th  align="left" bgcolor="#cfd1d4">
+										<div id="part_9_amt" style=" text-align:center;">পরিমাণ</div>
+										</th>
+										</tr>
+										<tr  valign="top" align="center">
+										<th  align="left">
+										<div >সমাপনী জের (টার্নওভার কর) (২২-১৩)</div>
+										</th>
+										<th  align="left">
+										<div style=" text-align:center;">৩০</div>
+										</th>
+										<th  align="left">
+										<div style=" text-align:right;"><t t-esc="'%.2f'%(pages['sub_ka']['note30'])" /></div>
+										</th>
+									</tr>
+
+								</tbody>
+							</table>
+
+						</tr>
+
+					</tbody>
+					</table>
+				</td>
+			</tr>
+
+
+
+
+
+		</tbody>
+	
+	</table>
+<!-- </div> -->
+
+
+
+
+<!-- Page 2 Ends -->
+<p style="page-break-after:always;">   </p>
+
+
+<!-- Page 3 Begins -->
+
+	<table rules="none" style="empty-cells: show; width:70%;" cellpadding="0" border="0" align="center">
+		<colgroup><col></col>
+		</colgroup>
+		<tbody>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<td valign="top">
+			
+				<table  style="border-collapse: collapse; empty-cells: show; width: 100%;">
+					<colgroup><col></col>
+					</colgroup>
+					<tbody>
+					
+					
+					<tr valign="top">
+						<td >
+							<div  style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							<div style=" text-align:center;"><strong>সাবফর্ম সমূহ</strong></div>
+							<div style=" text-align:left;"><strong>সাবফর্ম - ক ( নোট ১, ২, ৩, ৪, ৫, ৬, ৭, ১০ এর জন্য প্রযোজ্য)</strong></div>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							
+							<div style=" text-align:left;">&#160;নোট ১</div>
+							
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+
+
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+							<div style=" text-align:left;">&#160;নোট ২</div>
+	
+	
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+
+							<div  style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+							<div style=" text-align:left;">&#160;নোট ৩</div>
+
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							<div  style=" text-align:left;">&#160;নোট ৪</div>
+
+						
+						
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							
+							
+							<div style=" text-align:left;">&#160;নোট ৫</div>
+
+
+						
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+							<div style=" text-align:left;">&#160;নোট 6</div>
+
+
+						
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+
+							<div   style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							<div style=" text-align:left;">&#160;নোট ৭</div>
+
+
+						
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+							<div   style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							<div style=" text-align:left;">&#160;নোট ৯</div>
+
+
+						
+								<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+							<div   style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+						
+
+
+
+
+		
+							<div style=" text-align:left;">&#160;নোট ১০</div>
+
+							
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">								
+								<tbody>
+								
+								<tr  valign="top" align="center">
+									<th  align="left">
+										<div style=" text-align:center;">ক্রমিক নং</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার বর্ণনা</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার কোড</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">পন্য/সেবার নাম</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মূল্য (ক)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">টার্নওভার কর (খ)</div>
+									</th>
+									<th  align="left">
+										<div style=" text-align:center;">মন্তব্য</div>
+									</th>
+								</tr>
+								
+								
+									<t t-foreach="pages['sub_ka']['note1_z_l']" t-as="note1"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note1['sn']" /></td>
+											<td  align="center"><t t-esc="note1['pro_des']" /></td>
+											<td  align="center"><t t-esc="note1['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note1['pro_name']" /></td>
+											<td  align="center"><t t-esc="note1['pro_price']" /></td>
+											<td  align="center"><t t-esc="note1['pro_vat']" /></td>
+											<td  align="center"><t t-esc="note1['comment']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note1_z_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"><t t-esc="zt['pro_vat']" /></td>
+											<td  align="center"></td>
+											
+
+										</tr>
+									</t>
+
+							</tbody>
+							
+							
+							</table>
+
+
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							
+							
+							
+
+
+
+	
+	
+	
+
+
+					
+
+
+
+							<div style=" text-align:left;">সাবফর্ম - খ ( নোট ২২,২৩,২৪,২৫,২৬,২৭,২৮,২৯ এর জন্য প্রযোজ্য)</div>
+							                           
+													   
+
+				
+							<div  style=" text-align:left;">নোট ২২</div> 
+
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note22_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note22_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+
+							<div  style=" text-align:left;">নোট ২৩</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note23_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note23_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+
+														<div  style=" text-align:left;">নোট ২৪</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note24_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note24_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+
+														<div  style=" text-align:left;">নোট ২৫</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note25_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note25_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+														<div  style=" text-align:left;">নোট ২৬</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note26_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note26_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+														<div  style=" text-align:left;">নোট ২৭</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note27_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note27_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+							<div  style=" text-align:left;">&#160;নোট ২৮</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note28_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note28_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+
+							<div  style=" text-align:left;">&#160;নোট ২৯</div> 
+							<table style="text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2" align="center">
+								<tbody>
+									<tr  valign="top" align="center">
+										<th  align="left">
+											<div  style=" text-align:center;">ক্রমিক নং</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">চালান নম্বর/ট্রাঞ্জাকশন আইডি (ই-পেমেন্ট এর ক্ষেত্রে)</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">তারিখ</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">একাউন্ট কোড</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">পরিমান</div>
+										</th>
+										<th  align="left">
+											<div style=" text-align:center;">যে বাণিজ্যিক ব্যাংকের মাধ্যমে পরিশোধিত(ই-পেমেন্টের ক্ষেত্রে) তার নাম ও শাখা</div>
+										</th>
+									</tr>
+																	
+									<t t-foreach="pages['sub_ka']['note29_t']" t-as="note8_l"> 
+										<tr valign="top">	
+											
+											<td  align="center"><t t-esc="note8_l['sn']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_des']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_hs']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_name']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_price']" /></td>
+											<td  align="center"><t t-esc="note8_l['pro_vat']" /></td>
+											</tr>
+									</t>
+
+
+									<t t-foreach="pages['sub_ka']['note29_t']" t-as="zt"> 
+										
+										<tr valign="top">
+											<td class="style_124"></td>
+											<td class="style_124" colspan="2">
+												<div style=" text-align:center;">মোট</div>
+											</td>
+											<td  align="center"></td>
+											<td  align="center"><t t-esc="zt['pro_price']" /></td>
+											<td  align="center"></td>										
+
+										</tr>
+									</t>
+
+								</tbody>
+							
+							
+							</table>
+							<div style=" text-align:right;">
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+
+
+
+<!--  -->
+
+<!--  -->
+<!--  -->
+							<!--  -->
+
+
+
+
+								<!--  -->
+
+
+
+
+
+						
+
+
+								<!--  -->
+
+
+
+<!-- 
+							</tbody>
+							
+							</table> -->
+
+
+
+
+
+						</td>
+					</tr>
+					<tr valign="top">
+						<td ></td>
+					</tr>
+					<tr valign="top">
+						<td ></td>
+					</tr>
+					<tr valign="top">
+						<td class="style_159"></td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+
+
+
+		<tr>
+			<td>
+				<table style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_311_1fc3e409-7a85-4e76-addc-dd778de1b405">
+					<colgroup><col style=" width: 1.5in;"></col>
+					<col></col>
+					<col style=" width: 1.5in;"></col>
+					</colgroup><tbody><tr valign="top">
+						<td  colspan="3"></td>
+					</tr>
+					<tr valign="top">
+						<td >
+							<div >03/01/2020 1:55</div>
+						</td>
+						<td  valign="bottom" align="center">
+							<div>
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+						</td>
+						<td  valign="bottom" align="right">
+							<span  id="AUTOGENBOOKMARK_312_2632abef-4cdb-43df-af67-a0f1af4ed7db" style=" text-align:right;">Page&#160;</span>
+							<span >5</span>
+							<span class="style_12" id="AUTOGENBOOKMARK_313_dcd370a5-665f-4522-b4bb-23a1c041aa24" style=" text-align:right;">&#160;of&#160;</span>
+							<span class="style_13" style=" text-align:right;">5</span>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+
+<!-- Page 5 ends -->
+                    </div>
+
+
+                   
+                </div> 
+
+
+                             
+
+				
+
+
+
+            <!-- </t> -->
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+
+
+
+
+	</template>
+
+	
+
+
+</odoo>

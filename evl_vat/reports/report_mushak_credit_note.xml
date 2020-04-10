@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_LS" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">4</field>
+        <field name="margin_right">4</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="report_mushak_credit_note"
+            model="mushak.credit" 
+            string="Muhsak 6.7 (Credit Book)" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_credit_note" 
+            file="evl_vat.mushak_credit_note" 
+            paperformat="evl_vat.paperformat_cny_LS"
+            />
+	<report id="credit_preview"
+            model="mushak.credit" 
+            string="Muhsak 6.7 (Credit Book)" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_credit_note" 
+            file="evl_vat.mushak_credit_note" 
+            paperformat="evl_vat.paperformat_cny_LS"
+            />
+   
+	<template id="mushak_credit_note">
+		<t t-call="web.html_container">
+            <t t-foreach="pages" t-as="pg"> 
+				<div class="page">
+                 <!-- <p style="page-break-after:always;">   </p> -->
+                    <div id="__BIRT_ROOT" class="style_0" title="BIRT Report Viewer">
+    
+                        
+                        <table rules="none" style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;empty-cells: show; width:8.5in; overflow: hidden; table-layout:fixed;" cellpadding="0" border="0">
+                            <colgroup>
+                            <col></col>
+                            </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                            <table class="style_14" style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_1_53f2af20-8f7d-4147-b487-85dce57d77a7">
+                                                <colgroup><col></col>
+                                                </colgroup><tbody><tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div style=" text-align:right;">মূসক -৬.৭&#160;</div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div class="style_5" style=" text-align:center;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div style=" text-align:center;">জাতীয় রাজস্ব বোর্ড</div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div style=" text-align:center;">
+                                                            <div style="visibility:hidden">&#160;</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div class="style_5" style=" text-align:center;">ক্রেডিট নোট</div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div style=" text-align:center;">[বিধি ৪০ এর উপবিধি&#160; (১) এর দফা (ছ) দ্রষ্টব্য]</div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div id="AUTOGENBOOKMARK_7_4e739418-a3a1-4018-80d0-ab8156852533">
+                                                            <div style="visibility:hidden">&#160;</div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                            
+                                            <t t-foreach="pg['headers']" t-as="hd"> 
+                                            
+                                                <table class="style_14" style="border-collapse: collapse; empty-cells: show; height: 2.25in; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_8_2e55cd8c-eaea-4354-938e-62f4327fc6d8">
+                                                    <tbody>
+                                                
+
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_9_d92e527d-863c-4a60-8436-2223648346d3">ফেরত প্রদানকারী ব্যাক্তির -&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_10_ab1fc8d9-560f-4f50-9424-463c2aa59391">ফেরত গ্রহনকারী ব্যাক্তির -&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_11_40e5a799-c1eb-49c6-ac63-1b086b5099de">নাম :</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div class="style_14" id="__bookmark_1">
+                                                                    <t t-esc="hd['sender']['name']" />
+                                                                </div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_12_9ac5f6ff-ce43-43a8-8add-6651dcfb85c8">নাম :</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="__bookmark_2">
+                                                                    <t t-esc="hd['receiver']['name']" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_13_5f55e6a6-bcbd-4bb6-896b-4d8c565078d1">বিআইএন:&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div class="style_14" id="__bookmark_3">
+                                                                    <t t-esc="hd['sender']['bin']" />
+                                                                </div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_14_f9107377-e837-46ac-8569-ec1d8b67b90c">বিআইএন:&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="__bookmark_4">
+                                                                    <t t-esc="hd['receiver']['bin']" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_15_f4f315a8-401c-4155-8bfb-aaf3b0e040f4">মূল চালান নম্বর:&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="__bookmark_5">
+                                                                    <t t-esc="hd['sender']['main_challan']" />
+                                                                </div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_16_81122941-5d9c-4479-8802-344bb5a84bce">ক্রেডিট নোট নম্বর:&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div class="style_14" id="__bookmark_6">
+                                                                    <t t-esc="hd['receiver']['credit_note']" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_17_7eb4151f-95c3-4869-bf2c-8114c2ec096e">মূল চালান ইস্যুর তারিখ :&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div class="style_14" id="__bookmark_8">
+                                                                    <t t-esc="hd['sender']['issue_date']" />
+                                                                </div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_18_11837a7d-71d1-473e-bae8-9e08e0a3dfa2">ইস্যুর তারিখ :&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div class="style_14" id="__bookmark_8">
+                                                                    <t t-esc="hd['receiver']['credit_issue_dt']" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="AUTOGENBOOKMARK_19_eecc9581-f5aa-4ae3-8a6b-efcb3f3a3128">ইস্যুর সময় :&#160;</div>
+                                                            </td>
+                                                            <td style=" overflow:hidden;">
+                                                                <div id="__bookmark_9">
+                                                                    <t t-esc="hd['receiver']['credit_issue_tm']" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                            <td style=" overflow:hidden;"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </t>
+                                            <div class="style_16" style=" text-align:center;">সরবরাহের বিবরন&#160;</div>
+                                            
+                                            <table style="font-size: 9px;text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+                                                <colgroup><col style=" width: 5%;"></col>
+                                                <col style=" width: 20%;"></col>
+                                                <col style=" width: 12%;"></col>
+                                                <col style=" width: 20%;"></col>
+                                                <col style=" width: 20%;"></col>
+                                                <col></col>
+                                                </colgroup>
+                                                    <tbody>
+                                                        <tr class="style_18" valign="top" align="center">
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">ক্রমিক সংখ্যা</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">ফেরতপ্রাপ্ত সরবরাহের বিবরন&#160;</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">সরবরাহের একক&#160;</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">পরিমাণ&#160;</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div class="style_20" id="AUTOGENBOOKMARK_25_7a168c9a-3835-4d6f-a64b-b5414ffef254" style=" text-align:center;">একক মূল্য ১ (টাকায়)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_26_279b8732-45d5-4832-a3e5-8d109d9e3578" style=" text-align:center;">মোট মূল্য (টাকায়)</div>
+                                                            </th>
+                                                        </tr>
+
+                                                        <tr class="style_18" valign="top" align="center">
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_27_abcb71f1-ef0e-444c-8d7b-036ef622900e" style=" text-align:center;">(১)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_28_5deef283-1e34-4523-96cd-c62b02b4a145" style=" text-align:center;">(২)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_29_4755833f-4dcf-4262-8d77-3ed67e2a94f3" style=" text-align:center;">(৩)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_30_3dcdb104-4fc9-46f2-9b71-9f6aacfdb6a6" style=" text-align:center;">(৪)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_31_ef731452-aaa7-4989-8eef-215b1699336a" style=" text-align:center;">(৫)</div>
+                                                            </th>
+                                                            <th class="style_19" style=" overflow:hidden;" align="left">
+                                                                <div id="AUTOGENBOOKMARK_32_a85afc54-090e-4d58-9cd2-d471ab22604c" style=" text-align:center;">(৬)</div>
+                                                            </th>
+                                                        </tr>
+                                                        <t t-foreach="pg['body']['lines']" t-as="line"> 
+                                                            <tr valign="top">
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">       <t t-esc="line['sn']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div>       <t t-esc="line['pro_name']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div>       <t t-esc="line['pro_uom']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:right;">       <t t-esc="line['pro_qty']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:right;">      <t t-esc="line['pro_unit_price']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:right;">       <t t-esc="line['pro_subtotal']" /></div>
+                                                                </td>
+                                                            </tr>
+                                                        </t>
+                                  
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div >মোট মূল্য&#160;</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div class="style_26" style=" text-align:right;">
+                                                                            <div style=" text-align:right;"><t t-esc="pg['body']['total']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div class="style_14">বাদ কর্তন <sup>২</sup>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                         <div style=" text-align:right;"><t t-esc="pg['body']['discount']" /></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div class="style_14" id="AUTOGENBOOKMARK_34_165bf988-799f-4290-97ef-b64fb0a3a556">মূসকসহ মূল্য</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                         <div style=" text-align:right;"><t t-esc="pg['body']['taxed_amt']" /></div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div>মূসকের পরিমাণ&#160;</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div class="style_32" style=" text-align:right;">
+                                                                             <div style=" text-align:right;"><t t-esc="pg['body']['taxed_vat']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div>সম্পূরক শুল্কের পরিমাণ&#160;</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div class="style_34" style=" text-align:right;">
+                                                                             <div style=" text-align:right;"><t t-esc="pg['body']['pro_sd']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;"></td>
+                                                                    <td style=" overflow:hidden;">
+                                                                        <div>মোট কর <sup>৩</sup>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;">
+                                                                         <div style=" text-align:right;"><t t-esc="pg['body']['pro_vat_total']" /></div>
+                                                                    </td>
+                                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div>
+                                                <div style="visibility:hidden">&#160;</div>
+                                            </div>
+                                            <div >ফেরতের কারণ&#160;</div>
+                                            <table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_39_a0dd2505-1b02-47ea-9035-6105cf658c86">
+                                                <colgroup><col></col>
+                                                </colgroup><tbody><tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div id="__bookmark_11">
+                                                        
+                                                             <div style=" text-align:left;"><t t-esc="pg['body']['rt_reason']" /></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td style=" overflow:hidden;">
+                                                        <div>&#160;&#160;<br>দায়িত্বপ্রাপ্ত ব্যাক্তির স্বাক্ষর&#160;</br><br>&#160;</br><br>&#160;</br><br>&#160;</br><br>১ প্রতি একক পণ্য / সেবার মূসক ও সম্পূরক শুল্ক সহ মূল্য ।&#160;</br><br>২ ফেরত প্রদানের জন্য কোনো কর্তন থাকইলে উহার পরিমাণ ।</br><br>৩ মূসক ও সম্পূরক শুল্কের যোগফল ।&#160;</br><br></br><br></br><br></br><br></br>১ এসআরও নং-১৫৯ - আইন / ২০১৭/ ০২-&#160; মূসক, তারিখ: ১ জুন , ২০১৭ দ্বারা প্রতিষ্ঠাপিত।&#160;<br></br></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_41_8d428c31-659f-4519-9d5c-1d757e85ba04">
+                                                <colgroup>
+                                                    <col style=" width: 1.5in;">
+                                                        <col>
+                                                        </col>
+                                                        <col style=" width: 1.5in;">
+                                                        </col>
+                                                    </col>
+                                                </colgroup>
+                                                
+                                                <tbody><tr valign="top">
+                                                    <td class="style_3" colspan="3" style=" overflow:hidden;"></td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td class="style_3" style=" overflow:hidden;">
+                                                        <div class="style_7"><t t-esc="pg['footers']['print_date']" /></div>
+                                                    </td>
+                                                    <td class="style_8" style=" overflow:hidden;" valign="bottom" align="center">
+                                                        <div>
+                                                            <div style="visibility:hidden">&#160;</div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="style_9" style=" overflow:hidden;" valign="bottom" align="right">
+                                                        <span class="style_10" id="AUTOGENBOOKMARK_42_2a7cd854-ab57-4f83-9a9a-60f4231e2b33" style=" text-align:right;">Page&#160;</span>
+                                                        <span class="style_11"><t t-esc="pg['footers']['pg_no']" /></span>
+                                                        <span class="style_12" id="AUTOGENBOOKMARK_43_2bba8fc3-1093-4200-b5ad-72b2b183dc28" style=" text-align:right;">&#160;of&#160;</span>
+                                                        <span class="style_13" style=" text-align:right;"><t t-esc="pg['footers']['pg_toto']" /></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+
+
+                   
+                </div> 
+
+
+                             
+
+				
+
+
+
+            </t>
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+	</template>
+</odoo>

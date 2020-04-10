@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="audit_logs_action_list">
+      <field name="name">evl.auditlog.list</field>
+      <field name="model">evl.auditlog</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="log_time"/>
+            <field name="user_name"/>
+            <field name="connection_from"/>
+            <field name="command_tag"/>
+            <field name="message"/>
+            <field name="query"/>
+            
+            <field name="session_id"/>
+            <field name="process_id"/>    
+        </tree>
+      </field>
+    </record> 
+
+    <record model="ir.actions.act_window" id="audit_logs_action">
+    <field name="type">ir.actions.act_window</field>
+      <field name="name">EVL Audit Logs</field>
+      <field name="res_model">evl.auditlog</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Audit Trail" id="evl_vat.audit_logs" parent="evl_vat.menu_audit" action="audit_logs_action" sequence="6"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_land" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="transfer_preview"
+            model="mushak.transfer" 
+            string="Muhsak 6.5 (Transfer Book)" 
+            report_type="qweb-html"  
+            name="evl_vat.mushak_transfer" 
+            file="evl_vat.mushak_transfer" 
+            paperformat="evl_vat.paperformat_cny_land"
+            />
+
+	<report id="report_mushak_transfer"
+            model="mushak.transfer" 
+            string="Muhsak 6.5 (Transfer Book)" 
+            report_type="qweb-pdf"  
+            name="evl_vat.mushak_transfer" 
+            file="evl_vat.mushak_transfer" 
+            paperformat="evl_vat.paperformat_cny_land"
+            />
+   
+	<template id="mushak_transfer">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+            <t t-foreach="pages" t-as="pg"> 
+				<div class="page">
+                 <!-- <p style="page-break-after:always;">   </p> -->
+                    <div id="__BIRT_ROOT" class="style_0" title="BIRT Report Viewer">
+                        
+                        
+
+                            <table rules="none" style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;empty-cells: show; width:90%;" cellpadding="0" border="0">
+                            
+                                <colgroup><col></col>
+                                </colgroup><tbody><tr>
+                                    <td valign="top">
+                                        <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_1_18c2d7e9-56da-400e-851f-b8d6f046cc75">
+                                            <colgroup><col></col>
+                                            </colgroup><tbody><tr valign="top">
+                                                <td class="style_14">
+                                                    <table class="style_15" style="border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_2_8ed5d062-1c68-4000-9b16-ef03e004794c">
+                                                        <colgroup><col></col>
+                                                        </colgroup><tbody><tr valign="top">
+                                                            <td align="center">
+                                                                <div class="style_16" id="AUTOGENBOOKMARK_3_1f6be8cf-c066-4fd3-8099-46bd3e4a086d">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার<br>জাতীয় রাজস্ব বোর্ড</br><br></br><br></br></div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td align="right">
+                                                                <span class="style_18" id="AUTOGENBOOKMARK_4_e05ca209-1115-4161-b053-a39f7bf8616e" style=" text-align:right;">মূসক - ৬.৫&#160;</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div class="style_19" id="AUTOGENBOOKMARK_5_6bbd5d8e-88b3-464e-b646-56689f404e9c" style=" text-align:center;">কেন্দ্রিয় নিবন্ধিত প্রতিষ্ঠানের পণ্য স্থানান্তর চালানপত্র</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div id="AUTOGENBOOKMARK_6_8e11e868-6b30-4937-a38e-006bf2f5c2a7" style=" text-align:center;">[বিধি ৪২ এর উপ-বিধি (১) এর দফা (ঙ) দ্রষ্টব্য]</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                    <table class="style_15" style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;border-collapse: collapse; empty-cells: show; width: 100%;" id="__bookmark_1">
+                                                        <colgroup>
+                                                        <col style=" width: 25%;"></col>
+                                                        <col style=" width: 30%;"></col>
+                                                        <col style=" width: 20%;"></col>
+                                                        <col style=" width: 25%;"></col>
+                                                        </colgroup><tbody><tr valign="top">
+                                                            <td class="style_20">
+                                                                <div class="style_21" id="AUTOGENBOOKMARK_7_a471a9c8-f400-4f28-ab79-349fefc57f83">নিবন্ধিত ব্যক্তির নাম :</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <div style=" text-align:left;">  <t t-esc="pg['headers']['company']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="style_22"></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div id="AUTOGENBOOKMARK_8_e2668e48-474e-4120-aa91-3961f23a6946">নিবন্ধিত ব্যক্তির বিআইএন :</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                   <div style=" text-align:left;">  <t t-esc="pg['headers']['bin']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div id="AUTOGENBOOKMARK_9_4614d18e-c712-4226-9505-b5543d6a6e7d">প্রেরণকারী ইউনিট/শাখা/পণ্যাগারের নাম ও ঠিকানা :</div>
+                                                            </td>
+                                                            <td rowspan="2">
+                                                                
+
+
+                                                                <div style=" text-align:left;">  <t t-esc="pg['headers']['sender']" />
+
+                                                                <t t-if="pg['headers']['sen_street']"> , <t t-esc="pg['headers']['sen_street']" /> </t>
+                                                                <t t-if="pg['headers']['sen_street2']"> , <t t-esc="pg['headers']['sen_street2']" /> </t>
+                                                                <t t-if="pg['headers']['sen_city']"> , <t t-esc="pg['headers']['sen_city']" /> </t>
+                                                                 <t t-if="pg['headers']['sen_country']"> , <t t-esc="pg['headers']['sen_country']" /> </t>
+                                                                </div>
+
+
+                                                            </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div >গ্রহীতা শাখার নাম :</div>
+                                                            </td>
+                                                            <td rowspan="2">
+                                                                <div>
+                                                                    <div style=" text-align:left;">  <t t-esc="pg['headers']['receiver']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div >চালান নম্বর :</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                     <div style=" text-align:left;">  <t t-esc="pg['headers']['challan']" /></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <tr valign="top">
+                                                            <td></td>
+                                                            <td>
+                                                                <div style=" text-align:left;"> ইস্যুর তারিখ :</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <div> <t t-esc="pg['headers']['issue_dt']" /></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div id="AUTOGENBOOKMARK_13_1acb015c-1eab-4712-b564-53a7dfbb37bc">প্রেরণকারী শাখার ঠিকানা :&#160;</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <div style=" text-align:left;">  <t t-esc="pg['headers']['sender']" /></div>
+                                                                </div>
+                                                            </td>
+                                                           
+
+
+
+
+
+                                                           
+                                                            <td>
+                                                                <div id="AUTOGENBOOKMARK_14_010dd9cc-4a7e-43cb-86ff-2a8591e6dc49">ইস্যুর সময় :</div>
+                                                            </td>
+                                                            <td>
+                                                                <div>
+                                                                    <div style=" text-align:left;">  <t t-esc="pg['headers']['issue_tm']" /></div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    </table>
+                                                    <br></br><br></br><br></br>
+
+                                                    <!-- <table class="style_23" style="border-collapse: collapse; empty-cells: show; width: 100%;" id="__bookmark_2"> -->
+                                                    <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;text-align: left; border-collapse: collapse;width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+                                                        <colgroup><col style=" width: 7%;"></col>
+                                                        <col style=" width: 30%;"></col>
+                                                        <col style=" width: 15%;"></col>
+                                                        <col style=" width: 15%;"></col>
+                                                        <col style=" width: 15%;"></col>
+                                                        <col style=" width: 18%;"></col>
+                                                        </colgroup><tbody><tr class="style_24" valign="top" align="center">
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_15_26d7c0af-9f16-419a-8265-bbba34fa1689" style=" text-align:center;">ক্রমিক সংখ্যা</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_16_c3f83f04-d3fe-43dc-b731-875e4065b205" style=" text-align:center;">পণ্যের (প্রযোজ্য ক্ষেত্রে সুনিদির্স্ট ব্রান্ড নামসহ) বিবরণ</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_17_b02626ea-c28c-45b9-8775-a6c1b7e8c239" style=" text-align:center;">পরিমাণ</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_18_1d9432b9-89ca-45d0-b2da-1ed4ca04425e" style=" text-align:center;">কর ব্যাতীতমূল্য</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_19_e2cd1ae4-0421-4334-9794-95fde7f4cf9c" style=" text-align:center;">প্রযোজ্য করের পরিমাণ</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_20_ac931748-76e1-442d-9ae3-40f10b00b52c" style=" text-align:center;">মন্তব্য</div>
+                                                            </th>
+                                                        </tr>
+                                                        <tr class="style_24" valign="top" align="center">
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_21_14edefc6-4ea6-4f36-a13a-1155abefadd0" style=" text-align:center;">(১)</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_22_d1a42be8-a09f-4a53-836b-98d41206fbaf" style=" text-align:center;">(২)</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_23_fb2e6d82-ca5b-44bd-a909-91766903ee1f" style=" text-align:center;">(৩)</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_24_a97f733e-f859-4756-9315-8aa1f61dc5e1" style=" text-align:center;">(৪)</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_25_1d90fc6e-2eb6-4fdf-934d-97862c38d2f6" style=" text-align:center;">(৫)</div>
+                                                            </th>
+                                                            <th class="style_25" align="left">
+                                                                <div id="AUTOGENBOOKMARK_26_1234182d-9846-4ee8-9bb8-6d3501e22324" style=" text-align:center;">(৬)</div>
+                                                            </th>
+                                                        </tr>
+                                                        <t t-foreach="pg['body']['lines']" t-as="line"> 
+                                                            <tr valign="top">
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">       <t t-esc="line['sn']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">       <t t-esc="line['pro_name']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style="overflow:hidden;">
+                                                                    <div style=" text-align:center;">       <t t-esc="line['pro_qty']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">        <t t-esc="line['pro_untaxed_pr']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">       <t t-esc="line['pro_tax_per']" /></div>
+                                                                </td>
+                                                                <td class="style_21" style=" overflow:hidden;">
+                                                                    <div style=" text-align:center;">      <t t-esc="line['comments']" /></div>
+                                                                </td>
+                                                            </tr>
+                                                         </t>
+                                                        <tr valign="top">
+                                                            <td class="style_32" colspan="2">
+                                                                <div class="style_33" id="AUTOGENBOOKMARK_27_d1371471-d8cd-4a45-83d8-b83de4a1ec00" style=" text-align:right;">মোট</div>
+                                                            </td>
+                                                            <td class="style_34" align="center">
+                                                                <div class="style_35" style=" text-align:right;"></div>
+                                                                <div>
+                                                                    <div style=" text-align:center;">      <t t-esc="pg['body']['qty_tot']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="style_32">
+                                                                <div class="style_35" style=" text-align:right;"></div>
+                                                                <div>
+                                                                    <div style=" text-align:center;">      <t t-esc="pg['body']['untaxed_tot']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="style_32">
+                                                                <div class="style_35" style=" text-align:right;"></div>
+                                                                <div>
+                                                                    <div style=" text-align:center;">      <t t-esc="pg['body']['tax_per']" /></div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="style_36"></td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                    <div class="style_15" id="AUTOGENBOOKMARK_28_b7ce3b63-48eb-4a45-9b7b-9fcdc374d985"><br></br><br>প্রতিষ্ঠানের স্বাক্ষর&#160;</br></div>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="style_14">
+                                                    <div class="style_15" id="AUTOGENBOOKMARK_29_45093302-d4c8-4ef8-87cb-46f60cf2f28a">&#160;নাম ও পদবী : ...............................................</div>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="style_14">
+                                                    <div class="style_15" id="AUTOGENBOOKMARK_30_a6626bfb-1813-4f08-b8f4-c71d514cf5cf">মোবাইল নম্বর : .............................................  <br></br></div>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="style_37"></td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;border-collapse: collapse; empty-cells: show; width: 100%;" id="AUTOGENBOOKMARK_31_4751d21a-1478-4865-965d-247e43b43495">
+                                            <colgroup><col style=" width: 1.5in;"></col>
+                                            <col></col>
+                                            <col style=" width: 1.5in;"></col>
+                                            </colgroup><tbody><tr valign="top">
+                                                <td class="style_3" colspan="4"></td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="style_3">
+                                                    <div class="style_7"> <t t-esc="pg['footers']['report_date']" /></div>
+                                                </td>
+                                                <td class="style_8" valign="bottom" align="center">
+                                                    <div>
+                                                        <!-- <div ><t t-esc="pg['footers']['report_date']" /></div> -->
+                                                    </div>
+                                                </td>
+                                                <td class="style_9" valign="bottom" align="right">
+                                                    <span class="style_10" id="AUTOGENBOOKMARK_32_e3a1ab3c-4574-43b0-a439-ace5a98655ce" style=" text-align:right;">Page&#160;</span>
+                                                    <span class="style_11"> <t t-esc="pg['footers']['cn_pg']" /></span>
+                                                    <span class="style_12" id="AUTOGENBOOKMARK_33_77dc2602-f964-41e8-bb99-41a3cf0fc4d4" style=" text-align:right;">&#160;of&#160;</span>
+                                                    <span class="style_13" style=" text-align:right;"> <t t-esc="pg['footers']['total_pg']" /></span>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+
+                    </div>
+
+
+                   
+                </div> 
+
+
+                             
+
+				
+
+
+
+            </t>
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+	</template>
+</odoo>

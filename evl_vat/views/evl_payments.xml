@@ -1,0 +1,110 @@
+<odoo>
+  <data>
+    <record id="evl_payments_view_form" model="ir.ui.view">
+      <field name="name"></field>
+      <field name="model">evl.payments</field>
+
+      <field name="priority">32</field>
+      <field name="arch" type="xml">
+        <form string="HS Code">
+          <sheet>
+            <div class="oe_title">
+                <h1>
+                    <field name="name" readonly="1"/>
+                </h1>
+            </div>
+            <div name="hscode_title">
+                <h1>VAT Payments</h1>
+            </div>
+
+            <group>
+                <group>
+                            <field name="company_id" invisible="1"/>
+                            <field name="month"/>   
+                            <field name="year"/>
+                            <field name="date_submit"/>
+                            <field name="purpose"/>
+                             <field name="surcharge_type" attrs="{'invisible': [('purpose','not in',['surcharge'])]}"/>
+                            <field name="challan"/>                          
+    
+                </group> 
+                <group>
+                            <field name="amount"/>        
+                            <field name="payment_method"/>   
+                            <field name="bank"/>                       
+                            <field name="branch"/>                
+                            <field name="description"/>
+                            <field name="com_name"/>
+                            <field name="address" />              
+                                                    
+                </group> 
+                <group>
+
+                <field name="note"/>    
+                </group> 
+            </group> 
+
+              <!-- <notebook>
+                <page string="List of Participants">
+                  <field name="participants_lines">
+                  </field>
+                </page>
+                <page string="Training Materials">
+                  <field name="training_materials">
+                  </field>
+                </page>
+                <page string="Training Expense">
+                  <field name="training_materials">
+                  </field>
+                </page>
+              </notebook> -->
+
+          </sheet>
+        </form>
+      </field>
+  </record>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="evl_payments_view_list">
+      <field name="name">evl.payments.view.list</field>
+      <field name="model">evl.payments</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name" readonly="1"/>
+            <field name="company_id" invisible="1"/>
+            <field name="month"/>   
+            <field name="year"/>
+            <field name="date_submit"/>
+            <field name="purpose"/>
+             <field name="surcharge_type" attrs="{'invisible': [ ('purpose','not in',['surcharge']) ]}"/>
+            <field name="challan"/>
+            <field name="amount"/>        
+            <field name="payment_method"/>  
+            <field name="bank"/>                        
+            <field name="branch"/>                
+            <field name="description"/>
+            <field name="com_name"/>
+             <field name="address" />              
+            <field name="note"/>   
+
+        </tree>
+      </field>
+    </record> 
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="evl_payments_action">
+      <field name="name">Payments</field>
+      <field name="res_model">evl.payments</field>
+      <field name="view_mode">tree,list,form</field>
+    </record>
+
+    <menuitem name="VAT Payments" id="evl_vat.vat_payments_btn" parent="evl_vat.evl_payments" action="evl_payments_action" sequence="3"/>
+
+
+
+
+  </data>
+</odoo>

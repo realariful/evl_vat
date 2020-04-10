@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_treasury" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="evl_vat.report_treasury_action"
+            model="mushak.treasury" 
+            string="Muhsak TR-6 (Treasury Challan)" 
+            report_type="qweb-pdf"  
+            name="evl_vat.mushak_treasury" 
+            file="evl_vat.mushak_treasury" 
+            paperformat="evl_vat.paperformat_cny_treasury"
+            />
+
+	<report id="evl_vat.treasury_preview"
+            model="mushak.treasury" 
+            string="Muhsak TR-6 (Treasury Challan)" 
+            report_type="qweb-html"  
+            name="evl_vat.mushak_treasury" 
+            file="evl_vat.mushak_treasury" 
+            paperformat="evl_vat.paperformat_cny_treasury"
+            />
+
+	<template id="mushak_treasury">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+            <t t-foreach="pages" t-as="pg"> 
+				<div class="page">
+
+					<style>
+						.style_18 { border: thin solid black;}
+					</style>
+                 <!-- <p style="page-break-after:always;">   </p> -->
+
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+
+
+						<colgroup>
+						<col>
+						</col>
+						</colgroup>
+						
+						<tbody>
+							<tr>
+								<td valign="top">
+									<table style="font-size: 12px;border-collapse: collapse; empty-cells: show; width: 80%;">
+										<colgroup>
+										<col style=" width: 50%;"></col>
+										<col></col>
+										<col></col>
+										</colgroup>
+										<tbody>
+											<tr valign="top">
+												<td colspan="3">
+													<div style=" text-align:center;">চালান ফরম&#160;</div>
+												</td>
+											</tr>
+											<tr valign="top">
+												<td colspan="2">
+													<div style=" text-align:center;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<strong>টি , আর ফরম নং ৬ (এস, আর ৩৭ দ্রষ্টব্য )</strong></div>
+												</td>
+												<td>
+													<table style="font-size: 12px;text-right: left; border-collapse: collapse;width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+
+															<colgroup><col></col>
+															<col></col>
+															<col></col>
+															</colgroup>
+															<tbody>
+															<tr valign="top">
+																<td >
+																	<div style=" text-align:center;">১ম (মূল) কপি&#160;</div>
+																</td>
+																<td >
+																	<div style=" text-align:center;">২য় কপি&#160;</div>
+																</td>
+																<td >
+																	<div style=" text-align:center;">৩য় কপি&#160;</div>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<table class="style_19" style="font-size: 12px;border-collapse: collapse; empty-cells: show; width: 90%;" >
+										<colgroup><col></col>
+										</colgroup><tbody><tr valign="top">
+											<td>
+												<div>
+													<div style="visibility:hidden">&#160;</div>
+												</div>
+											</td>
+										</tr>
+										<tr valign="top">
+											<td>
+												<div >চালান নং: .......................<t t-esc="pg['body']['challan']" />.................................তারিখ: ..............<t t-esc="pg['body']['date_submit']" />.......................................</div>
+											</td>
+										</tr>
+										<tr valign="top">
+											<td>
+												<div>বাংলাদেশ ব্যাংক / সোনালী ব্যাংকের ................<t t-esc="pg['body']['bank']" />.............জেলায়..............<t t-esc="pg['body']['branch']" />..............শাখায় টাকা জমা দেয়ার চালান</div>
+											</td>
+										</tr>
+										<tr valign="top">
+											<!-- <td>
+												<span >কোড নং&#160;</span> -->
+
+
+
+						<td>
+							<span id="AUTOGENBOOKMARK_11_a4ec4461-c055-4f22-8d64-b168d6232b93">কোড নং&#160;</span>
+							<table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;" id="AUTOGENBOOKMARK_12_f2fa1d86-14e8-41e6-a00f-91b98f10d424">
+								<colgroup><col style=" width: 0.22in;"></col>
+								</colgroup>
+								
+								<tbody><tr style=" height: 0.22in;" valign="top">
+									<td ></td>
+								</tr>
+							</tbody></table>
+							<table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;" id="AUTOGENBOOKMARK_13_a0859ef7-509a-4d40-9be0-57fe62d88198">
+								<colgroup><col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								</colgroup><tbody><tr style=" height: 0.22in;" valign="top">
+									<td ></td>
+									<td ></td>
+									<td ></td>
+									<td ></td>
+								</tr>
+							</tbody></table>
+							<table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;" id="AUTOGENBOOKMARK_14_369de23e-2f52-4422-a199-7ad072fb4031">
+								<colgroup><col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								<col style=" width: 0.22in;"></col>
+								</colgroup><tbody><tr style=" height: 0.22in;" valign="top">
+									<td ></td>
+									<td ></td>
+									<td ></td>
+									<td ></td>
+								</tr>
+							</tbody></table>
+						</td>
+					
+
+
+												<!-- <table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;">
+													<colgroup><col style=" width: 0.22in;"></col>
+													</colgroup><tbody><tr style=" height: 0.22in;" valign="top">
+														<td ></td>
+													</tr>
+												</tbody></table>
+
+												<table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;width: 100%;">
+													<colgroup><col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													</colgroup><tbody><tr style=" height: 0.22in;" valign="top">
+														<td ></td>
+														<td ></td>
+														<td ></td>
+														<td ></td>
+													</tr>
+												</tbody></table>
+
+
+
+
+												<table style="border-collapse: collapse; empty-cells: show; display:inline-block; zoom:1; *+display:inline;width: 100%;">
+													<colgroup><col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													<col style=" width: 0.22in;"></col>
+													</colgroup><tbody><tr style=" height: 0.22in;" valign="top">
+														<td ></td>
+														<td ></td>
+														<td ></td>
+														<td ></td>
+													</tr>
+												</tbody></table>
+											</td> -->
+										</tr>
+									</tbody></table>
+									<table style="font-size: 12px;text-align: left; border-collapse: collapse;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+										<colgroup><col></col>
+										<col style=" width: 15%;"></col>
+										<col style=" width: 15%;"></col>
+										<col></col>
+										<col></col>
+										<col></col>
+										<col></col>
+										</colgroup><tbody><tr class="style_22" valign="top" align="center">
+											<th class="style_23" colspan="4" align="left">
+												<div style=" text-align:center;">জমা প্রদানকারী কর্তৃক পূরণ করিতে হইবে</div>
+											</th>
+											<th class="style_23" colspan="2" align="left">
+												<div style=" text-align:center;">টাকার অংক&#160;</div>
+											</th>
+											<th class="style_23" rowspan="2" align="left">
+												<div style=" text-align:center;">বিভাগের নাম, চালানের পৃষ্ঠাংকনকারী কর্মকর্তার নাম, পদবী ও দপ্তর । *</div>
+											</th>
+										</tr>
+										<tr class="style_22" valign="top" align="center">
+											<th class="style_23" align="left">
+												<div>যাহার মারফত প্রদত্ত হইল তাহার নাম ও ঠিকানা।</div>
+											</th>
+											<th class="style_23" align="left">
+												<div>যে ব্যাক্তি / প্রতিষ্ঠানের পক্ষ হইতে টাকা প্রদত্ত হইলো তাহার নাম, পদবী ও ঠিকানা।&#160;</div>
+											</th>
+											<th class="style_23" align="left">
+												<div style=" text-align:center;">কি বাবদ জমা দেয়া হইলো তাহার বিবরণ।</div>
+											</th>
+											<th class="style_23" align="left">
+												<div style=" text-align:center;">মুদ্রা ও নোটের বিবরণ / ড্রাফট , পে- অর্ডার ও চেকের বিবরণ।</div>
+											</th>
+											<th class="style_23" align="left">
+												<div style=" text-align:center;">টাকা</div>
+											</th>
+											<th class="style_23" align="left">
+												<div style=" text-align:center;">&#160;পয়সা&#160;</div>
+											</th>
+										</tr>
+										<tr valign="top">
+											<td class="style_24">
+												<div>Name:  <t t-esc="pg['body']['name']" /> <br></br>Address: <br><t t-esc="pg['body']['address']" /></br></div>
+											</td>
+											<td class="style_24">
+												<div>Name:  <t t-esc="pg['body']['name']" /> <br></br>Address: <br><t t-esc="pg['body']['address']" /></br></div>
+											</td>
+											<td class="style_24">
+												<div>
+													<div style="visibility:hidden"><t t-esc="pg['body']['purpose']" /></div>
+												</div>
+											</td>
+											<td class="style_24">
+												<div><t t-esc="pg['body']['pay_type']" /></div>
+											</td>
+											<td class="style_24">
+												<div style=" text-align:right;"><t t-esc="pg['body']['amount']" /></div>
+											</td>
+											<td class="style_24">
+												<div style=" text-align:right;"><t t-esc="pg['body']['paisa']" /></div>
+											</td>
+											<td class="style_24"></td>
+										</tr>
+										<tr valign="top">
+											<td class="style_26"></td>
+											<td class="style_26"></td>
+											<td class="style_26"></td>
+											<td class="style_27">
+												<div>মোট টাকা&#160;</div>
+											</td>
+											<td class="style_27" colspan="3">
+												<div>
+													<div ><t t-esc="pg['body']['amount']" /></div>
+												</div>
+											</td>
+										</tr>
+										<tr valign="top">
+											<td class="style_27" colspan="5">
+												<span>টাকা (কথায় )&#160;&#160;</span>
+												<div>
+													<div><t t-esc="pg['body']['words']" /></div>
+												</div>
+											</td>
+											<td class="style_26"></td>
+											<td class="style_29"></td>
+										</tr>
+										<tr valign="top">
+											<td class="style_27" colspan="5">
+												<div>টাকা পাওয়া গেল&#160;</div>
+											</td>
+											<td class="style_26"></td>
+											<td class="style_29"></td>
+										</tr>
+										<tr  valign="top">
+											<td class="style_26">
+												<div>তারিখ</div>
+											</td>
+											<td class="style_26">
+												<div><t t-esc="pg['body']['date']" /></div>
+											</td>
+											<td class="style_26"></td>
+											<td class="style_26"></td>
+											<td class="style_26"></td>
+											<td class="style_26" colspan="2">
+												<div style=" text-align:center;">ম্যানেজার&#160;<br></br>বাংলাদেশ ব্যাংক / সোনালী ব্যাংক</div>
+											</td>
+										</tr>
+									</tbody></table>
+									<div>
+										<div style="visibility:hidden">&#160;</div>
+									</div>
+									<div><br>&#160;</br><br></br><br></br>নোট : <br></br>১। সংশ্লিষ্ট দপ্তরের সাথে যোগাযোগ করিয়া সঠিক কোড নম্বর জানিয়া লইবেন।&#160;<br></br>২। *যে সকল ক্ষেত্রে কর্মকর্তা কর্তৃক পৃষ্ঠাংকন প্রয়োজন , সে সকল ক্ষেত্রে প্রযোজ্য হইবে।&#160;<br></br><br></br>বাংলাদেশ সরকারের ই - সিটিজেন সার্ভিস এপ্লিকেশন থেকে মুদ্রিত।&#160;&#160;</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<table style="font-size: 12px;border-collapse: collapse; empty-cells: show; width: 100%;">
+										<colgroup><col style=" width: 1.5in;"></col>
+										<col></col>
+										
+										</colgroup><tbody><tr valign="top">
+											<td class="style_3" colspan="3"></td>
+										</tr>
+										<tr valign="top">
+											<td class="style_3">
+												<div class="style_7"><t t-esc="pg['footers']['print_date']" /></div>
+											</td>
+											<td class="style_8" valign="bottom" align="center">
+												<div>
+													<div style="visibility:hidden">&#160;</div>
+												</div>
+											</td>
+											<td  valign="bottom" align="right">
+												<span style=" text-align:right;">Page&#160;</span>
+												<span ><t t-esc="pg['footers']['pg_no']" /></span>
+												<span style=" text-align:right;">&#160;of&#160;</span>
+												<span style=" text-align:right;"><t t-esc="pg['footers']['pg_toto']" /></span>
+											</td>
+										</tr>
+									</tbody></table>
+								</td>
+							</tr>
+						</tbody>
+
+					
+
+				</div>
+
+		</t></t>
+		</template>
+
+
+	
+</odoo>

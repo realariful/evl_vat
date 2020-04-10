@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="VatDashboardMain">
+        <div class="oh_dashboards">
+            <div class="container-fluid o_hr_dashboard">
+            </div>
+        </div>
+    </t>
+    <t t-name="LoginEmployeeDetails">
+        <link rel="stylesheet" href="/evl_vat/static/src/css/hrms_dashboard.css"/>
+        <div class="row main-section">
+            <!-- <div class="col-md-1 col-sm-1 col-lg-1  dummy"></div> -->           
+        
+
+             <div class="col-md-6 col-sm-6 col-lg-3 vat-software oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="evl-icon" style="center">
+                                    <img src="/evl_vat/static/src/img/test.png" class="evl-img" />
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content" align="center">
+                                        <div class="top-text">VAT Software</div>
+                                        <div class="middle-text">    
+                                                &#160; &#160; &#160;                              
+                                            <!-- <t t-esc="widget.login_employee['vat_balalce']"/> -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 vat_balance oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="vat-balance">
+                                    <img src="/evl_vat/static/src/img/vat-balance@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content" align="center" >
+                                        <div class="top-text">VAT Balance</div>
+                                        <div class="middle-text">                                 
+                                            <t t-esc="widget.login_employee['vat_balalce']"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 vds_balance oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="vds-balance" style="center">
+                                    <img src="/evl_vat/static/src/img/vds-balance@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content" align="center" >
+                                        <div class="top-text">VDS Balance</div>
+                                        <div class="middle-text">                                 
+                                            <t t-esc="widget.login_employee['vds_balalce']"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 next_return oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="next-return" style="center">
+                                    <img src="/evl_vat/static/src/img/next-return@4x.png" class="evl-img"/>
+                             </div>
+                                <div class="stat-content">
+                                    <div class="stat-content" align="center">
+                                        <div class="top-text">Next Return</div>
+                                    
+                                    <div class="middle-text" > 
+                                            <t t-esc="widget.login_employee['days']"/> days </div>    
+
+                                        <div class="last-text" >                     
+                                            <t t-esc="widget.login_employee['next_return']"/>
+
+                                            </div>
+                                   
+
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+
+      
+        </div>
+    </t>
+
+    <t t-name="ManagerDashboard">
+        <div class="employee_dashboard_main">
+
+     <div class="row main-section">
+            <!-- <div class="col-md-1 col-sm-1 col-lg-1  dummy"></div> -->           
+        
+
+             <div class="col-md-6 col-sm-6 col-lg-3 sale_order oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="last-sale" style="center">
+                                    <img src="/evl_vat/static/src/img/last-sale@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content">
+                                   
+                                        <div class="top-text" align="center" >
+                                            <div class="top-text">Last Sale</div>
+                                            <div class="middle-text">                                 
+                                                <t t-esc="widget.login_employee['sale_name']"/></div>
+                                                <div class="last-text"> 
+
+                                                 <t t-esc="widget.login_employee['sale_date']"/></div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 purchase_order oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="last-purchase" style="center">
+                                    <img src="/evl_vat/static/src/img/last-purchase@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content" align="center" >
+                                        <div class="top-text">Last Purchase</div>
+                                           <div class="middle-text"><t t-esc="widget.login_employee['pur_name']"/></div>
+                                            <div class="last-text"> <t t-esc="widget.login_employee['date_order']"/></div>
+                                        </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 pur_tot oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="total-purchase" style="center">
+                                    <img src="/evl_vat/static/src/img/total-purchase@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content">
+                                    <div class="stat-content" align="center" >
+                                        <div class="top-text">Total Purchase</div>
+                                        <div class="middle-text">    
+
+
+
+                                            <t t-esc="widget.login_employee['pur_tot']"/>
+                                        
+                                        
+                                        </div>
+                                    </div>
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-6 col-sm-6 col-lg-3 sale_tot oh-timesheets">
+                <div class="evl-card">  
+                    <div class="evl-card-body">                       
+                             <div class="total-sale" style="center">
+                                    <img src="/evl_vat/static/src/img/total-sale@4x.png" class="evl-img"/>
+                             </div>
+                                 <div class="stat-content" align="center">
+                                    <div class="top-text">Total Sale</div>
+                                 
+                                        <div class="middle-text" > 
+                                                <t t-esc="widget.login_employee['sale_tot']"/>  </div>   
+                                               
+
+                                </div>
+                    </div>
+                </div>
+            </div>
+
+          
+
+
+      
+        </div>
+
+
+
+        
+
+
+            <div class="row main-section">
+
+                <div class="col-md-12 col-sm-12 col-lg-6  monthly_attrition_rate" style="margin-top:20px;">
+                    <div class="oh-card text-color">
+                        <div class="oh-card-body pb-0">
+                            <h4 class="mb-0">
+                            </h4>
+                            <p class="stat-head" style="padding : 0px;">VAT Balance in Last Six Months</p>
+
+                        </div>
+                        <div class="update_vat" style="width : 200px;"/>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-sm-12 col-lg-6 monthly_attrition_rate" style="margin-top:20px;">
+                    <div class="oh-card text-color">
+                        <div class="oh-card-body pb-0">
+                            <h4 class="mb-0">
+                            </h4>
+                            <p class="stat-head" style="padding : 0px;">VAT vs VAT Payments</p>
+
+                        </div>
+                        <div class="join_resign_trend" />
+                    </div>
+                </div>
+
+                <div class="col-md-1 col-sm-1 col-lg-1  dummy"></div>
+            </div>
+
+   
+    
+        </div> 
+     <footer class="footer">
+        <center>
+        Copyright © 2020, <a href="https://ergo-ventures.com/" target="_blank">Ergo Ventures Limited</a>. All rights reserved.
+        </center>
+        </footer>
+       
+        <!-- </div> -->
+    </t>
+
+
+    <t t-name="EmployeeDashboard">
+    </t>
+
+    <t t-name="EmployeeWarning">
+        <div>
+            <p>Error : Could not find employee linked to user</p>
+            <p>Please contact system admin for the setup</p>
+        </div>
+    </t>
+
+
+
+
+</templates>

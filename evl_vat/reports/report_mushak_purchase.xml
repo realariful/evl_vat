@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_pur_" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">1</field>
+        <field name="margin_right">1</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="report_mushak_purchase"
+            model="mushak.purchase" 
+            string="Muhsak 6.1 (Purchase Book)" 
+            report_type="qweb-pdf"  
+            name="evl_vat.mushak_purchase" 
+            file="evl_vat.mushak_purchase" 
+            paperformat="evl_vat.paperformat_cny_pur_"
+            />
+	<report id="report_mushak_purchase_preview"
+            model="mushak.purchase" 
+            string="Muhsak 6.1 (Purchase Book)" 
+            report_type="qweb-html"  
+            name="evl_vat.mushak_purchase" 
+            file="evl_vat.mushak_purchase" 
+            paperformat="evl_vat.paperformat_cny_pur_"
+            />
+
+
+	<template id="mushak_purchase">
+         <t t-set="i" t-value="0"/>
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            
+            
+            
+            <!-- <t t-call="web.internal_layout"> Margins not showing-->
+            <t t-foreach="pages" t-as="pg"> 
+                
+                    <div class="page" >
+                        <table rules="none" style="font-size: 9px;empty-cells: show; overflow: hidden; width: 90%;" cellpadding="0" border="0" align="center">
+
+                            <colgroup>
+
+                            </colgroup>
+                            <tbody>
+                                    <tr>
+                                        <td valign="top">
+                                        
+                                            <table style="font-size: 9px;border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;">
+                                                <colgroup>
+                                                    </colgroup><tbody><tr valign="top">
+                                                    <td  style=" overflow:hidden;">
+                                                    <br></br>
+                                                    <br></br>
+                                                    <br></br>
+                                                
+                                                    <table style="font-size: 9px;text-align: left;font-size:12px;width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" >
+                                                            <colgroup>
+                                                            <col style=" width: 3%;"></col>
+                                                            <col style=" width: 6%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 7%;"></col>
+                                                            <col style=" width: 4%;"></col>
+                                                            <col style=" width: 4%;"></col>
+                                                            <col style=" width: 7%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 4%;"></col>
+                                                            <col style=" width: 8%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 5%;"></col>
+                                                            <col style=" width: 7%;"></col>
+                                                            <col style=" width: 7%;"></col>
+                                                            <col style=" width: 3%;"></col>
+
+                                                            </colgroup>
+                                                            <tbody>
+                                                                <tr valign="top" align="center">
+                                                                        <th colspan="23" style=" overflow:hidden;" align="left">
+                                                                            <div style=" text-align:right;">মূসক-৬.১</div>
+
+                                                                            <div id="name" style=" text-align:center;"><br>
+                                                                            <t t-foreach="headers" t-as="o"> 
+                                                                                    <t t-esc="o['name']" /><br><t t-esc="o['street']" /><t t-esc="o['street2']" /><t t-esc="o['zip']" /> </br>(BIN: <t t-esc="o['vat']" />)
+                                                                            </t>
+                                                                            </br></div>
+
+                                                                            <div style=" text-align:center;"><br>"ক্রয় হিসাব পুস্তক</br></div>
+                                                                            <div style=" text-align:center;">(পণ্য বা সেবা প্রক্রিয়াকরণে সম্পৃক্ত এমন নিবন্ধিত বা তালিকাভুক্ত ব্যক্তির জন্য প্রযোজ্য)</div>
+                                                                            <div style=" text-align:center;"><br>[বিধি ৪০(১) এর দফা (ক) এবং ৪১ এর দফা (ক) দ্রষ্টব্য ]</br></div>            
+                                                                        </th>
+                                                                    </tr>
+
+                                                                <tr valign="top" align="center">
+                                                                    <th  colspan="23" style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">পণ্য/সেবার উপকরণ ক্রয়</div>
+                                                                    </th>
+                                                                </tr>
+                                                            <tr  valign="top" align="center">
+                                                                <th  rowspan="3" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">ক্রমিক<br>সংখ্যা</br></div>
+                                                                </th>
+                                                                <th  rowspan="3" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">তারিখ</div>
+                                                                </th>
+                                                                <th  colspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>মজুদ উপকরণের </br>প্রারম্ভিক জের</div>
+                                                                </th>
+                                                                <th  colspan="14" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>ক্রয়কৃত উপকরণ</br></div>
+                                                                </th>
+                                                                <th  colspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">উপকরণের প্রান্তিক জের</div>
+                                                                </th>
+                                                                <th class="style_22" rowspan="3" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">মন্তব্য</div>
+                                                                </th>
+                                                            </tr>
+                                                            <tr  valign="top" align="center">
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">পরিমাণ<br>(একক)</br></div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>মূল্য </br><br>(সকল </br><br>প্রকার </br><br>কর </br><br>ব্যতীত)</br></div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>চালানপত্র/</br><br>বিল অব</br><br>এন্ট্রি নম্বর</br></div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">তারিখ</div>
+                                                                </th>
+                                                                <th  colspan="3" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">বিক্রেতা/ সরবরাহকারী</div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">বিবরণ</div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">পরিমাণ</div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>মূল্য </br><br>(সকল </br><br>প্রকার </br><br>কর </br><br>ব্যতীত)</br></div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>সম্পূরক</br><br>শুল্ক (যদি</br><br>থাকে)</br></div>
+                                                                </th>
+                                                                <th class="style_22" rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div>মূসক</div>
+                                                                </th>
+                                                                <th class="style_22" colspan="2" style=" overflow:hidden;" align="center">
+                                                                <div id="mushak">মোট উপকরণের<br>পরিমাণ</br></div>
+                                                                </th>
+
+
+
+                                                                <th  colspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">পণ্য প্রস্তুত/<br>প্রক্রিয়াকরণে</br><br>উপকরণের&#160; ব্যবহার</br></div>
+                                                                </th>
+                                                                <th class="style_23" rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>পরিমাণ</br><br>(একক) </br></div>
+                                                                </th>
+                                                                <th  rowspan="2" style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>মূল্য </br><br>(সকল </br><br>প্রকার </br><br>কর </br><br>ব্যতীত)</br></div>
+                                                                </th>
+                                                            </tr>
+                                                            <tr  valign="top" align="center">
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">নাম</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">ঠিকানা</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>নিবন্ধন/</br><br>তালিকাভুক্তি/</br> জাতীয় পরিচয়পত্র নং</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>পরিমাণ</br><br>(একক) </br></div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><br>মূল্য </br><br>(সকল </br><br>প্রকার </br><br>কর </br><br>ব্যতীত)</br></div>
+                                                                </th> 
+            
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">পরিমাণ (একক)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">মূল্য</div>
+                                                                </th>
+                                                            </tr>
+                                                            <tr  valign="top" align="center">
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(২)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৩)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৪)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৫)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৬)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৭)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৮)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(৯)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১০)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১১)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১২)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৩)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৪)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৫)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৬)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৭)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৮)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(১৯)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(২০)</div>
+                                                                </th>
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;">(২১)</div>
+                                                                </th>                                                    
+                                                            </tr>
+
+
+                                                            <tr valign="top">
+                                                                <td colspan="21" style=" overflow:hidden;">
+                                        
+                                                                    <t t-esc="pg['product_header']" /> 
+                                                                </td>
+                                                            </tr>
+
+                                                            <t t-foreach="pg['row_lines']" t-as="o"> 
+                                                                                    
+
+                                                                        <tr valign="top">
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div>
+                                                                                    <div style=" text-align:center;"> <t t-esc="o['ser_num']" /></div>
+                                                                                 </div>
+
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div style=" text-align:center;"><t t-esc="o['date']" /></div>
+                                                                            </td>
+                                                                            <td class="style_34" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;">
+                                                                                    <span><t t-esc="o['op_stock']" /></span>
+                                                                                    <br>
+                                                                                        <t t-if="o['op_stock_uom'] != None"><span  style=" text-align:center;"><t t-esc="o['op_stock_uom']" /></span></t> 
+                                                                                    </br>
+                                                                                </div>                                                                       
+                                                                                </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['op_price']" /></div>
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div>
+                                                                                    <div  style=" text-align:center;"><t t-esc="o['challan_no']" /></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div id="__bookmark_5" style=" text-align:center;">
+                                                                                    <div  style=" text-align:center;"><t t-esc="o['pur_date']" /></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div  style=" text-align:center;">
+                                                                                    <div  style=" text-align:center;"><t t-esc="o['vendor_name']" /></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div  style=" text-align:center;">
+                                                                                    <div  style=" text-align:center;"><t t-esc="o['vendor_add']" /></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div id="__bookmark_8" style=" text-align:center;">
+                                                                                    <div  style=" text-align:center;"><t t-esc="o['vendor_bin']" /></div>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="style_36" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['pur_desc']" /></div>
+                                                                            </td>
+                                                                            <td class="style_34" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['pur_qty']" />
+                                                                                    <br>
+                                                                                        <t t-if="o['pur_qty_uom'] != None"><span  style=" text-align:center;"><t t-esc="o['pur_qty_uom']" /></span></t> 
+                                                                                    </br>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['pur_price']" /></div>
+                                                                            </td>
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['pur_sp_vat']" /></div>
+                                                                            </td>
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['vat']" /></div>
+                                                                            </td>
+                                                                            <td class="style_34" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['total_qty']" />
+                                                                                    <br>
+                                                                                        <t t-if="o['total_qty_uom'] != None"><span  style=" text-align:center;"><t t-esc="o['total_qty_uom']" /></span></t> 
+                                                                                    </br>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['total_price']" /></div>
+                                                                            </td>
+                                                                            <td class="style_34" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['man_qty']" />
+                                                                                    <br>
+                                                                                        <t t-if="o['man_qty_uom'] != None"><span  style=" text-align:center;"><t t-esc="o['man_qty_uom']" /></span></t> 
+                                                                                    </br>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['man_price']" /></div>
+                                                                            </td>
+
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['clo_qty']" />
+                                                                                    <br>
+                                                                                        <t t-if="o['product_uom'] != None"><span  style=" text-align:center;"><t t-esc="o['product_uom']" /></span></t> 
+                                                                                    </br>
+                                                                                </div>
+                                                                            </td>
+
+                                                                            <td class="style_39" style=" overflow:hidden;" align="center">
+                                                                                <div  style=" text-align:center;"><t t-esc="o['clo_price']" /></div>
+                                                                            </td>
+
+                                                                            <td  style=" overflow:hidden;">
+                                                                                <div style="display: none; text-align:center;">
+                                                                                    <div style="visibility:hidden">&#160;</div>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+
+                                                            </t>
+
+
+
+
+                                                    
+
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- <tr valign="top">
+                                                    <td>
+                                                        <div class="style_39" id="AUTOGENBOOKMARK_44_a0fb901d-c322-4df6-9f52-c5e20d9d8c5f"><br>বিশেষ দ্রষ্টব্যঃ</br>
+                                                        <br>১। অর্থনৈতিক কার্যক্রম সংশিলিস্ট সকল প্রকার ক্রয় তথ্য এই ফরমে অন্তর্ভুক্ত করিতে হইবে।</br>
+                                                        <br>২। সম সেণত্র ঄হনফহিত ব্যহক্তয হনকট ঴আণত ঩ণ্য ক্রয় কযা ঴আণফ স঳আ সেণত্র উক্ত ব্যহক্তয পূোথঙ্গ নাভ, ঠিকানা ও জাতীয় ঩হযচয়঩ত্র নম্বয মথামথবাণফ ঳ংহিষ্ট করাভ [(৭), (৮) ও (৯)] এ অফহিকবাণফ</br>
+                                                        <br>উণেখ কহযণত ঴আণফ।</br>
+                                                        <br>৩। উ঩কযে ক্রণয়য স্ব঩ণে প্রাভাহেক দহরর হ঴঳াণফ হফর ঄ফ এহি ফা চারান঩ণত্রয কহ঩ ঳ংযেে কহযণত ঴আণফ।</br>
+                                                        </div>
+                                                    </td>
+                                            
+                                                </tr> -->
+                                                </tbody>
+                                            
+                                            </table>
+                                        </td>
+                                    </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <table style="font-size: 9px;border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;">
+                                            <colgroup>
+
+                                            </colgroup>
+                                            <tbody>
+                                                <tr valign="top">
+                                                    <td class="style_3" colspan="3" style=" overflow:hidden;"></td>
+                                                </tr>
+                                                <tr valign="top">
+                                                    <td class="style_3" style=" overflow:hidden;">
+                                                        <div class="style_7">Print Time: <t t-esc="footers['date_time']" /></div>
+                                                    </td>
+                                                    <td class="style_8" style=" overflow:hidden;" valign="bottom" align="center">
+                                                        <div>
+                                                            <div style="visibility:hidden">&#160;</div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="style_9" style=" overflow:hidden;" valign="bottom" align="right">
+                                                        <span class="style_10"  style=" text-align:right;">Page&#160;</span>
+                                                        <span class="style_11"><t t-esc="i+1" /></span>
+                                                        <span class="style_12" style=" text-align:right;">&#160;of&#160;</span>
+                                                        <span class="style_13" style=" text-align:right;"><t t-esc="len(pages)" /></span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                                        <!-- 
+                                        <div class="footer">
+                                             <div class="style_7"><t t-esc="footers['date_time']" /></div>
+                                        </div> -->
+
+
+                                <t t-set="i" t-value="i+1"/>
+                                    <t t-if="not i == len(pages) ">
+                                            <p style="page-break-after:always;">   </p>
+                                    </t>
+
+
+
+                            
+                        </div>
+                </t>
+            <!-- </t> -->
+
+
+
+		</t>
+
+	</template>
+</odoo>

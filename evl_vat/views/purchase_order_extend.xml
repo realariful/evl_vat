@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        
+    <record id="purchase_order_form_extend" model="ir.ui.view">
+            <field name="name">purchase.order.form.extend</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form" />   
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='button_confirm']" position="after">  
+                        
+                </xpath> 
+
+            
+                <xpath expr="//field[@name='date_order']" position="after">                      
+                        <field name="fiscal_position_id" required="True"/>
+                        <field name="compute_status" invisible="1"/>  
+                </xpath>
+                <xpath expr="//field[@name='product_uom']" position="after">  
+                        <field name="purchase_price"/>                      
+                </xpath>         
+                <xpath expr="//field[@name='price_subtotal']" position="after">  
+                        <field name="purchase_subtype" invisible="1"/>   
+                
+                        <!-- <button name="evl_vat.widgett_vat_action" type="action" string="VAT Details" context="{'default_record_id': 'vat_cd'}" />    -->
+
+                </xpath>   
+
+                 <xpath expr="//field[@name='amount_untaxed']" position="after">  
+                                <field name="po_vat_cd" readonly="1"/>  
+                                <field name="po_vat_sd" readonly="1"/>  
+                                <field name="po_vat_rd" readonly="1"/>                                         
+                                <field name="po_vat_vat" readonly="1"/>                        
+                                <field name="po_vat_ait" readonly="1"/>
+                                <field name="po_vat_atv" readonly="1"/>
+                </xpath>
+
+                <xpath expr="//page//field[@name='fiscal_position_id']" position="replace">                      
+                </xpath>
+
+
+                <xpath expr="//page//form//field[@name='price_unit']" position="before">  
+                        <div> Price Details
+                        </div>
+                        <field name="purchase_price" />
+                        <field name="vat_cd" /> 
+                        <field name="vat_rd" /> 
+                        <field name="vat_sd" />  
+
+                </xpath>
+
+                <xpath expr="//page//form//field[@name='taxes_id']" position="after">  
+                       <field name="price_tax" string="VAT"/>                     
+                      
+                 
+                </xpath>
+                <xpath expr="//page//form//field[@name='company_id']" position="after">  
+                        <br></br>
+                        <br></br>
+ 
+                        <!-- <field name="vat_vat" /> -->
+                        <field name="vat_ait" />    
+                        <field name="vat_atv" />                        
+                   
+                </xpath>					
+            </field>
+    </record>
+
+</odoo>
+
+<!-- icon="fa-cogs" -->
+
+ <!-- <button name="create_repair" type="object" string="VAT Details" context="{'default_record_id': 'vat_cd'}" />        -->    
+
+ <!-- <button name="button_compute" type="object" string="Compute"/>          -->      

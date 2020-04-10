@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <data noupdate="0">
+        <record id="raw" model="product.category">
+            <field name="name">Raw Materials</field>
+            <field name="parent_id"></field>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+        </record>
+        <record id="finish" model="product.category">
+            <field name="name">Finished Goods</field>
+            <field name="parent_id"></field>
+            <field name="property_cost_method">average</field>
+            <field name="property_valuation">real_time</field>
+        </record>
+
+
+    </data> -->
+</odoo>

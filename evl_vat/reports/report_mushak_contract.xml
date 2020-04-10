@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_LS" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="report_mushak_contract"
+            model="mushak.transfer" 
+            string="Muhsak 6.4 (Contractual Production Book)" 
+            report_type="qweb-pdf" 
+            name="evl_vat.mushak_contract" 
+            file="evl_vat.mushak_contract" 
+            
+            />
+
+	<report id="contract_preview"
+            model="mushak.transfer" 
+            string="Muhsak 6.4 (Contractual Production Book)" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_contract" 
+            file="evl_vat.mushak_contract" 
+            
+            />
+
+   
+	<template id="mushak_contract">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+            <t t-foreach="pages" t-as="pg"> 
+				<div class="page">
+                 <!-- <p style="page-break-after:always;">   </p> -->
+                    <div>
+                        
+                        
+                        <table rules="none" style="font-size: 9px;empty-cells: show; overflow: hidden; width: 95%;" cellpadding="0" border="0" align="center">
+
+                        <!-- <table rules="none" style="empty-cells: show; width:11.69in; overflow: hidden; table-layout:fixed;" cellpadding="0" border="0"> -->
+                            <colgroup><col></col>
+                            </colgroup><tbody><tr>
+                                <td valign="top">
+                                    <table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_1_08bb194b-2ffe-4bc9-a263-1ed33b21485b">
+                                        <colgroup><col></col>
+                                        </colgroup><tbody><tr valign="top">
+                                            <td class="style_14" style=" overflow:hidden;">
+                                                                                                                            <table style="font-size: 9px;text-align: left;font-size:12px;width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" >
+
+                                                <!-- <table class="style_15" style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;text-align:right;" id="__bookmark_1"> -->
+                                                    <colgroup><col style=" width: 5%;"></col>
+                                                    <col style=" width: 40%;"></col>
+                                                    <col style=" width: 35%;"></col>
+                                                    <col style=" width: 10%;"></col>
+                                                    <col style=" width: 10%;"></col>
+                                                    </colgroup><tbody><tr class="style_16" valign="top">
+                                                        <th class="style_17" colspan="5" style=" overflow:hidden;" align="left">
+
+
+
+                                                            <table class="style_18" style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="__bookmark_2">
+                                                                <colgroup><col style=" width: 10%;"></col>
+                                                                <col style=" width: 2%;"></col>
+                                                                <col style=" width: 33%;"></col>
+                                                                <col style=" width: 15%;"></col>
+                                                                <col style=" width: 2%;"></col>
+                                                                <col style=" width: 38%;"></col>
+                                                                </colgroup><tbody><tr valign="top">
+                                                                    <td colspan="6" style=" overflow:hidden;" align="left">
+                                                                        
+
+                                                                        <table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;">
+                                                                            <colgroup><col></col>
+                                                                            </colgroup><tbody><tr valign="top">
+                                                                                <td style=" overflow:hidden;" align="right">
+                                                                                    <div style=" text-align:center;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+                                                                                    <div style=" text-align:center;">জাতীয় রাজস্ব বোর্ড</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr class="style_26" valign="top">
+                                                                                <td class="style_27" style=" overflow:hidden;" align="right">
+                                                                                    <span class="style_28">মূসক ৬.৪</span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr valign="top">
+                                                                                <td style=" overflow:hidden;">
+                                                                                    <div style=" text-align:center;">চুক্তিভিত্তিক উৎপাদনের চালানপত্র&#160;</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr valign="top">
+                                                                                <td style=" overflow:hidden;">
+                                                                                    <div  style=" text-align:center;">[বিধি ৪০ এর উপ-বিধি (১) এর দফা (ঘ) দ্রষ্টব্য]</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>নিবন্ধিত ব্যক্তির নাম</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                            <div><t t-if="pg['headers']['sender']['name']"> <t t-esc="pg['headers']['sender']['name']"/></t></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div >নিবন্ধিত ব্যক্তির বিআইএন</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                           <div><t t-if="pg['headers']['sender']['bin']"> <t t-esc="pg['headers']['sender']['bin']"/></t></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>চালানপত্র ইস্যুর ঠিকানা</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                            <div><t t-if="pg['headers']['sender']['address']"> <t t-esc="pg['headers']['sender']['address']"/></t></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="style_60" valign="top">
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                    <td style=" overflow:hidden;" align="left"></td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div >গ্রহীতার নাম</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                            <div> <t t-esc="pg['headers']['receiver']['name']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div >চালানপত্র নম্বর&#160;</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>   
+                                                                            <div> <t t-esc="pg['headers']['sender']['challan_no']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div >গ্রহীতার বিআইএন</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                             <div> <t t-esc="pg['headers']['sender']['issue_time']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div >ইস্যুর তারিখ</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                             <div> <t t-esc="pg['headers']['sender']['issue_date']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>গন্তব্যস্থল</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>
+                                                                             <div> <t t-esc="pg['headers']['receiver']['rec_add']" /></div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div>ইস্যুর সময়</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                        <div style=" text-align:center;">:</div>
+                                                                    </td>
+                                                                    <td style=" overflow:hidden;" align="left">
+                                                                         <div> <t t-esc="pg['headers']['sender']['issue_time']" /></div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            </table>
+                                                        </th>
+                                                    </tr>
+
+
+                                                      <tr class="style_94" valign="top">
+                                                            <th class="style_95" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">ক্রমিক সংখ্যা</div>
+                                                            </th>
+                                                            <th class="style_97" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">প্রকৃতি (উপকরণ বা উৎপাদিত পণ্য)</div>
+                                                            </th>
+                                                            <th class="style_98" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">পণ্যের বিবরণ</div>
+                                                            </th>
+                                                            <th class="style_99" style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">পরিমাণ</div>
+                                                            </th>
+                                                            <th  style=" overflow:hidden;" align="center">
+                                                                <div style=" text-align:center;">মন্তব্য</div>
+                                                            </th>
+                                                        </tr>
+                                                        <tr  valign="top">
+                                                            <th  style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">(১)</div>
+                                                            </th>
+                                                            <th style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">(২)</div>
+                                                            </th>
+                                                            <th style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">(৩)</div>
+                                                            </th>
+                                                            <th style=" overflow:hidden;" align="left">
+                                                                <div style=" text-align:center;">(৪)</div>
+                                                            </th>
+                                                            <th style=" overflow:hidden;" align="center">
+                                                                <div style=" text-align:center;">(৫)</div>
+                                                            </th>
+                                                        </tr>
+
+
+                                                        <t t-foreach="pg['body']['lines']" t-as="lines"> 
+                                                            <tr  valign="top">
+                                                                <th  style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><t t-esc="lines['sn']" /></div>
+                                                                </th>
+                                                                <th style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><t t-esc="lines['pro_type']" /></div>
+                                                                </th>
+                                                                <th style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><t t-esc="lines['pro_uom']" /></div>
+                                                                </th>
+                                                                <th style=" overflow:hidden;" align="left">
+                                                                    <div style=" text-align:center;"><t t-esc="lines['pro_qty']" /></div>
+                                                                </th>
+                                                                <th style=" overflow:hidden;" align="center">
+                                                                    <div style=" text-align:center;"><t t-esc="lines['comment']" /></div>
+                                                                </th>
+                                                            </tr>
+                                                        </t>
+
+                                                    <!-- <tr valign="top">
+                                                        <td style=" overflow:hidden;"></td>
+                                                        <td style=" overflow:hidden;"></td>
+                                                        <td style=" overflow:hidden;" align="center">
+                                                            <div style=" text-align:right;">সর্বমোট</div>
+                                                        </td>
+                                                        <td  style=" overflow:hidden;">
+                                                            <div style=" text-align:right;">
+                                                                <div style="visibility:hidden">&#160;</div>
+                                                            </div>
+                                                        </td>
+                                                        <td style=" overflow:hidden;"></td>
+                                                    </tr> -->
+                                                    <tr valign="top">
+                                                        <td colspan="5" style=" overflow:hidden;" align="right">
+                                                            <div style=" text-align:left;"><br>দায়িত্বপ্রাপ্ত কর্মকর্তার স্বাক্ষর</br></div>
+                                                            <div style=" text-align:left;">নামঃ</div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                    
+                                    </table>
+
+
+
+
+                                                 
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table style="border-collapse: collapse; empty-cells: show; width: 100%; overflow:hidden; table-layout:fixed;" id="AUTOGENBOOKMARK_38_2201afa9-5d27-4e05-857e-c5a3f661ef2a">
+                                        <colgroup><col style=" width: 1.5in;"></col>
+                                        <col></col>
+                                        <col style=" width: 1.5in;"></col>
+                                        </colgroup><tbody><tr valign="top">
+                                            <td colspan="3" style=" overflow:hidden;"></td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td style=" overflow:hidden;">
+                                                <div>02/29/2020 10:28</div>
+                                            </td>
+                                            <td style=" overflow:hidden;" valign="bottom" align="center">
+                                                <div>
+                                                    <div style="visibility:hidden">&#160;</div>
+                                                </div>
+                                            </td>
+                                            <td style=" overflow:hidden;" valign="bottom" align="right">
+                                                <span style=" text-align:right;">Page&#160;</span>
+                                                <span >1</span>
+                                                <span style=" text-align:right;">&#160;of&#160;</span>
+                                                <span style=" text-align:right;">1</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+
+
+                    </div>
+
+
+                   
+                </div> 
+
+
+                             
+
+				
+
+
+
+            </t>
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+	</template>
+</odoo>

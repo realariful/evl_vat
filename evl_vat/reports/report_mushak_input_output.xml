@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_LS" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">10</field>
+        <field name="dpi">90</field>
+    </record>
+
+
+	<report id="report_mushak_input_output"
+            model="mushak.inputoutput" 
+            string="Muhsak 4.3 Report" 
+            report_type="qweb-pdf" 
+            name="evl_vat.mushak_input_output" 
+            file="evl_vat.mushak_input_output" 
+            paperformat="evl_vat.paperformat_cny_LS"
+           />
+
+   
+	<report id="report_mushak_input_output_preview"
+            model="mushak.inputoutput" 
+            string="Muhsak 4.3 Report" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_input_output" 
+            file="evl_vat.mushak_input_output" 
+            paperformat="evl_vat.paperformat_cny_LS"/>
+
+
+	<template id="mushak_input_output">
+		
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+
+            <t t-call="web.html_container">
+                <!-- <t t-call="web.external_layout"> -->
+				<div class="page">
+                    <style>
+                    .style_1 {
+                        border: none;
+                    }
+                    </style>
+
+                    <div>
+                        
+                        <br></br>
+                        <br></br>
+                        <table rules="none" style="empty-cells: show; margin-left:auto;margin-right:auto;font-size: 9px;text-align: center;table-layout:fixed;" cellpadding="0" >
+
+                                <tbody>
+                                <tr>
+                                    <td valign="top">
+                                        <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;">
+                                            <tbody><tr valign="top">
+                                                <td >
+                                                    <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;">
+                                                        <colgroup>
+                                                        </colgroup>
+                                                        <tbody>
+                                                            <tr valign="top">
+                                                                <td>
+                                                                    <div style=" text-align:center;">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</div>
+                                                                    <div style=" text-align:center;">জাতীয় রাজস্ব বোর্ড ,&#32; ঢাকা</div>
+                                                                </td>
+                                                                </tr>
+                                                                <tr valign="top">
+                                                                    <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                <br></br>
+                                                
+                                                    
+                                                    <table style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto;width: 90%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+                                                        <colgroup>
+
+                                                        </colgroup>
+                                                        <tbody>
+
+
+
+
+                                                            <tr valign="top">
+                                                                <td colspan="12">
+                                                                    <div id="mushak_43" style=" text-align:right;"><strong>মূসক - ৪.৩</strong></div>
+                                                                    <div style=" text-align:center;"><strong>উপকরণ-উৎপাদ সহগ (Input-Output Coefficient) ঘোষণা&#32;</strong></div>
+                                                                    <div style=" text-align:center;"><strong>(বিধি ২১ দ্রষ্টব্য)</strong></div>
+
+                                                                    <t t-foreach="headers" t-as="o">
+        
+                                                                        <tr valign="top" style="border: none;" align="left" colspan="10">
+                                                                             <td class="style_1">
+                                                                                <div >১।প্রতিষ্ঠানের নামঃ</div>
+                                                                            </td>
+                                                                             <td class="style_1" colspan="10">
+                                                                                <div> <t t-esc="o['name']" /></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr valign="top" style="border: none;" align="left" colspan="10">
+                                                                             <td class="style_1">
+                                                                                <div >২। ঠিকানাঃ</div>
+                                                                            </td>
+                                                                             <td class="style_1" colspan="10">
+                                                                                <div  > <t t-esc="o['street']" />, <t t-esc="o['street2']" />,  <t t-esc="o['zip']" /></div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr valign="top" style="border: none;" align="left" colspan="10">
+                                                                            <td class="style_1">
+                                                                                <div >৩। বিনঃ</div>
+                                                                            </td>
+                                                                             <td class="style_1" colspan="10">
+                                                                                <div  > <t t-esc="o['vat']" /></div>
+                                                                            </td>
+                                                                        </tr>																
+                                                                        <tr valign="top" style="border: none;" align="left" colspan="10">
+                                                                             <td class="style_1">
+                                                                                <div >৪। দাখিলের তারিখঃ</div>
+                                                                            </td>
+                                                                             <td class="style_1" colspan="10">
+                                                                                <div  > <t t-esc="o['date']" /></div>
+                                                                            </td>
+                                                                        </tr>										
+                                                                        <tr valign="top" style="border: none;" align="left" colspan="10">
+                                                                             <td class="style_1">
+                                                                                <div >৫। ঘোষিত সহগ অনুযায়ী পন্য/সেবার প্রথম সরবরাহের তারিখঃ</div>
+                                                                            </td>
+                                                                             <td class="style_1" colspan="10">
+                                                                                <div  > <t t-esc="o['date']" /></div>
+                                                                            </td>
+                                                                        </tr>	                                                                         
+                                                                                                                            
+                                                                            <br></br>
+                                                                    </t>
+                                                                </td>
+                                                            </tr>
+                                                                    <br></br>
+                                                                    <br></br>
+
+        
+                                                            <tr class="style_5" valign="top" align="center">
+                                                                <th  rowspan="2" align="left">
+                                                                    <div style=" text-align:center;">ক্রমিক সংখ্যা</div>
+                                                                </th>
+                                                                <th  rowspan="2" align="left">
+                                                                    <div style=" text-align:center;">পণ্যের এইচ এস কোড / সেবা কোড</div>
+                                                                </th>
+                                                                <th  rowspan="2" align="left">
+                                                                    <div>পণ্যের নাম ও বিবরণ</div>
+                                                                </th>
+                                                                <th  rowspan="2" align="left">
+                                                                    <div style="text-align:center;">সরবরাহের একক</div>
+                                                                </th>
+                                                                <th  colspan="5" align="left">
+                                                                    <div style=" text-align:center;">একক পণ্য/সেবা সরবরাহে ব্যবহার্য যাবতীয় উপকরণের/কাঁচামালের এবং প্যাকিং সামগ্রীর বিবরণ, পরিমাণ ও ক্রয়মূল্য (উপকরনভিত্তিক অপচয়ের শতকরা হারসহ)&#32;</div>
+                                                                </th>
+                                                                <th  colspan="2" align="left">
+                                                                    <div style=" text-align:center;">মূল্য সংযোজনের বিবরণ</div>
+                                                                </th>
+                                                                <th  rowspan="2" align="left">
+                                                                    <div style=" text-align:center;">মন্তব্য</div>
+                                                                </th>
+                                                            </tr>
+                                                            <tr class="style_5" valign="top" align="center">
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">বিবরণ</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">অপচয়সহ পরিমাণ</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">মূল্য</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">অপচয়ের পরিমাণ</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">শতকরা হার</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">মূল্য সংযোজনের খাত</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">মূল্য</div>
+                                                                </th>
+                                                            </tr>
+                                                            <tr class="style_21" valign="top" align="center">
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(১)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(২)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৩)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৪)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৫)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৬)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৭)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৮)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(৯)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(১০)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(১১)</div>
+                                                                </th>
+                                                                <th  align="left">
+                                                                    <div style=" text-align:center;">(১২)</div>
+                                                                </th>
+                                                            </tr>
+    
+                
+
+                                                            <div style="page-break-after: auto;">
+
+                                                                <t t-foreach="bom_lines" t-as="line">  
+                                                                    <tr class="style_21" valign="top" align="center">
+                                                                                                                            
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['serial_number']"/></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['hscode']"/></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['name']"/></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['uom']"/></div>
+                                                                        </th>                                              
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['product_name']"/></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div style=" text-align:center;"><t t-esc="line['product_qty']" />  <t t-esc="line['product_uom_id']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['product_price']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['waste_qty']" /> <t t-esc="line['product_uom_id']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div style=" text-align:center;"><t t-esc="line['waster_per']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['add_name']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['add_price']" /></div>
+                                                                        </th>
+                                                                        <th  align="left">
+                                                                            <div  style=" text-align:center;"><t t-esc="line['comment']" /></div>
+                                                                        </th>       
+                                                                    </tr>
+    
+
+
+                                                            </t>
+
+                                                         </div>
+    
+
+
+                                                    </tbody>
+                                                </table>
+
+
+                                                <br></br>
+                                                <br></br>
+
+
+                                                    <table class="style_38" style="font-size: 9px;empty-cells: show; margin-left:auto;margin-right:auto; width: 90%;" align="left">
+                                                        <colgroup>
+
+                                                        </colgroup>
+                                                        <tbody>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div class="style_39">
+                                                                    <div style="visibility:hidden">&#32;
+                                                                    </div>
+                                                                </div>
+                                                                <div class="style_40" style="text-align:left;"> 
+                                                                 <br><strong>প্রতিষ্ঠান কর্তৃপক্ষের দায়িত্বপ্রাপ্ত ব্যক্তির নামঃ</strong></br>
+                                                                                                                                                                                <br><strong>পদবীঃ</strong></br>
+                                                                                                                                                                                <br><strong>স্বাক্ষরঃ</strong></br>
+                                                                                                                                                                                <br><strong>সীলঃ</strong></br>
+                                                                                                                                                                                <br></br>
+                                                                </div>
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr valign="top">
+                                                            <td>
+                                                                <div class="style_39">
+                                                                    <div style="visibility:hidden">&#32;</div>
+                                                                </div>
+                                                                <div class="style_39" align="left">বিশেষ দ্রষ্টব্যঃ</div>
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr valign="top" align="left">
+                                                            <td>
+                                                                <div align="left">১। যেকোনো পণ্য সরবরাহের নুন্যতম ১৫ দিন পূর্বে অনলাইনে মূসক কম্পিউটার সিস্টেমে বা সংশ্লিষ্ট বিভাগীয় কর্মকর্তার দপ্তরে উপকরণ উৎপাদ সহগ ঘোষণা দাখিল করিতে হইবে।&#32;<br>২। পন্যমূল্য উপকরণ/কাঁচামাল বা&#32; মূল্য সংযোজনের খাতের পরিমাণ বা মূল্যে ৭.৫% এর বেশী পরিবর্তন হইলে নতুন ঘোষণা দাখিল করিতে হইবে।&#32;</br><br>৩। পণ্য ক্রয়ের স্বপক্ষে প্রামাণিক দলিল হিসাবে বিল অব এন্ট্রি বা চালানপত্রের কপি সংযুক্ত করিতে হইবে।&#32;</br></div>
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>
+                                        <table rules="none" style="empty-cells: show; margin-left:auto;margin-right:auto;font-size: 9px;text-align: center;table-layout:fixed;" cellpadding="0" >
+                                        <!-- <table style="font-size: 10px;empty-cells: show; margin-left:auto;margin-right:auto; width: 90%;" align="left"> -->
+                                            <colgroup>
+                                            </colgroup><tbody><tr valign="top">
+                                                <td colspan="3"></td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td>
+                                                    <div class="style_7">Print Time: <t t-esc="footer['report_time']" /></div>
+                                                </td>
+                                                <td class="style_8" valign="bottom" align="left">
+                                                    <div>
+                                                        <div style="visibility:hidden">&#32;</div>
+                                                    </div>
+                                                </td>
+                                                <td class="style_9" valign="bottom" align="right">
+                                                    <span style=" text-align:right;">Page&#32;</span>
+                                                    <span >1</span>
+                                                    <span style=" text-align:right;">&#32;of&#32;</span>
+                                                    <span class="style_13" style=" text-align:right;">1</span>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+				</div>
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+	</template>
+</odoo>

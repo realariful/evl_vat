@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <data noupdate="0">
+      <record model="ir.module.category" id="module_category_vat">
+          <field name="name">VAT Management</field>
+          <field name="description">Category For EVL VAT Management</field>
+          <field name="sequence">46</field>
+      </record>
+
+        <!-- Group Training user -->
+        <record id="group_evl_vat_user" model="res.groups">
+          <field name="name">VAT User</field>
+          <field name="category_id" ref="module_category_vat"/>
+        </record>
+
+        <!-- Group VAT Manager -->
+        <record id="group_evl_vat_manager" model="res.groups">
+          <field name="name">VAT Manager</field>
+          <field name="category_id" ref="module_category_vat"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record> 
+
+        <!-- Group Sales Manager -->
+        <record id="group_evl_sale_manager" model="res.groups">
+          <field name="name">Sales Manager</field>
+          <field name="category_id" ref="module_category_vat"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record> 
+        <!-- Group Purchase Manager -->
+        <record id="group_evl_pur_manager" model="res.groups">
+          <field name="name">Purchase Manager</field>
+          <field name="category_id" ref="module_category_vat"/>
+          <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>       
+    </data>
+</odoo>
+

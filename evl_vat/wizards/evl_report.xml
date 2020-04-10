@@ -1,0 +1,669 @@
+<?xml version="1.0"?>
+    <odoo>
+    
+    <record id="report_mushak_4_3_action_form" model="ir.ui.view">
+            <field name="name">mushak.inputoutput.form</field>
+            <field name="model">mushak.inputoutput</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <group>
+                                                    
+                            <field name="product_id"/>
+                            <field name="bom_code"/>
+                        </group> 
+                    </group>
+                    <group>
+                        <group>                        
+                            <field name="language" />    
+                            <field name="page_setup" />  
+                            <field name="page_orientation" />  
+                              
+                        </group> 
+                        <!-- <group>    
+                            <field name="report_header"/>
+                            <field name="report_title" />
+               
+                        </group>   -->
+                    </group>                    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_4_3_action" model="ir.actions.act_window">
+            <field name="name">Mushak 4.3 (Input-Output Coefficient)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.inputoutput</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_4_3_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <record id="report_mushak_6_1_action_form" model="ir.ui.view">
+            <field name="name">mushak.purchase.form</field>
+            <field name="model">mushak.purchase</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="report_type"/>
+                    </group>
+                    <group col="4">                        
+                        <field name="date_from" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="date_to" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="month" style="width:110px" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="year" style="width:110px;margin-left: 34px;" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="product_selection" />
+                        <field name="product_id" attrs="{'invisible': [('product_selection', '=', True)]}"/>                        
+                    </group>
+                    <group>     
+                        <group>                        
+                            <field name="language" />    
+                            <field name="page_setup" />  
+                            <field name="page_orientation" />  
+  
+                        </group> 
+                        <!-- <group>    
+                            <field name="report_header"/>
+                            <field name="report_title" />
+               
+                        </group>   -->
+                    </group>  
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_purchase" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_1_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.1 (Purchase Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.purchase</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_1_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!-- Report Mushak 6.2: Sale Book -->
+    <record id="report_mushak_6_2_action_form" model="ir.ui.view">
+            <field name="name">mushak.sale.form</field>
+            <field name="model">mushak.sale</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="report_type"/>
+                    </group>
+                    <group col="4">                        
+                        <field name="date_from" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="date_to" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="month" style="width:110px" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="year" style="width:110px;margin-left: 34px;" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="product_selection" />
+                        <field name="product_id" attrs="{'invisible': [('product_selection', '=', True)]}"/>                        
+                    </group>
+                    <group>
+
+                         <group>                        
+                            <field name="language" />    
+                            <field name="page_setup" />  
+                            <field name="page_orientation" />  
+  
+                        </group> 
+                        <!-- <group>    
+                            <field name="report_header"/>
+                            <field name="report_title" />
+               
+                        </group>   -->
+                    </group> 
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_sale" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_2_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.2 (Sale Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.sale</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_2_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+    <!-- Report Mushak 6.2.1: Purchase-Sale Book -->
+    <record id="report_mushak_6_2_1_action_form" model="ir.ui.view">
+            <field name="name">mushak.purchase.sale.form</field>
+            <field name="model">mushak.purchase.sale</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="report_type"/>
+                    </group>
+                    <group col="4">                        
+                        <field name="date_from" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="date_to" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="month" style="width:110px" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="year" style="width:110px;margin-left: 34px;" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="product_selection" />
+                        <field name="product_id" attrs="{'invisible': [('product_selection', '=', True)]}"/>                        
+                    </group>
+                    <group>
+
+                         <group>                        
+                            <field name="language" />    
+                            <field name="page_setup" />  
+                            <field name="page_orientation" />  
+  
+                        </group> 
+                        <!-- <group>    
+                            <field name="report_header"/>
+                            <field name="report_title" />
+               
+                        </group>   -->
+                    </group> 
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_6_2_1" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_2_1_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.2.1 (Purchase-Sale Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.purchase.sale</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_2_1_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+
+    <!-- Report Mushak 6.3: Tax Book -->
+    <record id="report_mushak_6_3_action_form" model="ir.ui.view">
+            <field name="name">mushak.tax.form</field>
+            <field name="model">mushak.tax</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <group>                        
+                        <field name="sale_order"/>                    
+                    </group>
+                    <group>
+
+                         <group>                        
+                            <field name="language" />    
+                            <field name="page_setup" />  
+                            <field name="page_orientation" />  
+  
+                        </group> 
+                        <!-- <group>    
+                            <field name="report_header"/>
+                            <field name="report_title" />
+               
+                        </group>   -->
+                    </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_tax" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_3_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.3 (Tax Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.tax</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_3_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+    <!-- Report Mushak 6.4: Contractual Porduction Book -->
+    <record id="report_mushak_6_4_action_form" model="ir.ui.view">
+            <field name="name">mushak.contract.form</field>
+            <field name="model">mushak.contract</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <!-- <group col="4">                        
+                        <field name="contract_order" />    
+                    </group> -->
+                        <group>
+
+                            <group>          
+                                <field name="contract_order" />                  
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_contract" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_4_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.4 (Contractual-Production Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.contract</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_4_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+    <!-- Report Mushak 6.5: Transfer Book -->
+    <record id="report_mushak_6_5_action_form" model="ir.ui.view">
+            <field name="name">mushak.transfer.form</field>
+            <field name="model">mushak.transfer</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <!-- <group col="4">                        
+                        <field name="transfer_order"/>                     -->
+                        <group>
+
+                            <group>          
+                                <field name="transfer_order" />                  
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_transfer" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_5_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.5 (Transfer Book)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.transfer</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_5_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+    <!-- Report Mushak 6.7: Credit Note -->
+    <record id="report_mushak_6_7_action_form" model="ir.ui.view">
+            <field name="name">mushak.credit.form</field>
+            <field name="model">mushak.credit</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <!-- <group col="4">                        
+                        <field name="credit_note"/>                    
+                    </group> -->
+                    
+                         <group>
+
+                            <group>          
+                                <field name="credit_note" />                  
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_credit_note" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_7_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.7 (Credit note)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.credit</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_7_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+    <!-- Report Mushak 6.8: Debit Note -->
+    <record id="report_mushak_6_8_action_form" model="ir.ui.view">
+            <field name="name">mushak.debit.form</field>
+            <field name="model">mushak.debit</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <!-- <group col="4">                        
+                        <field name="debit_note"/>                    
+                    </group> -->
+                    
+                         <group>
+
+                            <group>          
+                                <field name="debit_note" />                  
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_debit_note" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_8_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.8 (Debit note)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.debit</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_8_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+    <!-- Report Mushak 6.8: Debit Note -->
+    <record id="report_mushak_6_10_action_form" model="ir.ui.view">
+            <field name="name">mushak.twolakhs.form</field>
+            <field name="model">mushak.twolakhs</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="report_type"/>
+                    </group>
+                    <group col="4">                        
+                        <field name="date_from" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="date_to" attrs="{'invisible': [('report_type', '=', 'month')]}"/>
+                        <field name="month" style="width:110px" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="year" style="width:110px;margin-left: 34px;" attrs="{'invisible': [('report_type', '=',  'date')], 'required': [('report_type', '=',  'month')]}"/>
+                        <field name="product_selection" />
+                        <field name="product_id" attrs="{'invisible': [('product_selection', '=', True)]}"/>                        
+                    </group>
+                       <group>
+
+                            <group>          
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_6_10" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_6_10_action" model="ir.actions.act_window">
+            <field name="name">Mushak 6.10 (Purchase-Sale Book above 2 Lakhs Taka)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.twolakhs</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_6_10_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+    <!-- Report Mushak 9.1: VAT Return -->
+    <record id="report_mushak_9_1_action_form" model="ir.ui.view">
+            <field name="name">mushak.vatreturn.form</field>
+            <field name="model">mushak.vatreturn</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <group>                        
+                        <field name="month" />                         
+                        <field name="year"  />
+                        <field name="sub_date" />
+                    </group>
+                       <group>
+
+                            <group>          
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_9_1" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_9_1_action" model="ir.actions.act_window">
+            <field name="name">Mushak 9.1 (VAT return)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.vatreturn</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_9_1_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+
+
+    <!-- ReportTR-6: VAT Return -->
+    <record id="evl_report_treasury_form" model="ir.ui.view">
+            <field name="name">mushak.treasury.form</field>
+            <field name="model">mushak.treasury</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <group >                        
+                        <field name="voucher" />
+                    </group>
+                       <group>
+
+                            <group>          
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_treasury" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="evl_report_treasury" model="ir.actions.act_window">
+            <field name="name">TR-6 (Treasury Challan)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.treasury</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="evl_report_treasury_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!-- Report Mushak 9.1: VAT Return -->
+    <record id="report_mushak_9_2_action_form" model="ir.ui.view">
+            <field name="name">mushak.vatreturntwo.form</field>
+            <field name="model">mushak.vatreturntwo</field>
+            <field name="arch" type="xml">
+                <form string="Create Report">
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <group>                        
+                        <field name="month" />                         
+                        <field name="year"  />
+                        <field name="sub_date" />
+                    </group>
+                       <group>
+
+                            <group>          
+                                <field name="language" />    
+                                <field name="page_setup" />  
+                                <field name="page_orientation" />  
+    
+                            </group> 
+                            <!-- <group>    
+                                <field name="report_header"/>
+                                <field name="report_title" />
+                
+                            </group>   -->
+                        </group>    
+                    <footer>
+                        <button name="print_preview" string="Preview" type="object" class="btn-primary"/>
+                        <button name="print_mushak_9_2" string="Print" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_mushak_9_2_action" model="ir.actions.act_window">
+            <field name="name">Mushak 9.2 (VAT return)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mushak.vatreturntwo</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="report_mushak_9_2_action_form"/>
+            <field name="target">new</field>
+        </record>
+
+    <!--  -->
+
+    <!--  -->
+    <!--  Widget for VAT Details-->
+    <!-- <record id="widget_vat_action_view" model="ir.ui.view">
+            <field name="name">purchase.order.line.tree.widget</field>
+            <field name="model">purchase.order.line</field>
+            <field name="arch" type="xml">
+                <form string="VAT Details">
+                    <group>
+                        <group>
+                            <field name="vat_cd" readonly="1" context="{'vat_cd': 'vat_cd'}"/>                        
+                            <field name="vat_sd" readonly="1"/>        
+                            <field name="vat_rd" readonly="1"/>        
+                            <field name="vat_vat" readonly="1"/>                        
+                        </group>
+                        <group>                      
+                            <field name="vat_ait" readonly="1"/>        
+                            <field name="vat_atv" readonly="1"/>  
+                            <field name="vat_at" readonly="1"/>                        
+                            <field name="vat_tti" readonly="1"/>        
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="widgett_vat_action" model="ir.actions.act_window">
+            <field name="name">VAT Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="widget_vat_action_view"/>
+            <field name="target">new</field>
+        </record> -->
+</odoo>

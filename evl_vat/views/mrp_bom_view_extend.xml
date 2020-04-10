@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>    
+    <data>
+        <record id="mrp_bom_form_view_extend" model="ir.ui.view">
+            <field name="name">mrp.bom.form.extend</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+            <field name="arch" type="xml">    
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Bill of Costs" >
+                        <field name="bill_of_cost" >
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="cost"/>
+                                <field name="cost_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                </xpath>       
+
+                <xpath expr="//notebook//page//field[@name='product_uom_id']" position="after">   
+                    <field name="standard_price"/>                   
+                    <field name="waste_qty"/>                    
+                    <field name="waste_per" readonly="1"/>
+
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="mrp_production_form_view_extend" model="ir.ui.view">
+            <field name="name">mrp.production.extend</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view" />
+            <field name="arch" type="xml">      
+
+                <xpath expr="//field[@name='date_deadline']" position="after">   
+                    <field name="date_finished" attrs="{'invisible': [ ('state','not in',['done']) ]}"/>   
+                </xpath>
+            </field>
+        </record> -->
+
+    </data>
+</odoo>
+                        

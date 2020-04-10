@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <data noupdate="1">
+        <record id="others" model="account.tax.group">
+            <field name="name">Others</field>
+        </record>
+
+        <record id="cd_0" model="account.tax">
+            <field name="name">CD 0%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="description">CD 0%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="cd_5" model="account.tax">
+            <field name="name">CD 5%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">5</field>
+            <field name="description">CD 5%</field>
+           <field name="tax_group_id">Others</field>
+        </record>
+
+
+         <record id="cd_10" model="account.tax">
+            <field name="name">CD 10%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+            <field name="description">CD 10%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+         <record id="cd_15" model="account.tax">
+            <field name="name">CD 15%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">15</field>
+            <field name="description">CD 15%</field>
+            <field name="tax_group_id">Others</field>
+        </record>       
+        
+         <record id="cd_20" model="account.tax">
+            <field name="name">CD 20%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">20</field>
+            <field name="description">CD 20%</field>
+            <field name="tax_group_id">Others</field>
+        </record>         
+
+         <record id="cd_25" model="account.tax">
+            <field name="name">CD 25%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">25</field>
+            <field name="description">CD 25%</field>
+            <field name="tax_group_id">Others</field>
+        </record>       
+
+
+        <record id="cd_500" model="account.tax">
+            <field name="name">CD 500%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">500</field>
+            <field name="description">CD 500%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="cd_750" model="account.tax">
+            <field name="name">CD 750%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">750</field>
+            <field name="description">CD 750%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+
+        <record id="rd_0" model="account.tax">
+            <field name="name">RD 0%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="description">RD 0%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="rd_3" model="account.tax">
+            <field name="name">RD 3%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">3</field>
+            <field name="description">RD 3%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+
+
+        <record id="rd_5" model="account.tax">
+            <field name="name">RD 5%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">5</field>
+            <field name="description">RD 5%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="sd_0" model="account.tax">
+            <field name="name">SD 0%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="description">SD 0%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="sd_10" model="account.tax">
+            <field name="name">SD 10%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">10</field>
+            <field name="description">SD 10%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+
+        <record id="sd_20" model="account.tax">
+            <field name="name">SD 20%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">20</field>
+            <field name="description">SD 20%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="sd_25" model="account.tax">
+            <field name="name">SD 25%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">25</field>
+            <field name="description">SD 25%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+
+        <record id="vat_0" model="account.tax">
+            <field name="name">VAT 0%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">0</field>
+            <field name="description">VAT 0%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="vat_15" model="account.tax">
+            <field name="name">VAT 15%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">15</field>
+            <field name="description">VAT 15%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="ait_5" model="account.tax">
+            <field name="name">AIT 5%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">5</field>
+            <field name="description">AIT 5%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="atv_5" model="account.tax">
+            <field name="name">ATV 5%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">5</field>
+            <field name="description">ATV 5%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+        <record id="atv_25" model="account.tax">
+            <field name="name">ATV 25%</field>
+            <field name="type_tax_use">purchase</field>
+            <field name="amount_type">percent</field>
+            <field name="amount">25</field>
+            <field name="description">ATV 25%</field>
+            <field name="tax_group_id">Others</field>
+        </record>
+
+    </data> -->
+</odoo>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="paperformat_cny_two_lakhs" model="report.paperformat">
+        <field name="name">CNY LS Paper Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+	<report id="twolakhs_preview"
+            model="mushak.twolakhs" 
+            string="Muhsak 6.10 (Purchase-Sale Book above 2 Lakhs Taka)" 
+            report_type="qweb-html" 
+            name="evl_vat.mushak_twolakhs" 
+            file="evl_vat.mushak_twolakhs" 
+            paperformat="evl_vat.paperformat_cny_two_lakhs"
+            />
+
+   	<report id="report_mushak_twolakhs"
+            model="mushak.twolakhs" 
+            string="Muhsak 6.10 (Purchase-Sale Book above 2 Lakhs Taka)" 
+            report_type="qweb-pdf" 
+            name="evl_vat.mushak_twolakhs" 
+            file="evl_vat.mushak_twolakhs" 
+            paperformat="evl_vat.paperformat_cny_two_lakhs"
+            />
+	<template id="mushak_twolakhs">
+		<t t-call="web.html_container">
+			<!-- <t t-call="web.external_layout"> -->
+            <!-- <t t-call="web.internal_layout"> -->
+            <t t-foreach="pages" t-as="pg" > 
+				<div class="page">
+                  <!-- <p style="page-break-after:always;">   </p> -->
+                    <div id="sale_purchase_book" class="style_0" title="Sale Purchase book Viewer">           
+              
+              
+
+
+	<table style="font-size: 9px;empty-cells: show; width:95%;margin-left:auto;margin-right:auto;" cellpadding="0" border="0">
+		<colgroup><col></col>
+		</colgroup><tbody><tr>
+			<td valign="top">
+				<table style="font-size: 9px;border-collapse: collapse; empty-cells: show; width: 100%;" >
+					<colgroup><col></col>
+					</colgroup><tbody>
+					
+					
+					<tr valign="top">
+						<td>
+							<table style="font-size: 9px;border-collapse: collapse; empty-cells: show; width: 100%;">
+								<colgroup><col></col>
+								</colgroup><tbody><tr valign="top">
+									<td align="center">
+										<div >গণপ্রজাতন্ত্রী বাংলাদেশ সরকার<br>জাতীয় রাজস্ব বোর্ড</br><br></br><br></br></div>
+									</td>
+								</tr>
+								<tr valign="top">
+									<td align="right">
+										<span  style=" text-align:right;">মূসক - ৬.১০</span>
+									</td>
+								</tr>
+								<tr valign="top">
+									<td>
+										<div style=" text-align:center;">২(দুই) লক্ষ টাকার অধিক মূল্যমানের ক্রয়-বিক্রয় চালানপত্রের তথ্য</div>
+									</td>
+								</tr>
+								<tr valign="top">
+									<td>
+										<div style=" text-align:center;">[বিধি ৪২ এর উপ-বিধি (১) দ্রষ্টব্য]</div>
+									</td>
+								</tr>
+							</tbody>
+							</table>
+							<table style="font-size: 9px;border-collapse: collapse; empty-cells: show; width: 100%;" >
+								<colgroup><col style=" width: 5%;"></col>
+								<col style=" width: 25%;"></col>
+								<col style=" width: 30%;"></col>
+								<col style=" width: 10%;"></col>
+								<col style=" width: 25%;"></col>
+								<col style=" width: 5%;"></col>
+								</colgroup>
+								<tbody>
+									<tr valign="top">
+										<td class="style_20"></td>
+										<td class="style_20">
+											<div >নিবন্ধিত/তালিকাভুক্ত ব্যক্তির নাম:</div>
+										</td>
+										<td class="style_22">
+											<div> <t t-esc="pg['headers']['company']" /></div>
+										</td>
+										<td>
+											<div >বিআইএন :</div>
+										</td>
+										<td class="style_23">
+											<div> <t t-esc="pg['headers']['bin']" /></div>
+										</td>
+										<td class="style_24"></td>
+									</tr>
+									<tr valign="top">
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							
+							</table>
+
+
+							<div ><br><strong style="font-size: 10px;">অংশ - কঃ ক্রয় হিসাব তথ্য</strong></br></div>
+
+							<br></br>
+						
+							
+							
+							<table style="font-size: 9px;text-align: left; border-collapse: collapse;margin-left:auto;margin-right:auto; width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+
+                                <colgroup><col style=" width: 7%;"></col>
+								<col style=" width: 13%;"></col>
+								<col style=" width: 12%;"></col>
+								<col style=" width: 15%;"></col>
+								<col style=" width: 18%;"></col>
+								<col style=" width: 20%;"></col>
+								<col style=" width: 15%;"></col>
+								</colgroup>
+                                <tbody>
+                                <tr class="style_27" valign="top" align="center">
+									<th class="style_28" rowspan="2" align="left">
+										<div style=" text-align:center;">ক্রমিক সংখ্যা</div>
+									</th>
+									<th class="style_28" colspan="6" align="left">
+										<div  style=" text-align:center;">ক্রয়</div>
+									</th>
+								</tr>
+								<tr class="style_27" valign="top" align="center">
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">চালানপত্র নং</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">ইস্যুর তারিখ</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">মূল্য</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">বিক্রেতার নাম</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">বিক্রেতার ঠিকানা</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">বিক্রেতার বিআইএন / জাতীয় পরিচয়পত্র নং *</div>
+									</th>
+								</tr>
+								<tr class="style_27" valign="top" align="center">
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(১)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(২)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(৩)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(৪)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(৫)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(৬)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">(৭)</div>
+									</th>
+								</tr>
+
+                                <t t-foreach="pg['body']['purchase']['pur_lines']" t-as="pol">                     
+                                    
+                                    <tr valign="top">
+                                        <td class="style_30">
+                                            
+                                            <div style=" text-align:center;"><t t-esc="pol['sn']" /></div>
+                                        </td>
+                                        <td class="style_32" align="center">
+                                            <div><t t-esc="pol['challan']" /></div>
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div style=" text-align:center;"><t t-esc="pol['issue_date']" /></div>
+                                         
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div style=" text-align:center;"><t t-esc="pol['price_subtotal']" /></div>
+                                        
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div><t t-esc="pol['ven_name']" /></div>
+                                        </td>
+
+                                        <td class="style_33" align="center">
+                                            <div>											
+												<t t-if="pol['ven_add']['street'] != False"> <t t-esc="pol['ven_add']['street']" /><br></br> </t>
+												<t t-if="pol['ven_add']['street2'] != False"> <t t-esc="pol['ven_add']['street2']" /><br> </br></t>
+												<t t-if="pol['ven_add']['city'] != False"> <t t-esc="pol['ven_add']['city']" /><br></br> </t>
+												<t t-if="pol['ven_add']['country'] != False"> <t t-esc="pol['ven_add']['country']" /><br></br> </t>
+											</div>
+                                        </td>
+                                        <td class="style_30">
+                                            <div><t t-esc="pol['bin']" /></div>
+                                        </td>
+                                    </tr>
+                                </t>
+
+								<tr valign="top">
+									<td class="style_34" colspan="3">
+										<div class="style_35"  style=" text-align:center;">সর্বমোট</div>
+									</td>
+									<td class="style_34">
+										<div class="style_36" style=" text-align:center;"><t t-esc="pg['body']['purchase']['pur_total']" /></div>
+									</td>
+									<td class="style_34"></td>
+									<td class="style_37"></td>
+									<td class="style_37"></td>
+								</tr>
+
+
+							</tbody></table>
+
+							<div ><br><strong style="font-size: 10px;">অংশ - খঃ বিক্রয় হিসাব তথ্য</strong></br></div>
+
+							<br></br>
+							<!-- <div class="style_25" id="AUTOGENBOOKMARK_26_5a6eeda0-267f-4baf-9b62-2eeec0d02bcf"> <br>অংশ - খঃ বিক্রয় হিসাব তথ্য </br></div> -->
+							<table style="font-size: 9px;text-align: left; border-collapse: collapse;margin-left:auto;margin-right:auto; width: 100%;" border="1" cellpadding="0" cellspacing="0" padding="0" margin="2">
+
+                            	<colgroup><col style=" width: 7%;"></col>
+								<col style=" width: 13%;"></col>
+								<col style=" width: 12%;"></col>
+								<col style=" width: 15%;"></col>
+								<col style=" width: 18%;"></col>
+								<col style=" width: 20%;"></col>
+								<col style=" width: 15%;"></col>
+								</colgroup><tbody><tr class="style_27" valign="top" align="center">
+									<th class="style_28" rowspan="2" align="left">
+										<div style=" text-align:center;">ক্রমিক সংখ্যা</div>
+									</th>
+									<th class="style_28" colspan="6" align="left">
+										<div style=" text-align:center;">বিক্রয়</div>
+									</th>
+								</tr>
+								<tr class="style_27" valign="top" align="center">
+									<th class="style_28" align="left">
+										<div  style=" text-align:center;">চালানপত্র নং</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">ইস্যুর তারিখ</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">মূল্য</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">ক্রেতার নাম</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">ক্রেতার ঠিকানা</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">ক্রেতার বিআইএন / জাতীয় পরিচয়পত্র নং *</div>
+									</th>
+								</tr>
+								<tr class="style_27" valign="top" align="center">
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(১)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(২)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(৩)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(৪)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(৫)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(৬)</div>
+									</th>
+									<th class="style_28" align="left">
+										<div style=" text-align:center;">(৭)</div>
+									</th>
+								</tr>
+
+                                <t t-foreach="pg['body']['sales']['sale_lines']" t-as="sol"> 
+                                    <tr valign="top">
+                                        <td class="style_30">
+                                            
+                                            <div style=" text-align:center;"><t t-esc="sol['sn']" /></div>
+                                        </td>
+                                        <td class="style_32" align="center">
+                                            <div><t t-esc="sol['challan']" /></div>
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div style=" text-align:center;"><t t-esc="sol['issue_date']" /></div>
+                                         
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div style=" text-align:center;"><t t-esc="sol['price_subtotal']" /></div>
+   
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div><t t-esc="sol['cus_name']" /></div>
+                                        </td>
+                                        <td class="style_33" align="center">
+                                            <div>											
+												<t t-if="not sol['cus_add']['street'] == False"> <t t-esc="sol['cus_add']['street']" /><br></br> </t>
+												<t t-if="not sol['cus_add']['street2'] == False"> <t t-esc="sol['cus_add']['street2']" /><br> </br></t>
+												<t t-if="not sol['cus_add']['city'] == False"> <t t-esc="sol['cus_add']['city']" /><br></br> </t>
+												<t t-if="not sol['cus_add']['country'] == False"> <t t-esc="sol['cus_add']['country']" /><br></br> </t>
+											</div>
+                                        </td>
+                                        <td class="style_30" align="center">
+                                            <div><t t-esc="sol['bin']" /></div>
+                                        </td>
+                                    </tr>
+                                </t>
+
+
+								<tr valign="top">
+									<td class="style_34" colspan="3" align="center">
+										<div style=" text-align:center;">সর্বমোট</div>
+									</td>
+									<td class="style_34" align="center">
+										<div class="style_36" style=" text-align:center;"><t t-esc="pg['body']['sales']['sale_total']" /></div>
+									</td>
+									<td class="style_34"></td>
+									<td class="style_37"></td>
+									<td class="style_37"></td>
+								</tr>
+							</tbody></table>
+							<div><br></br><br></br><br>দায়িত্বপ্রাপ্ত ব্যক্তির নাম ও স্বাক্ষরঃ</br></div>
+							<div>&#160;নামঃ</div>
+							<div>তারিখঃ<br></br></div>
+						</td>
+					</tr>
+					<tr valign="top">
+						<td class="style_38">
+							<div><br>** যে ক্ষেত্রে অনিবন্ধিত ব্যক্তির নিকট হইতে পণ্য/সেবা ক্রয় করা হইবে বা অনিবন্ধিত ব্যক্তির নিকট পণ্য/সেবা বিক্রয় করা হইবে সেই ক্ষেত্রে উক্ত ব্যক্তির পূর্ণাঙ্গ নাম, ঠিকানা ও জাতীয় পরিচয়পত্র নম্বর যথাযথভাবে সংশ্লিষ্ট কলাম [(৭), (৮) ও (৯)] এ আবশ্যিকভাবে উল্লেখ করিতে হইবে।&#160;</br></div>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table style="border-collapse: collapse; empty-cells: show; width: 100%;">
+					<colgroup><col style=" width: 1.5in;"></col>
+					<col></col>
+					<col style=" width: 1.5in;"></col>
+					</colgroup><tbody><tr valign="top">
+						<td class="style_3" colspan="3"></td>
+					</tr>
+					<tr valign="top">
+						<td class="style_3">
+							<div class="style_7"> <t t-esc="pg['footers']['print_date']" /></div>
+						</td>
+						<td class="style_8" valign="bottom" align="center">
+							<div>
+								<div style="visibility:hidden">&#160;</div>
+							</div>
+						</td>
+						<td class="style_9" valign="bottom" align="right">
+							<span style=" text-align:right;">Page&#160;</span>
+							<span><t t-esc="pg['footers']['pg_no']" /></span>
+							<span style=" text-align:right;">&#160;of&#160;</span>
+							<span style=" text-align:right;"><t t-esc="pg['footers']['pg_toto']" /></span>
+						</td>
+					</tr>
+				</tbody></table>
+			</td>
+		</tr>
+	</tbody>
+	
+	</table>
+
+
+                    
+                    
+                    
+                    
+                    
+                    </div>
+
+
+                   
+                </div> 
+
+
+                             
+
+				
+
+
+
+            </t>
+			<!-- </t> -->
+            <!-- </t> -->
+
+		</t>
+
+	</template>
+</odoo>
